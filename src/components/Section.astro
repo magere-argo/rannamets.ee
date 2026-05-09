@@ -1,0 +1,72 @@
+---
+type Variant = 'light' | 'dark';
+type Size = 'default' | 'lg';
+
+interface Props {
+  variant?: Variant;
+  size?: Size;
+  id?: string;
+  class?: string;
+}
+
+const { variant = 'light', size = 'default', id, class: className = '' } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    'section',
+    `section--${variant}`,
+    size === 'lg' && 'section--lg',
+    className,
+  ]}
+>
+  <div class="container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--section-py);
+  }
+
+  .section--lg {
+    padding-block: var(--section-py-lg);
+  }
+
+  .section--light {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .section--dark {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+  }
+
+  .section--dark :global(h1),
+  .section--dark :global(h2),
+  .section--dark :global(h3),
+  .section--dark :global(h4),
+  .section--dark :global(h5),
+  .section--dark :global(h6) {
+    color: var(--color-on-dark);
+  }
+
+  .section--dark :global(p) {
+    color: var(--color-on-dark-muted);
+  }
+
+  .section--dark :global(a) {
+    color: var(--color-copper-400);
+  }
+
+  .section--dark :global(a:hover) {
+    color: var(--color-copper);
+  }
+
+  .section--dark :global(.eyebrow) {
+    color: var(--color-copper-400);
+  }
+</style>

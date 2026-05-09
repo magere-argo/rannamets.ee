@@ -1,0 +1,48 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span class="site-footer__copy">© {year} Magere OÜ</span>
+    <a class="site-footer__email" href="mailto:argo@rannamets.ee">argo@rannamets.ee</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-bg);
+    border-top: var(--hairline) solid var(--color-border);
+    padding-block: var(--space-6);
+    margin-top: var(--space-16);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .site-footer__copy {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+  }
+
+  .site-footer__email {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-copper);
+    padding-bottom: 1px;
+  }
+  .site-footer__email:hover {
+    color: var(--color-copper);
+  }
+</style>

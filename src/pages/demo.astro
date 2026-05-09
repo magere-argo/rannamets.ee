@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Design system demo"
+  description="Internal preview of the Argo Rannamets design system: typography, components, and the DarkPicture provocation block."
+  noindex={true}
+>
+  <!-- Hero DarkPicture — the signature element ----------------------- -->
+  <DarkPicture
+    size="hero"
+    question="How many of your strategic priorities will survive contact with next quarter's emergencies?"
+    attribution="From the Dark Picture library"
+  />
+
+  <!-- Typography scale ---------------------------------------------- -->
+  <Section>
+    <span class="eyebrow">Typography</span>
+    <hr class="rule" />
+    <h2>Hierarchy through size and weight, not decoration</h2>
+    <div class="prose">
+      <p class="lead">
+        A lead paragraph sets the tone and frames what follows. It runs slightly
+        larger and slightly muted, never bold, so weight stays a tool reserved
+        for headings and emphasis. Reading lines stop around sixty-five
+        characters so dense copy holds its rhythm.
+      </p>
+      <p>
+        Body copy uses a Calibri-equivalent stack with Inter as the cross-platform
+        fallback. Line-height runs generous at 1.6 because the prose on this site
+        is dense — operator essays, not marketing fluff. Paragraphs land at a
+        comfortable rhythm with vertical breathing room. <strong>Strong text</strong>
+        carries semantic emphasis without shouting; <em>italics</em> mark
+        terminology and titles, like <em>Strategy Execution Leader as a Service</em>.
+        Inline links such as <a href="#">our practice page</a> stay restrained,
+        underlined for affordance and copper-tinted on hover.
+      </p>
+      <p>
+        Headings descend through the scale below — every step earns its place
+        and nothing is decorative.
+      </p>
+    </div>
+
+    <hr class="rule" />
+
+    <h1>H1 — Operator, not observer.</h1>
+    <h2>H2 — Installer, not trainer.</h2>
+    <h3>H3 — Twenty-five years, eight countries.</h3>
+    <h4>H4 — Three CFO roles at Baltic listed companies.</h4>
+    <h5>H5 — A hundred-plus engagements, individually documented.</h5>
+    <h6>H6 — Eyebrow / category label</h6>
+  </Section>
+
+  <!-- Buttons ------------------------------------------------------- -->
+  <Section>
+    <span class="eyebrow">Buttons</span>
+    <hr class="rule" />
+    <h2>Primary and secondary</h2>
+    <div class="prose">
+      <p>
+        Primary buttons use copper as the punctuation color. They appear
+        sparingly — never two on one screen if it can be avoided. Secondary
+        buttons sit alongside as the calmer counterpart for navigation or
+        de-escalated calls to action.
+      </p>
+    </div>
+    <div class="demo-button-row">
+      <Button href="/contact/">Book a discovery call</Button>
+      <Button href="/practice/" variant="secondary">Read the practice</Button>
+    </div>
+  </Section>
+
+  <!-- DarkPicture variants ------------------------------------------ -->
+  <DarkPicture
+    question="Are your weekly leadership rituals fast enough to keep pace with the change you're trying to drive?"
+  />
+
+  <!-- Cards --------------------------------------------------------- -->
+  <Section>
+    <span class="eyebrow">Offerings</span>
+    <hr class="rule" />
+    <h2>Three ways the practice shows up</h2>
+    <div class="card-grid">
+      <Card
+        href="/execution-playbook/"
+        title="Execution Playbook"
+        eyebrow="Installation"
+      >
+        A six-stage operating system installed inside your management team.
+        Goal-setting, focus, speed, will, achievement, communication — wired in,
+        not handed over.
+      </Card>
+      <Card
+        href="/coaching/"
+        title="Operator Coaching"
+        eyebrow="One-on-one"
+      >
+        Working sessions with founders, CEOs, and CFOs on the role-shaped
+        challenges they cannot delegate. Structured around the work, not around
+        the calendar.
+      </Card>
+      <Card
+        href="/board-roles/"
+        title="Board & Advisory"
+        eyebrow="Selective engagements"
+      >
+        Non-executive roles where the firm's strategy and execution rhythm need
+        an outside operator with skin in the conversation. Limited concurrent
+        seats by design.
+      </Card>
+    </div>
+  </Section>
+
+  <!-- Section variants --------------------------------------------- -->
+  <Section variant="dark" size="lg">
+    <span class="eyebrow">Dark section variant</span>
+    <hr class="rule" />
+    <h2>This is a dark Section, not a DarkPicture</h2>
+    <div class="prose">
+      <p>
+        The Section component supports a "dark" variant that shares the navy
+        background but allows multi-element layouts inside it — paragraphs,
+        cards, calls to action. Use it for opening provocations that need
+        supporting copy. Use the dedicated DarkPicture for the single-question
+        hero moment where the sentence has to do all the work.
+      </p>
+      <p>
+        Inside a dark Section, body text shifts to a muted ink so it sits
+        comfortably below the headings, links pick up the copper accent, and
+        the eyebrow above adopts a brighter copper for legibility.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Light section to bookend ------------------------------------- -->
+  <Section>
+    <span class="eyebrow">Light section variant</span>
+    <hr class="rule" />
+    <h2>Default page sections sit on warm off-white</h2>
+    <div class="prose">
+      <p>
+        The default surface is <code>#FAFAF7</code> — warm enough to read as
+        editorial and confident, cold enough to keep the navy-and-copper
+        palette in tension. Pure white reads as clinical and brochure-like.
+        We avoid it.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Provocation library tail ------------------------------------- -->
+  <DarkPicture
+    align="center"
+    question="Who in your leadership team can name the three things you've stopped doing this quarter?"
+  />
+</Base>
+
+<style>
+  .demo-button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95em;
+    background: var(--color-bg-raised);
+    padding: 0.05em 0.35em;
+    border-radius: 2px;
+  }
+</style>

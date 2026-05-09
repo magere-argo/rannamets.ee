@@ -1,0 +1,68 @@
+---
+type Variant = 'primary' | 'secondary';
+
+interface Props {
+  href?: string;
+  variant?: Variant;
+  type?: 'button' | 'submit';
+  class?: string;
+}
+
+const { href, variant = 'primary', type = 'button', class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+const classes = `btn btn--${variant} ${className}`.trim();
+---
+
+{href ? (
+  <a href={href} class={classes}><slot /></a>
+) : (
+  <button type={type} class={classes}><slot /></button>
+)}
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color var(--dur) var(--ease),
+                color var(--dur) var(--ease),
+                border-color var(--dur) var(--ease);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 3px;
+  }
+
+  .btn--primary {
+    background: var(--color-copper);
+    color: var(--color-on-dark);
+    border: 1px solid var(--color-copper);
+  }
+  .btn--primary:hover {
+    background: var(--color-copper-600);
+    border-color: var(--color-copper-600);
+    color: var(--color-on-dark);
+  }
+
+  .btn--secondary {
+    background: transparent;
+    color: var(--color-steel);
+    border: 1px solid var(--color-steel);
+  }
+  .btn--secondary:hover {
+    background: var(--color-steel);
+    color: var(--color-on-dark);
+  }
+</style>
