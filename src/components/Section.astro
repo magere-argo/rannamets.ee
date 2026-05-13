@@ -1,72 +1,173 @@
 ---
-type Variant = 'light' | 'dark';
-type Size = 'default' | 'lg';
+/*
+ * Section — §3.1 anatomy template.
+ * Renders: optional [eyebrow rule + eyebrow text] → optional H2 →
+ *          optional lead → body slot.
+ * The eyebrow pair is the silent navigation: every major section
+ * gets one (deployment rule, §3.11). Pages typically have 4-7.
+ */
+
+type Variant = 'light' | 'stone' | 'dark';
+type ContainerWidth = 'page' | 'section' | 'lead' | 'prose' | 'display';
 
 interface Props {
-  variant?: Variant;
-  size?: Size;
+  variant?: Variant;          /* background tone */
+  width?: ContainerWidth;     /* outer content max-width */
+  eyebrow?: string;           /* eyebrow text (caps) — rule shows even without text */
+  heading?: string;           /* H2 — pass-through; can also be supplied via named slot */
+  headingId?: string;         /* anchor id on the H2 */
+  lead?: string;              /* lead paragraph copy — can also supply via named slot */
+  reveal?: boolean;           /* enable §5 motion rule #1 fade-in on scroll */
   id?: string;
   class?: string;
 }
 
-const { variant = 'light', size = 'default', id, class: className = '' } = Astro.props;
+const {
+  variant = 'light',
+  width = 'section',
+  eyebrow,
+  heading,
+  headingId,
+  lead,
+  reveal = true,
+  id,
+  class: className = '',
+} = Astro.props;
+
+const hasEyebrowSlot = Astro.slots.has('eyebrow');
+const hasHeadingSlot = Astro.slots.has('heading');
+const hasLeadSlot    = Astro.slots.has('lead');
+
+const showEyebrow = Boolean(eyebrow) || hasEyebrowSlot;
+const showHeading = Boolean(heading) || hasHeadingSlot;
+const showLead    = Boolean(lead) || hasLeadSlot;
 ---
 
 <section
   id={id}
+  data-reveal={reveal ? 'true' : undefined}
   class:list={[
     'section',
     `section--${variant}`,
-    size === 'lg' && 'section--lg',
+    reveal && 'js-reveal',
     className,
   ]}
 >
-  <div class="container">
-    <slot />
+  <div class:list={['section__inner', `container container--${width}`]}>
+    {showEyebrow && (
+      <header class="section__eyebrow">
+        <span class="eyebrow-rule" aria-hidden="true"></span>
+        {(eyebrow || hasEyebrowSlot) && (
+          <span class="eyebrow">
+            {hasEyebrowSlot ? <slot name="eyebrow" /> : eyebrow}
+          </span>
+        )}
+      </header>
+    )}
+
+    {showHeading && (
+      hasHeadingSlot ? (
+        <slot name="heading" />
+      ) : (
+        <h2 id={headingId}>{heading}</h2>
+      )
+    )}
+
+    {showLead && (
+      <p class="section__lead lead">
+        {hasLeadSlot ? <slot name="lead" /> : lead}
+      </p>
+    )}
+
+    <div class="section__body">
+      <slot />
+    </div>
   </div>
 </section>
 
 <style>
+  /* ----- Surface variants ------------------------------------------- */
   .section {
-    padding-block: var(--section-py);
+    padding-block: var(--section-py); /* 64-96px — generous between sections */
   }
 
-  .section--lg {
-    padding-block: var(--section-py-lg);
-  }
-
-  .section--light {
-    background: var(--color-bg);
-    color: var(--color-text);
-  }
-
-  .section--dark {
+  .section--light { background: var(--color-bg);        color: var(--color-text); }
+  .section--stone { background: var(--color-bg-raised); color: var(--color-text); }
+  .section--dark  {
     background: var(--color-navy);
     color: var(--color-on-dark);
+    padding-block: var(--section-py-dark);
   }
 
+  /* Headings inherit color from variant */
   .section--dark :global(h1),
   .section--dark :global(h2),
   .section--dark :global(h3),
   .section--dark :global(h4),
   .section--dark :global(h5),
-  .section--dark :global(h6) {
-    color: var(--color-on-dark);
-  }
+  .section--dark :global(h6) { color: var(--color-on-dark); }
 
-  .section--dark :global(p) {
-    color: var(--color-on-dark-muted);
-  }
+  .section--dark :global(p) { color: var(--color-on-dark-muted); }
 
   .section--dark :global(a) {
-    color: var(--color-copper-400);
-  }
-
-  .section--dark :global(a:hover) {
     color: var(--color-copper);
   }
 
-  .section--dark :global(.eyebrow) {
-    color: var(--color-copper-400);
+  /* ----- Anatomy rhythm — intra-section TIGHT (§2.1) ---------------- */
+  .section__eyebrow {
+    display: block;
+    margin-bottom: var(--space-4); /* 16px to H2 (within 16-24 range) */
+  }
+
+  .eyebrow-rule {
+    margin-bottom: var(--space-2); /* 8px from rule to eyebrow text */
+  }
+
+  .section--dark .eyebrow-rule,
+  .section--stone .eyebrow-rule {
+    /* same copper bar across variants */
+  }
+
+  .section__inner > :global(h2) {
+    margin-top: 0;
+    margin-bottom: var(--space-4);  /* 16-24px to lead/body */
+  }
+
+  .section__lead {
+    margin: 0 0 var(--space-6) 0;   /* 24px from lead to body */
+    max-width: var(--container-lead);
+  }
+
+  .section__body {
+    /* intra-section paragraph rhythm comes from global.css p margin */
+  }
+
+  /* ----- Container variants ----------------------------------------- */
+  .container--page    { max-width: var(--container-page); }
+  .container--section { max-width: var(--container-section); }
+  .container--lead    { max-width: var(--container-lead); }
+  .container--prose   { max-width: var(--container-prose); }
+  .container--display { max-width: var(--container-display); }
+
+  /* ----- Reveal-on-scroll (§5.1 motion rule #1) --------------------- */
+  .js-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity var(--dur-section) var(--ease-out),
+      transform var(--dur-section) var(--ease-out);
+  }
+
+  .js-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 </style>
