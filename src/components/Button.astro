@@ -1,22 +1,52 @@
 ---
+/*
+ * Button — primary CTA (§3.9) and secondary (§3.10).
+ *
+ * Primary: copper background, white text — used for the conversion
+ * action. 1 minimum, 2 maximum per page.
+ * Secondary: transparent + steel-blue border. Rare; max one per page.
+ *
+ * Optional arrow prop renders a → after the label and nudges it
+ * 3 px right on hover (motion rule #3, §5.1).
+ */
+
 type Variant = 'primary' | 'secondary';
 
 interface Props {
   href?: string;
   variant?: Variant;
   type?: 'button' | 'submit';
+  arrow?: boolean;
   class?: string;
 }
 
-const { href, variant = 'primary', type = 'button', class: className = '' } = Astro.props;
+const {
+  href,
+  variant = 'primary',
+  type = 'button',
+  arrow = false,
+  class: className = '',
+} = Astro.props;
+
 const Tag = href ? 'a' : 'button';
-const classes = `btn btn--${variant} ${className}`.trim();
+const classes = [
+  'btn',
+  `btn--${variant}`,
+  arrow && 'btn--arrow',
+  className,
+].filter(Boolean).join(' ');
 ---
 
 {href ? (
-  <a href={href} class={classes}><slot /></a>
+  <a href={href} class={classes}>
+    <span class="btn__label"><slot /></span>
+    {arrow && <span class="btn__arrow" aria-hidden="true">→</span>}
+  </a>
 ) : (
-  <button type={type} class={classes}><slot /></button>
+  <button type={type} class={classes}>
+    <span class="btn__label"><slot /></span>
+    {arrow && <span class="btn__arrow" aria-hidden="true">→</span>}
+  </button>
 )}
 
 <style>
@@ -25,44 +55,71 @@ const classes = `btn btn--${variant} ${className}`.trim();
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    padding: var(--space-4) var(--space-6);
+    padding: var(--space-4) var(--space-8); /* 16 / 32 — mobile baseline */
     font-family: var(--font-heading);
-    font-size: var(--text-sm);
+    font-size: var(--text-body);
     font-weight: var(--weight-semibold);
-    letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
+    letter-spacing: var(--tracking-button); /* 0.05em slight, per §3.9 */
     text-decoration: none;
     line-height: 1;
     cursor: pointer;
-    border-radius: 2px;
-    transition: background-color var(--dur) var(--ease),
-                color var(--dur) var(--ease),
-                border-color var(--dur) var(--ease);
+    border-radius: 3px;     /* within 2-4 range */
+    border: 0;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  @media (min-width: 768px) {
+    .btn {
+      padding: var(--space-5, 1.25rem) var(--space-10, 2.5rem); /* 20 / 40 — desktop */
+      /* falls back gracefully via the legacy aliases */
+    }
   }
 
   .btn:focus-visible {
-    outline: 2px solid var(--color-copper);
-    outline-offset: 3px;
+    outline: 2px solid var(--color-steel);
+    outline-offset: 2px;
   }
 
+  /* Primary — copper background, white text */
   .btn--primary {
     background: var(--color-copper);
-    color: var(--color-on-dark);
-    border: 1px solid var(--color-copper);
+    color: var(--color-white);
   }
   .btn--primary:hover {
-    background: var(--color-copper-600);
-    border-color: var(--color-copper-600);
-    color: var(--color-on-dark);
+    background: var(--color-copper-800);
+    color: var(--color-white);
   }
 
+  /* Secondary — transparent with steel border */
   .btn--secondary {
     background: transparent;
     color: var(--color-steel);
-    border: 1px solid var(--color-steel);
+    border: 2px solid var(--color-steel);
+    /* account for the 2px border so the overall box matches primary */
+    padding-block: calc(var(--space-4) - 2px);
+    padding-inline: calc(var(--space-8) - 2px);
   }
   .btn--secondary:hover {
-    background: var(--color-steel);
-    color: var(--color-on-dark);
+    background: color-mix(in srgb, var(--color-steel) 10%, transparent);
+    color: var(--color-steel);
+  }
+
+  @media (min-width: 768px) {
+    .btn--secondary {
+      padding-block: calc(1.25rem - 2px);
+      padding-inline: calc(2.5rem - 2px);
+    }
+  }
+
+  /* Arrow nudge on hover (motion rule #3) */
+  .btn__arrow {
+    display: inline-block;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+  .btn--arrow:hover .btn__arrow {
+    transform: translateX(3px);
   }
 </style>
