@@ -1,0 +1,128 @@
+---
+/*
+ * EvidenceBand — structural slot for post-launch logos + testimonials.
+ * Brief §3.12.
+ *
+ * At launch: renders nothing visible. Takes no vertical space.
+ * Post-launch: populated with logo strip + one rotating testimonial.
+ *
+ * Usage:
+ *   <EvidenceBand placeholder />                            launch state
+ *   <EvidenceBand testimonials={...} logos={...} />         post-launch
+ *
+ * For now, only the placeholder mode is implemented. An HTML
+ * comment + invisible aria-hidden element marks the reservation
+ * point in the DOM for grep-ability without affecting layout.
+ */
+
+interface Logo {
+  src: string;
+  alt: string;
+}
+
+interface Testimonial {
+  quote: string;
+  author?: string;
+  org?: string;
+}
+
+interface Props {
+  placeholder?: boolean;
+  logos?: Logo[];
+  testimonials?: Testimonial[];
+  id?: string;
+}
+
+const { placeholder = true, logos = [], testimonials = [], id } = Astro.props;
+
+const renderPlaceholder =
+  placeholder || (logos.length === 0 && testimonials.length === 0);
+---
+
+{renderPlaceholder ? (
+  <!-- EvidenceBand: placeholder reserved per brief §3.12 -->
+  <div id={id} class="evidence-band evidence-band--placeholder" aria-hidden="true" data-evidence-placeholder></div>
+) : (
+  <section id={id} class="evidence-band" aria-label="Evidence">
+    {logos.length > 0 && (
+      <ul class="evidence-band__logos">
+        {logos.map((logo) => (
+          <li class="evidence-band__logo">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    )}
+    {testimonials.length > 0 && (
+      <div class="evidence-band__testimonial">
+        {testimonials.slice(0, 1).map((t) => (
+          <figure>
+            <blockquote><p>{t.quote}</p></blockquote>
+            {(t.author || t.org) && (
+              <figcaption>
+                {t.author}{t.author && t.org ? ' — ' : ''}{t.org}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .evidence-band--placeholder {
+    /* Reserves nothing visually — takes zero vertical space at launch. */
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .evidence-band:not(.evidence-band--placeholder) {
+    padding-block: var(--section-py);
+    max-width: var(--container-section);
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .evidence-band__logos {
+    list-style: none;
+    margin: 0 0 var(--space-8) 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .evidence-band__logo img {
+    max-height: 2.5rem;
+    width: auto;
+    filter: grayscale(1);
+    opacity: 0.7;
+  }
+
+  .evidence-band__testimonial {
+    max-width: var(--container-quote);
+    margin: 0 auto;
+  }
+
+  .evidence-band__testimonial blockquote {
+    margin: 0;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--text-lead);
+    line-height: var(--lh-lead);
+    color: var(--color-slate-600);
+  }
+
+  .evidence-band__testimonial figcaption {
+    margin-top: var(--space-3);
+    font-family: var(--font-heading);
+    font-size: var(--text-meta);
+    color: var(--color-slate-400);
+    letter-spacing: var(--tracking-button);
+  }
+</style>
