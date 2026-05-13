@@ -156,10 +156,13 @@ import Button from '../components/Button.astro';
 
   {/* ──────────────────────────────────────────────────────────────
      Section 6 — Pullquote (Argo's voice)
-     Lives between sections at 64-96px margin (NOT a full section break).
-     Replaces the previous inline <figure class="observation"> markup.
+     Lives between sections as its own visual moment. The .pullquote-zone
+     wrapper applies negative top/bottom margins equal to --section-py,
+     cancelling the adjacent sections' padding-block so the Pullquote
+     sits at its own 64-96px margin (brief §3.7), not the full 128-192px
+     section-to-section gap.
      ────────────────────────────────────────────────────────────── */}
-  <div class="container">
+  <div class="pullquote-zone">
     <Pullquote
       quote={'Across multiple management boards I\'ve sat on, a widely spread pattern at C-level isn\'t underperformance — it\'s executives accepting a reduced outcome rather than asking how to deliver more without working more hours. The seat\'s job is to make that conversation impossible to avoid.'}
     />
@@ -407,6 +410,21 @@ import Button from '../components/Button.astro';
      ────────────────────────────────────────────────────────── */
   .cta-action {
     margin-top: var(--space-8); /* 32px from lead to button */
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Pullquote zone — cancel adjacent section padding-block so the
+     Pullquote sits at its own 64-96px margin (brief §3.7) rather
+     than the full 128-192px section-to-section gap. Surrounding
+     sections (5 and 7) are both light off-white, so the negative
+     margin's visual overlap is seamless.
+     ────────────────────────────────────────────────────────── */
+  .pullquote-zone {
+    max-width: var(--container-page);
+    margin-inline: auto;
+    margin-top: calc(-1 * var(--section-py));
+    margin-bottom: calc(-1 * var(--section-py));
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
   }
 
   /* Inline accent semantics inherit from global.css .accent rule */
