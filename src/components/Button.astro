@@ -73,8 +73,7 @@ const classes = [
 
   @media (min-width: 768px) {
     .btn {
-      padding: var(--space-5, 1.25rem) var(--space-10, 2.5rem); /* 20 / 40 — desktop */
-      /* falls back gracefully via the legacy aliases */
+      padding: var(--space-4) var(--space-12); /* 16 / 48 — desktop */
     }
   }
 
@@ -109,8 +108,8 @@ const classes = [
 
   @media (min-width: 768px) {
     .btn--secondary {
-      padding-block: calc(1.25rem - 2px);
-      padding-inline: calc(2.5rem - 2px);
+      padding-block: calc(var(--space-4) - 2px);
+      padding-inline: calc(var(--space-12) - 2px);
     }
   }
 
