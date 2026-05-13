@@ -98,10 +98,14 @@
   --space-24:  6rem;      /*  96 px */
   --space-32:  8rem;      /* 128 px */
 
-  /* Section padding — generous (96 desktop / 64 mobile) for light sections;
-     dark sections (DarkPicture, DarkOpener, DarkResolve) sit on the upper range. */
-  --section-py:      clamp(4rem, 6vw + 1rem, 6rem); /*  64 →  96 px */
-  --section-py-dark: clamp(4rem, 8vw + 1rem, 8rem); /*  64 → 128 px */
+  /* Section padding — generous (96 desktop / 64 mobile) for light sections.
+     Dark variants split by component:
+       --section-py-dark    → DarkOpener (multi-sentence diagnostic, holds 64-128 fill)
+       --section-py-picture → DarkPicture (single-statement display, lower end 64-96)
+     DarkResolve carries its own padding inline (tighter, near closer). */
+  --section-py:         clamp(4rem, 6vw + 1rem, 6rem); /*  64 →  96 px */
+  --section-py-dark:    clamp(4rem, 8vw + 1rem, 8rem); /*  64 → 128 px */
+  --section-py-picture: clamp(4rem, 5vw + 2rem, 6rem); /*  64 →  96 px */
 
   /* ============================================================
    * LAYOUT — brief §2.2 column max-widths
