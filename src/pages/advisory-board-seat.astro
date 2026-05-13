@@ -3,6 +3,10 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import DarkPicture from '../components/DarkPicture.astro';
 import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import Pullquote from '../components/Pullquote.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
 import Button from '../components/Button.astro';
 ---
 
@@ -10,33 +14,47 @@ import Button from '../components/Button.astro';
   title="Advisory Board Seat"
   description="A named advisory seat. One person. Structured monthly provocation. The advisory function without the apparatus."
 >
-  <!-- Opening DarkOpener: four diagnostic sentences as discrete beats,
-       plus the pivot sentence. Each sentence is its own paragraph so the
-       inter-sentence rhythm comes through. -->
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener)
+     Five-line diagnostic on navy, edge-to-edge per §3.3.
+     Line 1: opening declarative (weight 600 via :first-child).
+     Lines 3 & 4: weight 500 via class="dp-lead", inline copper accents.
+     Lines 2 & 5: default body weight 400.
+     ────────────────────────────────────────────────────────────── */}
   <DarkOpener>
     <p>You don't have an advisory board.</p>
     <p>You've watched peers build theirs — polite challenge, quarterly ritual, calendar filler within a year.</p>
-    <p>You don't want the apparatus.</p>
-    <p>You want the outcome.</p>
+    <p class="dp-lead">You don't want the <span class="accent">apparatus</span>.</p>
+    <p class="dp-lead">You want the <span class="accent">outcome</span>.</p>
     <p>And nobody is asking the question that would sharpen your next two years.</p>
   </DarkOpener>
 
-  <!-- Resolution line -->
-  <Section>
-    <p class="lead lead--resolution">
-      A named advisory seat. One person. Structured monthly provocation. The
-      advisory function without the apparatus.
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Sub-hero summary
+     Light band, continuation of the hero — no eyebrow.
+     "One person" rendered at weight 600 via <strong> for emphasis
+     without a third copper accent in the same scroll-region.
+     ────────────────────────────────────────────────────────────── */}
+  <Section width="lead">
+    <p class="lead lead--centered">
+      A named advisory seat. <strong>One person</strong>. Structured monthly
+      provocation. The advisory function without the apparatus.
     </p>
   </Section>
 
-  <!-- What changes when the seat is held well -->
-  <Section>
-    <h2>What changes when the seat is held well</h2>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — What changes when the seat is held well
+     Three paragraphs with bold lead-ins. Not a list.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="What changes"
+    heading="What changes when the seat is held well"
+  >
     <div class="prose">
       <p>
-        <strong>Drift surfaces while there's still time to act.</strong> A
-        structured provocation every month catches the slip your reporting
-        cycle will miss by eight weeks.
+        <strong>Drift surfaces while there's still time to act.</strong>
+        A structured provocation every month catches the slip your reporting
+        cycle will miss by <span class="accent">eight</span> weeks.
       </p>
       <p>
         <strong>Hard calls get a third voice with no political weight.</strong>
@@ -50,59 +68,83 @@ import Button from '../components/Button.astro';
     </div>
   </Section>
 
-  <!-- Mid-page DarkPicture -->
-  <DarkPicture>
-    <p>On a scale of 1 to 10:</p>
-    <p>how do you know your 10 is really a 10?</p>
-  </DarkPicture>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — The signature question (DarkPicture centerpiece)
+     Italic setup line ("On a scale of 1 to 10:") via setup prop,
+     then display-scale main statement with .accent on "know".
+     Motion rule #2 applies — statement fades in, "know" delayed 150ms.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="The question Argo asks — every session"
+    setup="On a scale of 1 to 10:"
+    question={'how do you <span class="accent">know</span> your 10 is really a 10?'}
+  />
 
-  <!-- How it works -->
-  <Section>
-    <h2>How it works</h2>
-    <div class="prose">
-      <p>
-        Most board advisors don't have a method. They have a personal style.
-        The seat runs a four-step method at every session — repeatable, travels
-        across companies and sectors.
-      </p>
-      <ol>
-        <li>
-          <strong>Rate.</strong> Leadership team rates the situation on a 1–10
-          scale, by responsibility, strategic priority, or capability.
-        </li>
-        <li>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How it works
+     Eyebrow + H2 + lead, then:
+       - Four-step numbered method (copper markers, custom layout)
+       - Closing paragraph
+       - H3 Cadence: headline callout + tighter bulleted list
+       - H3 What the seat doesn't do: stone callout treatment
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The method"
+    heading="How it works"
+    lead="Most board advisors don't have a method. They have a personal style. The seat runs a four-step method at every session — repeatable, travels across companies and sectors."
+  >
+    <ol class="method-list">
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">1.</span>
+        <p class="method-list__content">
+          <strong>Rate.</strong> Leadership team rates the situation on a
+          <span class="accent">1–10</span> scale, by responsibility, strategic
+          priority, or capability.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">2.</span>
+        <p class="method-list__content">
           <strong>Name what's missing.</strong> What would have to be true for
           this to be a 10?
-        </li>
-        <li>
-          <strong>Test the 10.</strong> How do you know the 10 is really a 10?
-          What evidence would you accept that it isn't?
-        </li>
-        <li>
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">3.</span>
+        <p class="method-list__content">
+          <strong>Test the 10.</strong> How do you <span class="accent">know</span>
+          the 10 is really a 10? What evidence would you accept that it isn't?
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">4.</span>
+        <p class="method-list__content">
           <strong>Extend the view.</strong> Surface what's beyond the team's
           perceived horizon. Raise the ambition past where it's comfortable.
-        </li>
-      </ol>
-      <p>
-        The output isn't a report or a slide deck. It's a sharper ambition held
-        by your leadership team — the kind of shift where participants come
-        back later to say thank you.
-      </p>
-    </div>
+        </p>
+      </li>
+    </ol>
 
-    <h3>Cadence</h3>
-    <div class="prose">
-      <ul>
-        <li>~4 hours per month, ~48 hours per year</li>
-        <li>One quarterly deep session with leadership team and chair (2–3 hours)</li>
-        <li>Monthly touchpoint: agenda review, 1:1, or ad-hoc strategic question</li>
-        <li>Annual term, renewed by mutual review</li>
-        <li>In-person for at least two of four quarterly sessions</li>
-      </ul>
-    </div>
+    <p class="method-outro">
+      The output isn't a report or a slide deck. It's a sharper ambition held
+      by your leadership team — the kind of shift where participants come back
+      later to say thank you.
+    </p>
 
-    <h3>What the seat doesn't do</h3>
-    <div class="prose">
+    <h3 class="subsection-h3">Cadence</h3>
+    <p class="cadence-headline">
+      <span class="accent">~4</span> hours per month · <span class="accent">~48</span> hours per year
+    </p>
+    <ul class="cadence-list">
+      <li class="cadence-list__item">One quarterly deep session with leadership team and chair (<span class="accent">2–3</span> hours)</li>
+      <li class="cadence-list__item">Monthly touchpoint: agenda review, 1:1, or ad-hoc strategic question</li>
+      <li class="cadence-list__item">Annual term, renewed by mutual review</li>
+      <li class="cadence-list__item">In-person for at least <span class="accent">two</span> of <span class="accent">four</span> quarterly sessions</li>
+    </ul>
+
+    <h3 class="subsection-h3">What the seat doesn't do</h3>
+    <div class="stone-callout">
       <p>
         The seat doesn't draft your strategy, write the board memo, or prepare
         the pipeline review. You bring the outputs. The seat tests the
@@ -112,33 +154,28 @@ import Button from '../components/Button.astro';
     </div>
   </Section>
 
-  <!-- Pulled observation — set off with copper rules above and below, italic -->
-  <Section>
-    <figure class="observation">
-      <hr class="observation__rule" aria-hidden="true" />
-      <blockquote class="observation__quote">
-        <p>
-          Across multiple management boards I've sat on, a widely spread
-          pattern at C-level isn't underperformance — it's executives accepting
-          a reduced outcome rather than asking how to deliver more without
-          working more hours. The seat's job is to make that conversation
-          impossible to avoid.
-        </p>
-      </blockquote>
-      <hr class="observation__rule" aria-hidden="true" />
-    </figure>
-  </Section>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 6 — Pullquote (Argo's voice)
+     Lives between sections at 64-96px margin (NOT a full section break).
+     Replaces the previous inline <figure class="observation"> markup.
+     ────────────────────────────────────────────────────────────── */}
+  <div class="container">
+    <Pullquote
+      quote={'Across multiple management boards I\'ve sat on, a widely spread pattern at C-level isn\'t underperformance — it\'s executives accepting a reduced outcome rather than asking how to deliver more without working more hours. The seat\'s job is to make that conversation impossible to avoid.'}
+    />
+  </div>
 
-  <!-- Fit / not fit -->
-  <Section>
-    <h2>This is the seat for you if</h2>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — This is the seat for you if
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Fit" heading="This is the seat for you if">
     <div class="prose">
       <p>
         You're founder-led, family-owned, or family-office-backed, and the
         decisions that matter most don't have anywhere to be properly tested.
         Your board reviews. Your team executes. The strategic work between
         those two — the work that decides whether you're still relevant in
-        three years — falls to you alone.
+        <span class="accent">three</span> years — falls to you alone.
       </p>
       <p>
         You want a provocateur, not another board director. You're not looking
@@ -146,8 +183,13 @@ import Button from '../components/Button.astro';
         questions that nobody else in your orbit has the standing to ask.
       </p>
     </div>
+  </Section>
 
-    <h2 class="h2--gap">This isn't the seat for you if</h2>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — This isn't the seat for you if
+     Off-white per locked decision (NOT stone).
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Not fit" heading="This isn't the seat for you if">
     <div class="prose">
       <p>
         Your board's governance is structured so the seat would have to work
@@ -159,123 +201,213 @@ import Button from '../components/Button.astro';
     </div>
   </Section>
 
-  <!-- Why Argo for this seat specifically -->
-  <Section>
-    <h2>Why Argo, for this seat specifically</h2>
-
-    <h3>Pragmatic &amp; focused</h3>
-    <div class="prose">
-      <p>
-        At the board level, the situations that matter are rarely textbook. The
-        seat brings adjacent-pattern range across many companies, many sectors,
-        many roles — so when something unusual lands, you get a voice that has
-        seen versions of it before. Climate tech, clean tech, and circular
-        economy sit inside that range, with depth.
-      </p>
-    </div>
-
-    <h3>Full confidence during change</h3>
-    <div class="prose">
-      <p>
-        Most board voices run one mode: financial or political. The seat brings
-        both lenses in one person, which is what makes culture-as-a-system
-        credible to a CFO and a chair at the same table. Doubts get eliminated
-        because the reasoning is rigorous on both sides.
-      </p>
-    </div>
-
-    <h3>Outside the boardroom</h3>
-    <div class="prose">
-      <p>
-        Provocateur, not director, not consultant. No statutory drift, no
-        second-guessing the CEO. Comfortable with temporary tension, because
-        the breakthrough is on the other side of it.
-      </p>
-    </div>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 9 — Why Argo, for this seat specifically
+     Stone background, ThreeColumn with steel-blue vertical rules.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="Why Argo"
+    heading="Why Argo, for this seat specifically"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          At the board level, the situations that matter are rarely textbook.
+          The seat brings adjacent-pattern range across many companies, many
+          sectors, many roles — so when something unusual lands, you get a
+          voice that has seen versions of it before. Climate tech, clean tech,
+          and circular economy sit inside that range, with depth.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Most board voices run <span class="accent">one</span> mode: financial
+          or political. The seat brings both lenses in one person, which is
+          what makes culture-as-a-system credible to a CFO and a chair at the
+          same table. Doubts get eliminated because the reasoning is rigorous
+          on both sides.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Outside the boardroom</h3>
+        <p>
+          Provocateur, not director, not consultant. No statutory drift, no
+          second-guessing the CEO. Comfortable with temporary tension, because
+          the breakthrough is on the other side of it.
+        </p>
+      </div>
+    </ThreeColumn>
   </Section>
 
-  <!-- Closer DarkPicture -->
-  <DarkPicture>
-    <p>Most board advisors evaluate the plan.</p>
-    <p>Argo tests the ambition.</p>
-  </DarkPicture>
+  {/* Section 9.5 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
 
-  <!-- CTA -->
-  <Section>
-    <h2>Bring one decision you've been carrying alone.</h2>
-    <div class="prose">
-      <p>
-        A working session, not a sales call. We test the assumptions behind it
-        together. You leave with the question you should have been asked six
-        months ago — whether or not you book the seat.
-      </p>
-    </div>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 10 — DarkResolve
+     White provocation → copper resolution. Eyebrow rule only.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Most board advisors evaluate the plan."
+    line2="Argo tests the ambition."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 11 — Closing CTA
+     No eyebrow — the H2 is the framing.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    heading="Bring one decision you've been carrying alone."
+    lead="A working session, not a sales call. We test the assumptions behind it together. You leave with the question you should have been asked six months ago — whether or not you book the seat."
+  >
     <div class="cta-action">
-      <Button href="/contact/">Book the call</Button>
+      <Button href="/contact/" arrow={true}>Book the call</Button>
     </div>
   </Section>
 </Base>
 
 <style>
-  /* Resolution-line treatment — lead-scale type, navy ink, weighty.
-     Sits as a single-statement section between the opening provocation
-     and the first content block. */
-  .lead--resolution {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    line-height: var(--leading-snug);
+  /* ──────────────────────────────────────────────────────────
+     Sub-hero summary (Section 2)
+     Lead is centered on its own row, narrowed slightly so the
+     four-sentence statement reads as a deliberate moment.
+     ────────────────────────────────────────────────────────── */
+  .lead--centered {
+    text-align: center;
+    margin-inline: auto;
+    color: var(--color-slate-600);
+  }
+
+  .lead--centered :global(strong) {
+    /* "One person" — weight 600 emphasis without color shift to
+       slate-900, so it's slightly heavier but stays within the
+       lead's slate-600 tonality. Third accent in the same scroll-
+       region would over-spice. */
     font-weight: var(--weight-semibold);
-    color: var(--color-navy);
-    max-width: 44rem;
+    color: inherit;
   }
 
-  /* Add visual breathing room before the secondary H2 within the same Section */
-  .h2--gap {
-    margin-top: var(--space-16);
+  /* ──────────────────────────────────────────────────────────
+     Numbered method list (Section 5)
+     ────────────────────────────────────────────────────────── */
+  .method-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0 0; /* 32px after lead */
   }
 
-  /* Pulled observation — copper rules above and below, italic prose */
-  .observation {
+  .method-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6); /* 24px — within brief's 20-24 */
+  }
+
+  .method-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .method-list__num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 0.8vw + 1.4rem, 2rem); /* 28-32px */
+    font-weight: var(--weight-semibold);
+    color: var(--color-copper);
+    line-height: 1;
+  }
+
+  .method-list__content {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
     margin: 0;
-    max-width: 44rem;
   }
 
-  .observation__rule {
-    width: 100%;
-    height: 1px;
+  .method-list__content :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  .method-outro {
+    margin-top: var(--space-8); /* 32px after the method list */
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Subsection H3 spacing — between component blocks within
+     a section per brief §2.1 (48-64px).
+     ────────────────────────────────────────────────────────── */
+  .subsection-h3 {
+    margin-top: var(--space-12); /* 48px */
+    margin-bottom: var(--space-3); /* 12px — H3 to content (tight) */
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Cadence headline + tighter list with copper bullet markers
+     ────────────────────────────────────────────────────────── */
+  .cadence-headline {
+    font-family: var(--font-heading);
+    font-size: var(--text-lead); /* 19-24px, weight 500 */
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-medium);
+    color: var(--color-slate-900);
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .cadence-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cadence-list__item {
+    position: relative;
+    padding-left: var(--space-6); /* 24px to bullet */
+    margin-bottom: var(--space-3); /* 12px between items — tight */
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .cadence-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .cadence-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
     background: var(--color-copper);
-    border: 0;
-    margin: 0;
   }
 
-  .observation__quote {
-    margin: 0;
-    padding: var(--space-10) 0;
+  /* ──────────────────────────────────────────────────────────
+     Stone callout for "What the seat doesn't do"
+     ────────────────────────────────────────────────────────── */
+  .stone-callout {
+    background: var(--color-bg-raised);
+    padding: var(--space-6) var(--space-8);
+    border-radius: 2px;
   }
 
-  .observation__quote p {
-    font-family: var(--font-body);
-    font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
-    font-style: italic;
-    color: var(--color-ink);
+  .stone-callout :global(p) {
     margin: 0;
+    color: var(--color-slate-600);
   }
 
-  /* CTA action row */
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 11)
+     ────────────────────────────────────────────────────────── */
   .cta-action {
-    margin-top: var(--space-8);
+    margin-top: var(--space-8); /* 32px from lead to button */
   }
 
-  /* Ordered/unordered lists used in the body — keep nicely indented */
-  :global(.prose ol),
-  :global(.prose ul) {
-    padding-left: var(--space-6);
-  }
-
-  :global(.prose ol li),
-  :global(.prose ul li) {
-    margin-bottom: var(--space-3);
-    line-height: var(--leading-relaxed);
-  }
+  /* Inline accent semantics inherit from global.css .accent rule */
 </style>
