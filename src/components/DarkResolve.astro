@@ -1,0 +1,115 @@
+---
+/*
+ * DarkResolve — two-line provocation + resolution. Brief §3.4.
+ *
+ * The closing-band signature: white statement → copper answer.
+ * Smaller than DarkPicture (the mid-page centerpiece); pairs with
+ * DarkOpener as bookends on offering pages.
+ *
+ * Both lines render at 28-44px, weight 600, line-height 1.15.
+ * Line 1: white. Line 2: copper.
+ *
+ * Slot or props — components may supply line1/line2 strings or
+ * pass two <p> elements as slot children.
+ */
+
+type Align = 'left' | 'center';
+
+interface Props {
+  line1?: string;
+  line2?: string;
+  eyebrow?: string;
+  align?: Align;
+  id?: string;
+}
+
+const { line1, line2, eyebrow, align = 'center', id } = Astro.props;
+
+const hasSlot = Astro.slots.has('default');
+---
+
+<section
+  id={id}
+  class:list={['dr', `dr--align-${align}`, 'js-reveal']}
+  aria-label="Resolution"
+>
+  <div class="dr__inner">
+    <header class="dr__eyebrow">
+      <span class="eyebrow-rule" aria-hidden="true"></span>
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    </header>
+
+    {hasSlot ? (
+      <div class="dr__lines"><slot /></div>
+    ) : (
+      <div class="dr__lines">
+        {line1 && <p class="dr__line dr__line--1" set:html={line1} />}
+        {line2 && <p class="dr__line dr__line--2" set:html={line2} />}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .dr {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+    /* 64-96 desktop / 48-64 mobile — slightly tighter than DarkPicture */
+    padding-block: clamp(3rem, 6vw + 1rem, 6rem);
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .dr__inner {
+    width: 100%;
+    max-width: var(--container-display); /* 900 px */
+    margin: 0 auto;
+  }
+
+  .dr--align-center .dr__inner { text-align: center; }
+
+  .dr__eyebrow {
+    display: block;
+    margin-bottom: var(--space-6);
+  }
+
+  .dr__eyebrow .eyebrow-rule { margin-bottom: var(--space-2); }
+  .dr__eyebrow .eyebrow      { color: var(--color-copper); }
+
+  .dr--align-center .dr__eyebrow .eyebrow-rule {
+    margin-inline: auto;
+  }
+
+  .dr__lines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2); /* 8px between the two lines — tight, paired */
+  }
+
+  /* Line shared styling */
+  .dr__line,
+  .dr__lines :global(p) {
+    font-family: var(--font-heading);
+    font-size: var(--text-resolve);  /* 28-44 px */
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  /* Line 1 — white provocation */
+  .dr__line--1,
+  .dr__lines :global(p:first-child) {
+    color: var(--color-on-dark);
+  }
+
+  /* Line 2 — copper resolution (the closing-band signature) */
+  .dr__line--2,
+  .dr__lines :global(p:last-child:not(:only-child)) {
+    color: var(--color-copper);
+  }
+
+  .dr__lines :global(.accent) {
+    color: var(--color-copper);
+  }
+</style>
