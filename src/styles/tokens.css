@@ -1,93 +1,176 @@
 :root {
-  /* ----- Brand colors (CVI v1) ---------------------------------------- */
-  --color-navy: #1A2744;
-  --color-navy-700: #243352;
-  --color-navy-900: #131C32;
+  /* ============================================================
+   * BRAND COLORS (CVI v1, locked) — brief §2.3
+   * ============================================================ */
+  --color-navy:       #1A2744;
+  --color-navy-700:   #243352;
+  --color-navy-900:   #131C32;
 
-  --color-steel: #2B6CA3;
-  --color-steel-600: #245C8C;
-  --color-steel-400: #4A89BD;
+  --color-steel:      #2B6CA3;
+  --color-steel-600:  #245C8C;
+  --color-steel-400:  #4A89BD;
 
-  --color-copper: #C97B2A;
-  --color-copper-600: #B56C20;
-  --color-copper-400: #DA9551;
+  --color-copper:     #C97B2A;
+  --color-copper-800: #A36420;
+  --color-copper-900: #7A4A0E;
 
-  --color-bg: #FAFAF7;
-  --color-bg-raised: #F2F2EE;
+  --color-off-white:  #FAFAF7;
+  --color-stone:      #F2F4F7;
 
-  /* ----- Neutrals ----------------------------------------------------- */
-  --color-ink: #1F2530;
-  --color-text: #2E3744;
-  --color-text-muted: #5A6573;
-  --color-text-subtle: #8A95A3;
-  --color-border: #E2E5EA;
-  --color-rule: #D6DAE1;
+  /* Text-system neutrals — brief §2.3 */
+  --color-slate-900:  #1A1D23;  /* headings on light, interchangeable with navy */
+  --color-slate-600:  #4A5568;  /* body text on light */
+  --color-slate-400:  #718096;  /* captions, metadata, footer */
+  --color-slate-200:  #E2E8F0;  /* hairline borders */
+  --color-mist:       #B8CCEB;  /* body text on dark */
+  --color-white:      #FFFFFF;  /* headings/emphasis on dark */
 
-  --color-on-dark: #FAFAF7;
-  --color-on-dark-muted: #B8C2D1;
+  /* Component-facing semantic aliases */
+  --color-bg:             var(--color-off-white);
+  --color-bg-raised:      var(--color-stone);
+  --color-ink:            var(--color-slate-900);
+  --color-text:           var(--color-slate-600);
+  --color-text-muted:     var(--color-slate-600);
+  --color-text-subtle:    var(--color-slate-400);
+  --color-border:         var(--color-slate-200);
+  --color-rule:           var(--color-slate-200);
+  --color-on-dark:        var(--color-white);
+  --color-on-dark-muted:  var(--color-mist);
 
-  /* ----- Typography --------------------------------------------------- */
+  /* ============================================================
+   * TYPOGRAPHY — brief §2.2
+   * Inter Variable carries 400/500/600/700.
+   * ============================================================ */
   --font-heading: "Trebuchet MS", "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
-  --font-body: "Calibri", "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  --font-body:    "Calibri", "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
 
-  --weight-regular: 400;
-  --weight-medium: 500;
+  --weight-regular:  400;
+  --weight-medium:   500;
   --weight-semibold: 600;
-  --weight-bold: 700;
-  --weight-heavy: 800;
+  --weight-bold:     700;
 
-  /* Type scale — modular, not decorative */
-  --text-xs: 0.8125rem;   /* 13px — meta, footer */
-  --text-sm: 0.9375rem;   /* 15px — small labels */
-  --text-base: 1.0625rem; /* 17px — body */
-  --text-lg: 1.25rem;     /* 20px — lead paragraphs */
-  --text-xl: 1.5rem;      /* 24px — h4 */
-  --text-2xl: 1.875rem;   /* 30px — h3 */
-  --text-3xl: 2.5rem;     /* 40px — h2 */
-  --text-4xl: 3.5rem;     /* 56px — h1 */
-  --text-5xl: clamp(2.75rem, 3.5vw + 1rem, 3.5rem); /* DarkPicture default — capped at 56px */
-  --text-6xl: clamp(3rem, 4vw + 1rem, 4.5rem);      /* DarkPicture hero — capped at 72px */
-  --text-opener: clamp(1.75rem, 2vw + 1rem, 2.25rem); /* DarkOpener — 28px floor, 36px ceiling */
+  /* Role-named type scale — fluid clamps that hit mobile floor by ~360px
+     and desktop ceiling by ~1280px. */
+  --text-display: clamp(2.5rem,   5vw    + 1rem,    5rem);     /* 40 → 80 px */
+  --text-h1:      clamp(2.25rem,  2.2vw  + 1.75rem, 3.5rem);   /* 36 → 56 px */
+  --text-h2:      clamp(1.625rem, 1.5vw  + 1.3rem,  2.5rem);   /* 26 → 40 px */
+  --text-h3:      clamp(1.25rem,  0.7vw  + 1.1rem,  1.625rem); /* 20 → 26 px */
+  --text-lead:    clamp(1.1875rem,0.55vw + 1.05rem, 1.5rem);   /* 19 → 24 px */
+  --text-body:    clamp(1.0625rem,0.25vw + 1rem,    1.1875rem);/* 17 → 19 px */
+  --text-body-sm: clamp(0.9375rem,0.1vw  + 0.92rem, 1rem);     /* 15 → 16 px */
+  --text-eyebrow: 0.75rem;   /* 12px — overridden to 11px on mobile below */
+  --text-meta:    0.875rem;  /* 14px — overridden to 13px on mobile below */
 
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
-  --leading-normal: 1.4;
-  --leading-relaxed: 1.6;
-  --leading-loose: 1.75;
+  /* Component-internal scales for the dark-band family */
+  --text-opener-lead: clamp(1.625rem, 1.2vw + 1.2rem,  2.25rem); /* 26 → 36 px (DarkOpener line 1, pivot) */
+  --text-opener-body: clamp(1.25rem,  1vw   + 0.95rem, 1.75rem); /* 20 → 28 px (DarkOpener body lines) */
+  --text-resolve:     clamp(1.75rem,  2vw   + 1rem,    2.75rem); /* 28 → 44 px (DarkResolve two lines) */
 
-  --tracking-tight: -0.015em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.04em;
-  --tracking-wider: 0.08em;
+  /* Line heights per role — §2.2 */
+  --lh-display: 1.05;
+  --lh-h1:      1.1;
+  --lh-h2:      1.2;
+  --lh-h3:      1.3;
+  --lh-lead:    1.5;
+  --lh-body:    1.65;
+  --lh-body-sm: 1.6;
+  --lh-eyebrow: 1.4;
+  --lh-meta:    1.4;
 
-  /* ----- Spacing scale (rem-based) ------------------------------------ */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-  --space-40: 10rem;
+  /* Letter-spacing roles */
+  --tracking-tight:    -0.015em;
+  --tracking-normal:    0;
+  --tracking-button:    0.05em;
+  --tracking-eyebrow:   0.15em;
 
-  /* Section vertical padding — fluid, generous, confident */
-  --section-py: clamp(4rem, 8vw, 8rem);
-  --section-py-lg: clamp(5rem, 10vw, 10rem);
+  /* ============================================================
+   * SPACING — base 4px — brief §2.1
+   * Two-regime rule: TIGHT within sections, GENEROUS between sections.
+   * ============================================================ */
+  --space-1:   0.25rem;   /*   4 px */
+  --space-2:   0.5rem;    /*   8 px */
+  --space-3:   0.75rem;   /*  12 px */
+  --space-4:   1rem;      /*  16 px */
+  --space-6:   1.5rem;    /*  24 px */
+  --space-8:   2rem;      /*  32 px */
+  --space-12:  3rem;      /*  48 px */
+  --space-16:  4rem;      /*  64 px */
+  --space-24:  6rem;      /*  96 px */
+  --space-32:  8rem;      /* 128 px */
 
-  /* ----- Layout ------------------------------------------------------- */
-  --container-max: 76rem;       /* page container */
-  --prose-max: 38rem;           /* ~65–70ch body column */
-  --hairline: 1px;
-  --rule-thick: 4px;
+  /* Section padding — generous (96 desktop / 64 mobile) for light sections;
+     dark sections (DarkPicture, DarkOpener, DarkResolve) sit on the upper range. */
+  --section-py:      clamp(4rem, 6vw + 1rem, 6rem); /*  64 →  96 px */
+  --section-py-dark: clamp(4rem, 8vw + 1rem, 8rem); /*  64 → 128 px */
 
-  /* ----- Motion ------------------------------------------------------- */
-  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
-  --dur-fast: 120ms;
-  --dur: 200ms;
+  /* ============================================================
+   * LAYOUT — brief §2.2 column max-widths
+   * ============================================================ */
+  --container-page:    75rem;     /* 1200 px — page outer */
+  --container-section: 70rem;     /* 1120 px — multi-column section */
+  --container-display: 56.25rem;  /*  900 px — display type */
+  --container-lead:    45rem;     /*  720 px — lead paragraph */
+  --container-prose:   45rem;     /*  720 px — long-form body */
+  --container-quote:   50rem;     /*  800 px — pull quote */
+
+  --hairline:   1px;
+  --rule-thick: 3px;              /* eyebrow rule thickness */
+
+  /* ============================================================
+   * MOTION — brief §5
+   * ============================================================ */
+  --ease:     cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  --dur-fast:      150ms;  /* hover, focus, CTA */
+  --dur-section:   300ms;  /* section fade-in on scroll */
+  --dur-statement: 500ms;  /* centerpiece question reveal */
+  --dur-accent:    150ms;  /* inline accent delay relative to statement */
+}
+
+/* ----------------------------------------------------------------
+ * Mobile-scale overrides — brief §2.2 mobile table
+ * Most type scales handle mobile via the fluid clamp; eyebrow + meta
+ * shift down a notch for tighter mobile rendering.
+ * ---------------------------------------------------------------- */
+@media (max-width: 640px) {
+  :root {
+    --text-eyebrow: 0.6875rem;  /* 11 px */
+    --text-meta:    0.8125rem;  /* 13 px */
+  }
+}
+
+/* ----------------------------------------------------------------
+ * LEGACY TOKEN ALIASES — transition only
+ * The old index-based spacing scale and modular type scale are
+ * mapped here so the build stays green while Steps 3–12 rewrite
+ * each component to the new role-named tokens. This block is
+ * removed in the pre-Checkpoint-A cleanup commit.
+ * ---------------------------------------------------------------- */
+:root {
+  --space-5:  var(--space-6);   /* 20 → 24 */
+  --space-10: var(--space-12);  /* 40 → 48 */
+
+  --text-xs:    var(--text-eyebrow);
+  --text-sm:    var(--text-body-sm);
+  --text-base:  var(--text-body);
+  --text-lg:    var(--text-lead);
+  --text-xl:    var(--text-h3);
+  --text-2xl:   var(--text-h3);
+  --text-3xl:   var(--text-h2);
+  --text-4xl:   var(--text-h1);
+  --text-5xl:   var(--text-h1);
+  --text-6xl:   var(--text-display);
+  --text-opener: var(--text-opener-lead);
+
+  --weight-heavy: var(--weight-bold);
+
+  --leading-tight:   var(--lh-h1);
+  --leading-snug:    var(--lh-h3);
+  --leading-normal:  var(--lh-lead);
+  --leading-relaxed: var(--lh-body);
+  --leading-loose:   1.75;
+
+  --tracking-wide:   var(--tracking-button);
+  --tracking-wider:  var(--tracking-eyebrow);
 }
