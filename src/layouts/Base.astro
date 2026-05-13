@@ -72,5 +72,43 @@ const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toStri
       <slot />
     </main>
     <Footer />
+
+    <!--
+      Motion rule #1 (§5.1): section fade-in on scroll.
+      Trigger: section's top edge enters viewport at 100px depth.
+      Effect: opacity 0 → 1 + 8px translateY → 0 over 300ms.
+      Centerpiece statements (motion rule #2) opt in via .js-reveal-statement.
+      prefers-reduced-motion bypass handled in global.css.
+    -->
+    <script>
+      (() => {
+        const motionOK = typeof window !== 'undefined' &&
+          window.matchMedia &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const targets = document.querySelectorAll<HTMLElement>(
+          '.js-reveal, .js-reveal-statement'
+        );
+
+        if (!motionOK || !('IntersectionObserver' in window)) {
+          targets.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -100px 0px', threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
