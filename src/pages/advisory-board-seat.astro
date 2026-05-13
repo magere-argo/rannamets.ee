@@ -1,20 +1,281 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Base
   title="Advisory Board Seat"
-  description="[Page description — copy pending]"
+  description="A named advisory seat. One person. Structured monthly provocation. The advisory function without the apparatus."
 >
+  <!-- Opening DarkPicture: two paragraphs with breathing room -->
+  <DarkPicture size="hero">
+    <p>
+      You don't have an advisory board. You've watched peers build theirs —
+      polite challenge, quarterly ritual, calendar filler within a year. You
+      don't want the apparatus. You want the outcome.
+    </p>
+    <p>
+      And nobody is asking the question that would sharpen your next two years.
+    </p>
+  </DarkPicture>
+
+  <!-- Resolution line -->
   <Section>
-    <span class="eyebrow">[Eyebrow label]</span>
-    <hr class="rule" />
-    <h1>Advisory Board Seat</h1>
+    <p class="lead lead--resolution">
+      A named advisory seat. One person. Structured monthly provocation. The
+      advisory function without the apparatus.
+    </p>
+  </Section>
+
+  <!-- What changes when the seat is held well -->
+  <Section>
+    <h2>What changes when the seat is held well</h2>
     <div class="prose">
-      <p class="lead">[Lead paragraph — copy pending.]</p>
-      <p>[Body paragraph — copy pending. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]</p>
-      <p>[Body paragraph — copy pending. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.]</p>
+      <p>
+        <strong>Drift surfaces while there's still time to act.</strong> A
+        structured provocation every month catches the slip your reporting
+        cycle will miss by eight weeks.
+      </p>
+      <p>
+        <strong>Hard calls get a third voice with no political weight.</strong>
+        No cap-table seat, no vote, no drift into executive work.
+      </p>
+      <p>
+        <strong>The standard at the top is held externally, not just by you.</strong>
+        A provocateur with no shareholder agenda raises the bar with you, not
+        against you.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Mid-page DarkPicture -->
+  <DarkPicture>
+    <p>On a scale of 1 to 10:</p>
+    <p>how do you know your 10 is really a 10?</p>
+  </DarkPicture>
+
+  <!-- How it works -->
+  <Section>
+    <h2>How it works</h2>
+    <div class="prose">
+      <p>
+        Most board advisors don't have a method. They have a personal style.
+        The seat runs a four-step method at every session — repeatable, travels
+        across companies and sectors.
+      </p>
+      <ol>
+        <li>
+          <strong>Rate.</strong> Leadership team rates the situation on a 1–10
+          scale, by responsibility, strategic priority, or capability.
+        </li>
+        <li>
+          <strong>Name what's missing.</strong> What would have to be true for
+          this to be a 10?
+        </li>
+        <li>
+          <strong>Test the 10.</strong> How do you know the 10 is really a 10?
+          What evidence would you accept that it isn't?
+        </li>
+        <li>
+          <strong>Extend the view.</strong> Surface what's beyond the team's
+          perceived horizon. Raise the ambition past where it's comfortable.
+        </li>
+      </ol>
+      <p>
+        The output isn't a report or a slide deck. It's a sharper ambition held
+        by your leadership team — the kind of shift where participants come
+        back later to say thank you.
+      </p>
+    </div>
+
+    <h3>Cadence</h3>
+    <div class="prose">
+      <ul>
+        <li>~4 hours per month, ~48 hours per year</li>
+        <li>One quarterly deep session with leadership team and chair (2–3 hours)</li>
+        <li>Monthly touchpoint: agenda review, 1:1, or ad-hoc strategic question</li>
+        <li>Annual term, renewed by mutual review</li>
+        <li>In-person for at least two of four quarterly sessions</li>
+      </ul>
+    </div>
+
+    <h3>What the seat doesn't do</h3>
+    <div class="prose">
+      <p>
+        The seat doesn't draft your strategy, write the board memo, or prepare
+        the pipeline review. You bring the outputs. The seat tests the
+        assumptions behind them. The moment the seat starts building slides,
+        half the value disappears.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Pulled observation — set off with copper rules above and below, italic -->
+  <Section>
+    <figure class="observation">
+      <hr class="observation__rule" aria-hidden="true" />
+      <blockquote class="observation__quote">
+        <p>
+          Across multiple management boards I've sat on, a widely spread
+          pattern at C-level isn't underperformance — it's executives accepting
+          a reduced outcome rather than asking how to deliver more without
+          working more hours. The seat's job is to make that conversation
+          impossible to avoid.
+        </p>
+      </blockquote>
+      <hr class="observation__rule" aria-hidden="true" />
+    </figure>
+  </Section>
+
+  <!-- Fit / not fit -->
+  <Section>
+    <h2>This is the seat for you if</h2>
+    <div class="prose">
+      <p>
+        You're founder-led, family-owned, or family-office-backed, and the
+        decisions that matter most don't have anywhere to be properly tested.
+        Your board reviews. Your team executes. The strategic work between
+        those two — the work that decides whether you're still relevant in
+        three years — falls to you alone.
+      </p>
+      <p>
+        You want a provocateur, not another board director. You're not looking
+        for someone to sign minutes. You're looking for someone to ask the
+        questions that nobody else in your orbit has the standing to ask.
+      </p>
+    </div>
+
+    <h2 class="h2--gap">This isn't the seat for you if</h2>
+    <div class="prose">
+      <p>
+        Your board's governance is structured so the seat would have to work
+        around it — a VC-appointed operating partner already holding the
+        strategic voice, state ownership, or political stakeholders steering
+        the agenda. The independence that makes the seat worth anything gets
+        crowded out before it can do any work.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Why Argo for this seat specifically -->
+  <Section>
+    <h2>Why Argo, for this seat specifically</h2>
+
+    <h3>Pragmatic &amp; focused</h3>
+    <div class="prose">
+      <p>
+        At the board level, the situations that matter are rarely textbook. The
+        seat brings adjacent-pattern range across many companies, many sectors,
+        many roles — so when something unusual lands, you get a voice that has
+        seen versions of it before. Climate tech, clean tech, and circular
+        economy sit inside that range, with depth.
+      </p>
+    </div>
+
+    <h3>Full confidence during change</h3>
+    <div class="prose">
+      <p>
+        Most board voices run one mode: financial or political. The seat brings
+        both lenses in one person, which is what makes culture-as-a-system
+        credible to a CFO and a chair at the same table. Doubts get eliminated
+        because the reasoning is rigorous on both sides.
+      </p>
+    </div>
+
+    <h3>Outside the boardroom</h3>
+    <div class="prose">
+      <p>
+        Provocateur, not director, not consultant. No statutory drift, no
+        second-guessing the CEO. Comfortable with temporary tension, because
+        the breakthrough is on the other side of it.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Closer DarkPicture -->
+  <DarkPicture>
+    <p>Most board advisors evaluate the plan.</p>
+    <p>Argo tests the ambition.</p>
+  </DarkPicture>
+
+  <!-- CTA -->
+  <Section>
+    <h2>Bring one decision you've been carrying alone.</h2>
+    <div class="prose">
+      <p>
+        A working session, not a sales call. We test the assumptions behind it
+        together. You leave with the question you should have been asked six
+        months ago — whether or not you book the seat.
+      </p>
+    </div>
+    <div class="cta-action">
+      <Button href="/contact/">Book the call</Button>
     </div>
   </Section>
 </Base>
+
+<style>
+  /* Resolution-line treatment — lead-scale type, navy ink, weighty.
+     Sits as a single-statement section between the opening provocation
+     and the first content block. */
+  .lead--resolution {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+    font-weight: var(--weight-semibold);
+    color: var(--color-navy);
+    max-width: 44rem;
+  }
+
+  /* Add visual breathing room before the secondary H2 within the same Section */
+  .h2--gap {
+    margin-top: var(--space-16);
+  }
+
+  /* Pulled observation — copper rules above and below, italic prose */
+  .observation {
+    margin: 0;
+    max-width: 44rem;
+  }
+
+  .observation__rule {
+    width: 100%;
+    height: 1px;
+    background: var(--color-copper);
+    border: 0;
+    margin: 0;
+  }
+
+  .observation__quote {
+    margin: 0;
+    padding: var(--space-10) 0;
+  }
+
+  .observation__quote p {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    font-style: italic;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  /* CTA action row */
+  .cta-action {
+    margin-top: var(--space-8);
+  }
+
+  /* Ordered/unordered lists used in the body — keep nicely indented */
+  :global(.prose ol),
+  :global(.prose ul) {
+    padding-left: var(--space-6);
+  }
+
+  :global(.prose ol li),
+  :global(.prose ul li) {
+    margin-bottom: var(--space-3);
+    line-height: var(--leading-relaxed);
+  }
+</style>
