@@ -51,7 +51,7 @@
 
   /* Role-named type scale — fluid clamps that hit mobile floor by ~360px
      and desktop ceiling by ~1280px. */
-  --text-display: clamp(2.5rem,   5vw    + 1rem,    5rem);     /* 40 → 80 px */
+  --text-display: clamp(2.75rem,  5vw    + 1.5rem,  5rem);    /* 44 → 80 px (desktop floor 75 @ 1024, ceiling 80 @ 1120+) */
   --text-h1:      clamp(2.25rem,  2.2vw  + 1.75rem, 3.5rem);   /* 36 → 56 px */
   --text-h2:      clamp(1.625rem, 1.5vw  + 1.3rem,  2.5rem);   /* 26 → 40 px */
   --text-h3:      clamp(1.25rem,  0.7vw  + 1.1rem,  1.625rem); /* 20 → 26 px */
