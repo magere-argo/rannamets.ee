@@ -1,0 +1,86 @@
+---
+type Align = 'left' | 'center';
+
+interface Props {
+  align?: Align;
+  id?: string;
+}
+
+const { align = 'left', id } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={['do', `do--align-${align}`]}
+  aria-label="Page opener"
+>
+  <div class="do__inner">
+    <span class="do__rule" aria-hidden="true"></span>
+    <div class="do__body">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  /*
+   * DarkOpener — sibling to DarkPicture.
+   * Same visual chassis (navy ground, copper rule, section padding) so the
+   * two read as the same family. Different typography: multi-sentence
+   * content rendered as discrete beats, smaller and quieter than the
+   * theatrical DarkPicture.
+   */
+
+  .do {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+    padding-block: var(--section-py-lg);
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .do__inner {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .do--align-center .do__inner {
+    text-align: center;
+  }
+
+  .do__rule {
+    display: block;
+    width: 4rem;
+    height: var(--rule-thick);
+    background: var(--color-copper);
+    margin-bottom: var(--space-10);
+  }
+
+  .do--align-center .do__rule {
+    margin-inline: auto;
+  }
+
+  .do__body {
+    max-width: 46rem;
+  }
+
+  .do--align-center .do__body {
+    margin-inline: auto;
+  }
+
+  /* Each slot paragraph is its own beat */
+  .do__body :global(p) {
+    font-family: var(--font-heading);
+    font-size: var(--text-opener);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    color: var(--color-on-dark);
+    margin: 0 0 var(--space-10) 0; /* 40px starting beat */
+    text-wrap: balance;
+  }
+
+  .do__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

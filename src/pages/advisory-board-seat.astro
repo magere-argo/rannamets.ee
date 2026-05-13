@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
 import Button from '../components/Button.astro';
 ---
 
@@ -9,17 +10,16 @@ import Button from '../components/Button.astro';
   title="Advisory Board Seat"
   description="A named advisory seat. One person. Structured monthly provocation. The advisory function without the apparatus."
 >
-  <!-- Opening DarkPicture: two paragraphs with breathing room -->
-  <DarkPicture size="hero">
-    <p>
-      You don't have an advisory board. You've watched peers build theirs —
-      polite challenge, quarterly ritual, calendar filler within a year. You
-      don't want the apparatus. You want the outcome.
-    </p>
-    <p>
-      And nobody is asking the question that would sharpen your next two years.
-    </p>
-  </DarkPicture>
+  <!-- Opening DarkOpener: four diagnostic sentences as discrete beats,
+       plus the pivot sentence. Each sentence is its own paragraph so the
+       inter-sentence rhythm comes through. -->
+  <DarkOpener>
+    <p>You don't have an advisory board.</p>
+    <p>You've watched peers build theirs — polite challenge, quarterly ritual, calendar filler within a year.</p>
+    <p>You don't want the apparatus.</p>
+    <p>You want the outcome.</p>
+    <p>And nobody is asking the question that would sharpen your next two years.</p>
+  </DarkOpener>
 
   <!-- Resolution line -->
   <Section>
