@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import DarkOpener from '../components/DarkOpener.astro';
-import DarkPicture from '../components/DarkPicture.astro';
+import DarkResolve from '../components/DarkResolve.astro';
 import ThreeColumn from '../components/ThreeColumn.astro';
 import EvidenceBand from '../components/EvidenceBand.astro';
 import Button from '../components/Button.astro';
@@ -112,31 +112,36 @@ import Button from '../components/Button.astro';
   >
     <div class="prose">
       <p>
-        I've been CFO of three Baltic listed companies, Enefit Green, Ekspress
-        Grupp, and Saku Õlletehas, with a Management Board seat at the first
-        two. At Enefit Green I carried a <span class="accent">€1B</span> loan
-        portfolio, one of the largest in the Baltics. At Ekspress Grupp I ran
-        one accelerator across ten of its subsidiaries at the same time.
+        <strong>CFO of three Baltic listed companies.</strong> Enefit Green,
+        Ekspress Grupp, and Saku Õlletehas, with a Management Board seat at the
+        first two. At Enefit Green I carried a <span class="accent">€1B</span>
+        loan portfolio, one of the largest in the Baltics. At Ekspress Grupp I
+        ran one accelerator across ten of its subsidiaries at the same time.
       </p>
       <p>
-        The seat matters less than what you do in it. I lead with evidence, not
-        instinct. I once analyzed <span class="accent">132</span> management
-        board decisions over six months and proved that
-        <span class="accent">90%</span> had only been consulted, never actually
-        decided. Most leaders accept the structure they inherit. I test it.
+        <strong>I lead with evidence, not instinct.</strong> The seat matters
+        less than what you do in it. I once analyzed
+        <span class="accent">132</span> management board decisions over six
+        months and proved that <span class="accent">90%</span> had only been
+        consulted, never actually decided. Most leaders accept the structure
+        they inherit. I test it.
       </p>
       <p>
-        I've also taken the founder's risk myself. I co-founded KWOTA, a
-        climate tech startup that built the first KPMG-audited global standard
-        for verifying carbon savings from recycled material. It didn't survive,
-        but I'd do it again if the conditions were as promising as they were
-        then.
+        <strong>I've taken the founder's risk myself.</strong> I co-founded
+        KWOTA, a climate tech startup that built the first KPMG-audited global
+        standard for verifying carbon savings from recycled material. It didn't
+        survive, but I'd do it again if the conditions were as promising as they
+        were then.
       </p>
       <p>
-        I taught strategic management at TalTech's eMBA, where the six-stage
-        roadmap I use today first took shape. And Fontes call me for their
-        hardest mentoring assignments, the pairings that have already broken
-        down and need someone to take over and finish.
+        <strong>TalTech had me teach the roadmap I already use.</strong> I
+        taught strategic management at its eMBA, built around the six-stage
+        roadmap I run in practice today.
+      </p>
+      <p>
+        <strong>Fontes send me their hardest assignments.</strong> And the
+        pairings that have already broken down, the ones that need someone to
+        take over and finish.
       </p>
     </div>
   </Section>
@@ -178,21 +183,15 @@ import Button from '../components/Button.astro';
   <EvidenceBand placeholder={true} />
 
   {/* ──────────────────────────────────────────────────────────────
-     Section 7 — Closer (navy band)
-     About-specific: primary statement at display scale, then the
-     two-line signature underneath as a smaller stamp ("Installer, not
-     trainer." copper). Built on DarkPicture: the <p> takes display
-     scale; the signature <div>/<span>s sit outside the :global(p)
-     rule and are styled smaller page-locally. The copper line uses a
-     dedicated class (not .accent) so it stays out of the accent count.
+     Section 7 — Closer (DarkResolve, navy band)
+     Two-line signature at full display weight, consistent with the
+     RTN and EP closers. Line 1 white, line 2 copper, centered,
+     eyebrow rule with no eyebrow text.
      ────────────────────────────────────────────────────────────── */}
-  <DarkPicture align="center">
-    <p>I've run the P&amp;Ls. I've made the board calls. I stay until the system runs without me.</p>
-    <div class="closer-signature">
-      <span class="closer-signature__line">Operator, not observer.</span>
-      <span class="closer-signature__line closer-signature__line--copper">Installer, not trainer.</span>
-    </div>
-  </DarkPicture>
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
 
   {/* ──────────────────────────────────────────────────────────────
      Section 8 — CTA (light)
@@ -272,32 +271,6 @@ import Button from '../components/Button.astro';
     width: 6px;
     height: 6px;
     background: var(--color-copper);
-  }
-
-  /* ──────────────────────────────────────────────────────────
-     Closer signature (Section 7) — two-line stamp underneath the
-     primary statement, clearly smaller than the display primary.
-     Lives inside DarkPicture's .dp__statement; <span>s don't match
-     the :global(p) display rule, so these are sized here.
-     ────────────────────────────────────────────────────────────── */
-  .closer-signature {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    margin-top: var(--space-8); /* separation from the primary statement */
-  }
-
-  .closer-signature__line {
-    font-family: var(--font-heading);
-    font-size: var(--text-h3); /* ~20-26px — clearly below display scale */
-    line-height: var(--lh-h3);
-    font-weight: var(--weight-semibold);
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-on-dark);
-  }
-
-  .closer-signature__line--copper {
-    color: var(--color-copper);
   }
 
   /* ──────────────────────────────────────────────────────────
