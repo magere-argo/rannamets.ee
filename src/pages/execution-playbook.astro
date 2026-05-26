@@ -1,20 +1,450 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import Pullquote from '../components/Pullquote.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Base
   title="Execution Playbook"
-  description="[Page description — copy pending]"
+  description="A 4-week program that installs execution rhythm for CEOs whose strategy is already clear. The cadence, the early read, named owners. Then the advisor leaves and the team runs it alone."
 >
-  <Section>
-    <span class="eyebrow">[Eyebrow label]</span>
-    <hr class="rule" />
-    <h1>Execution Playbook</h1>
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener)
+     No eyebrow. Two paragraphs. First (lead) at opener-lead via
+     :first-child (26-36px weight 600). Second (body) at opener-body
+     (20-28px weight 400). No accents.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkOpener>
+    <p>
+      The priorities were clear in January. By March the team is working flat
+      out and not one of them has moved. The everyday work always comes
+      first, because it genuinely can't wait, so the real work slides to next
+      week, where there'll finally be room. There never is. Everyone is busy,
+      and the priorities are still waiting.
+    </p>
+    <p>
+      The strategy was never the problem. You know exactly what the right
+      things are. What you don't have is a week that delivers them, and so
+      this quarter ends like the last one, and the next is already set to do
+      the same.
+    </p>
+  </DarkOpener>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Sub-hero resolution
+     Light, no eyebrow (continuation), centered lead, max-width 720px.
+     .accent on 'Four weeks'.
+     ────────────────────────────────────────────────────────────── */}
+  <Section width="lead">
+    <p class="lead lead--centered">
+      You have the strategy. What you don't have is the rhythm that makes it
+      happen every week. In four weeks the Execution Playbook installs the
+      operating system: the cadence, the early read, the named owners. Then
+      the advisor leaves, and the team runs it alone.
+      <span class="accent">Four weeks</span>, not six months. No recurring
+      engagement, no subscription, no two-year cadence.
+    </p>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — What stays after week four
+     EP-specific eyebrow/heading (WHAT STAYS), intentionally NOT
+     "What changes" like the other pages.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="What stays"
+    heading="What stays after week four"
+  >
     <div class="prose">
-      <p class="lead">[Lead paragraph — copy pending.]</p>
-      <p>[Body paragraph — copy pending. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]</p>
-      <p>[Body paragraph — copy pending. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.]</p>
+      <p>
+        <strong>Strategy becomes weekly execution.</strong> The priorities
+        you already chose stop sitting in a deck. Named owners, committed and
+        aspirational levels. What was decided in the boardroom becomes what
+        happens on Monday.
+      </p>
+      <p>
+        <strong>Execution risk becomes visible before it's too late.</strong>
+        A weekly rhythm tells you whether the quarter is on track while
+        there's still time to act. Not at quarter-end, when there isn't.
+        Problems surface early. Board meetings shift from reporting the past
+        to steering the future.
+      </p>
+      <p>
+        <strong>Faster decisions, fewer bottlenecks.</strong> Decisions made
+        at the right level by the people who own the outcome. Your time shifts
+        from approving to coaching. The organisation moves at the speed of the
+        people closest to the work.
+      </p>
+      <p>
+        <strong>Increased motivation through clarity and ownership.</strong>
+        Intrinsic motivation is high when people understand how their role
+        connects to the company's direction. Named owners for every priority.
+        Development paths visible. The best people stay, and the system keeps
+        running without the advisor, <span class="accent">no dependency</span>
+        on the person who installed it.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — Centerpiece signature question
+     .accent on 'what actually moved' only. Break should fall between
+     'this week' and 'or' via text-wrap: balance.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="The question"
+    question={'Can you name <span class="accent">what actually moved</span> this week or only how busy everyone was?'}
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How it works
+     Four numbered method items.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The method"
+    heading="How it works"
+    lead="The Execution Playbook assumes your strategy is already clear. If it is, four weeks installs the operating system that makes it run. One component a week. Decided by Friday. No turning back."
+  >
+    <ol class="method-list">
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">1.</span>
+        <p class="method-list__content">
+          <strong>The priorities get made real.</strong> The few that truly
+          matter get named owners and a committed-versus-aspirational level,
+          so the team knows which cannot slip and which is upside.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">2.</span>
+        <p class="method-list__content">
+          <strong>The week gets a rhythm and an early read.</strong> A short
+          weekly cadence goes in, installed on the meetings you already run
+          rather than added on top of them, and a weekly read on confidence
+          surfaces execution risk early, while the recovery window is still
+          open.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">3.</span>
+        <p class="method-list__content">
+          <strong>The right tools go in around it.</strong> Collaboration and
+          communication tools matched to each part of the work, so
+          coordination stays smooth and the team's communication is sharp
+          rather than scattered across inboxes and chat threads.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">4.</span>
+        <p class="method-list__content">
+          <strong>The 1:1s change job.</strong> From status updates that
+          rubber-stamp to conversations that move the work and develop the
+          people doing it.
+        </p>
+      </li>
+    </ol>
+
+    <h3 class="subsection-h3">Depth</h3>
+    <ul class="format-list">
+      <li class="format-list__item">Three sessions a week: Monday intro, midweek workshop, Friday wrap. The advisor is available between sessions, so the questions the work surfaces get answered when they come up, not parked until the next slot.</li>
+      <li class="format-list__item">Biweekly retrospectives.</li>
+      <li class="format-list__item"><span class="accent">Half a day a week</span> from the leadership team. No more.</li>
+      <li class="format-list__item">Runs independently by the end of the engagement.</li>
+    </ul>
+
+    <h3 class="subsection-h3">What this work doesn't do</h3>
+    <div class="stone-callout">
+      <p>
+        The Execution Playbook isn't a licensed framework run from a manual;
+        the operating system is built from operating experience, not
+        franchised from someone else's. It isn't a six-month engagement that
+        fades into routine before it sticks. It isn't a tool you switch on;
+        the deliverable is a running rhythm your team performs, not a platform
+        you configure. And it isn't a strategy program. The four weeks install
+        execution on a strategy that's already clear. Building the strategy
+        itself is a different, longer piece of work.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 6 — Pullquote (Argo's voice)
+     .pullquote-zone wrapper for §3.7 in-flow spacing. No accents.
+     ────────────────────────────────────────────────────────────── */}
+  <div class="pullquote-zone">
+    <Pullquote
+      quote={'Across the leadership teams I\'ve worked inside, "why didn\'t the priorities move?" always gets the same answer: the everyday work had to come first. And almost no one stops to look at where the week\'s hours actually went. The teams that get better look back and adjust, week after week. The rest run the same week again, until the quarter is gone.'}
+    />
+  </div>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — This is for you if
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Fit" heading="This is for you if">
+    <div class="prose">
+      <p>
+        You already know the right things. What you don't have is a week where
+        the team does them. The strategy is clear enough to act on; you can
+        name the few that matter. And yet the quarter still ends with
+        priorities that never moved.
+      </p>
+      <p>
+        You've installed a system before and watched it fade. A framework that
+        ran well for a quarter or two, then quietly became optional.
+        Goal-setting that turned into a weekly update nobody quite believed.
+        The method wasn't the problem. It never got installed deep enough to
+        run on its own.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — This isn't for you if
+     Light off-white (same surface as §7). Three paragraphs with inline
+     anchors to the other engagements.
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Not fit" heading="This isn't for you if">
+    <div class="prose">
+      <p>
+        Your strategy is still a list of many priorities nobody validated, and
+        the leadership team tells different stories about where the company is
+        going. Then there's nothing for four weeks to install on, and the
+        right starting point is <a href="/right-things-nailed/">Right Things
+        Nailed</a>, which builds the strategy and installs the rhythm
+        together.
+      </p>
+      <p>
+        What you need is your own judgment strengthened, one to one, rather
+        than a system installed in your team. That's
+        <a href="/coaching-mentoring/">Coaching &amp; Mentoring</a>.
+      </p>
+      <p>
+        You own several companies and want one operating standard across all
+        of them. That's <a href="/owner-sponsor-cohort/">Right Things Nailed
+        Across Holdings</a>.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 9 — Why Argo, for this work
+     Stone background, three columns with steel-blue vertical rules.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="Why Argo"
+    heading="Why Argo, for this work"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          Cuts through complexity to critical drivers. 20/80 mindset. The
+          engagement is built short on purpose: four weeks, not six months,
+          and at the end the team runs the system alone, no recurring
+          engagement, no subscription. Maximum leverage from the team's time,
+          half a day a week, no more. That focus is the answer to the problem
+          above: the everyday work that always feels more urgent than the
+          priorities, and a team that never looks back to see where its hours
+          went.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Eliminates doubts during implementation. The doubt is rarely about
+          the plan; it's about not knowing whether the plan is working until
+          the quarter is already lost. On every install the same thing shows
+          up: a team keeps signalling certainty long after the certainty is
+          gone, because saying a goal is at risk feels like admitting failure.
+          The weekly read is what breaks that: risk becomes legible while the
+          recovery window is still open, and the team steers on evidence
+          instead of hope. Proven track record. Executives come back to say
+          thank you.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Owner's mindset &amp; human-centric</h3>
+        <p>
+          Thinks like an owner, not a consultant. The operating system here
+          came from running companies, not from a licensed framework with
+          someone else's rules to follow. The board seats and the
+          part-ownership across multiple companies mean these are decisions
+          made from the owner's side and lived with afterwards, aggressive
+          when something needed to land before drift set in. The same system
+          has been installed standalone many times over, so the four weeks are
+          not a first attempt at your situation. Highly structured
+          systems-thinking with deep focus on people, because the friction
+          that surfaces around a stalled system is usually neither a strategy
+          nor a people problem, and naming which it is takes operating
+          experience, not a process step.
+        </p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  {/* Section 9.5 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 10 — DarkResolve closer (genuine two-line)
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 11 — Closing CTA
+     No eyebrow — H2 is the framing.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    heading="Bring the quarter that's slipping."
+    lead="A working session, not a sales call. We find where the rhythm is breaking: the goals, the alignment, the pace, or the early read that isn't there. You leave knowing whether four weeks fixes it, or whether the problem is upstream in the strategy and the right move is something longer. Either way you leave with the diagnosis, whether or not you book."
+  >
+    <div class="cta-action">
+      <Button href="/contact/" arrow={true}>Book the call</Button>
     </div>
   </Section>
 </Base>
+
+<style>
+  /* ──────────────────────────────────────────────────────────
+     Sub-hero summary — centered lead.
+     ────────────────────────────────────────────────────────── */
+  .lead--centered {
+    text-align: center;
+    margin-inline: auto;
+    color: var(--color-slate-600);
+  }
+
+  .lead--centered :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: inherit;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Numbered method list (Section 5)
+     ────────────────────────────────────────────────────────── */
+  .method-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0 0;
+  }
+
+  .method-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+
+  .method-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .method-list__num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 0.8vw + 1.4rem, 2rem); /* 28-32px */
+    font-weight: var(--weight-semibold);
+    color: var(--color-copper);
+    line-height: 1;
+  }
+
+  .method-list__content {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+    margin: 0;
+  }
+
+  .method-list__content :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Subsection H3 spacing (48-64px range, brief §2.1)
+     ────────────────────────────────────────────────────────── */
+  .subsection-h3 {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Depth list — copper-bullet markers.
+     ────────────────────────────────────────────────────────── */
+  .format-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .format-list__item {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .format-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .format-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Stone callout for "What this work doesn't do"
+     ────────────────────────────────────────────────────────── */
+  .stone-callout {
+    background: var(--color-bg-raised);
+    padding: var(--space-6) var(--space-8);
+    border-radius: 2px;
+  }
+
+  .stone-callout :global(p) {
+    margin: 0;
+    color: var(--color-slate-600);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Pullquote zone — cancel adjacent section padding-block for §3.7.
+     ────────────────────────────────────────────────────────── */
+  .pullquote-zone {
+    max-width: var(--container-page);
+    margin-inline: auto;
+    margin-top: calc(-1 * var(--section-py));
+    margin-bottom: calc(-1 * var(--section-py));
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 11)
+     ────────────────────────────────────────────────────────── */
+  .cta-action {
+    margin-top: var(--space-8);
+  }
+
+  /* Inline accent semantics inherit from global.css .accent rule */
+</style>
