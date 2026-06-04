@@ -14,17 +14,18 @@ import Button from '../components/Button.astro';
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Practice question (inline custom navy band)
      Compact treatment, not DarkOpener (no component change).
-     48-64px vertical padding, centered alignment, 32-40px desktop /
-     26-30px mobile via --text-h2 clamp. Eyebrow rule only, no text.
-     No reveal animation — this lives above the fold and renders
-     immediately on page load.
+     48-64px vertical padding, LEFT-aligned (harmonised with every
+     other dark band on the site), 32-40px desktop / 26-30px mobile
+     via --text-h2 clamp. Eyebrow rule only, no text. Copper accent
+     on "the right things" — the shared hinge phrase with RTN's
+     centerpiece, so the recognition repeats on click-through.
+     No reveal animation — this lives above the fold.
      ────────────────────────────────────────────────────────────── */}
   <section class="practice-question" aria-label="Practice question">
     <div class="practice-question__inner">
       <span class="eyebrow-rule practice-question__rule" aria-hidden="true"></span>
       <p class="practice-question__statement">
-        Are you working without pause to do things right every day, or doing
-        the right things that really matter?
+        Are you working without pause to do things right every day, or doing <span class="accent">the right things</span> that really matter?
       </p>
     </div>
   </section>
@@ -154,11 +155,12 @@ import Button from '../components/Button.astro';
     width: 100%;
     max-width: var(--container-display); /* 900px */
     margin: 0 auto;
-    text-align: center;
+    /* Left-aligned content (rule and question) — matches every other
+       dark band on the site. The inner container stays centered on
+       the page; only the content inside it left-aligns. */
   }
 
   .practice-question__rule {
-    margin-inline: auto;
     margin-bottom: var(--space-6);
   }
 
@@ -179,7 +181,7 @@ import Button from '../components/Button.astro';
   .home-groups {
     display: flex;
     flex-direction: column;
-    gap: var(--space-16); /* 64px between groups */
+    gap: var(--space-8); /* 32px between groups — tightened from 64px so the next group's verb-heading appears immediately below the previous group's cards (drop-out protection) */
   }
 
   .home-group__header {
@@ -238,8 +240,21 @@ import Button from '../components/Button.astro';
     letter-spacing: var(--tracking-tight);
     font-weight: var(--weight-semibold);
     color: var(--color-slate-900);
-    margin: 0 0 var(--space-4) 0;
+    margin: 0 0 var(--space-3) 0; /* 12px above the rule (was 16) */
     text-wrap: balance;
+  }
+
+  /* Copper rule between recognition question and offering identity.
+     Height-neutral: the height added here (3px rule + 24px gaps) is
+     reclaimed by tightening name→descriptor (8→4) and descriptor→
+     description (16→8). Net card footprint within ~1px of prior. */
+  .home-card__name::before {
+    content: "";
+    display: block;
+    width: 2.75rem;             /* 44px — matches eyebrow-rule primitive */
+    height: var(--rule-thick);  /* 3px */
+    background: var(--color-copper);
+    margin-bottom: var(--space-3); /* 12px below the rule */
   }
 
   .home-card__name {
@@ -248,7 +263,7 @@ import Button from '../components/Button.astro';
     line-height: var(--lh-h3);
     font-weight: var(--weight-bold);
     color: var(--color-slate-900);
-    margin: 0 0 var(--space-2) 0;
+    margin: 0 0 var(--space-1) 0; /* 4px to descriptor (tight — name + descriptor read as one identity unit; was 8px) */
   }
 
   .home-card__descriptor {
@@ -257,7 +272,7 @@ import Button from '../components/Button.astro';
     line-height: var(--lh-body-sm);
     font-style: italic;
     color: var(--color-slate-400);
-    margin: 0 0 var(--space-4) 0;
+    margin: 0 0 var(--space-2) 0; /* 8px to description (was 16) — balances reclaimed height */
   }
 
   .home-card__description {
