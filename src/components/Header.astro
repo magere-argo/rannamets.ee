@@ -87,14 +87,6 @@ function isActive(href: string): boolean {
 
         <li class="site-nav__item">
           <a
-            href="/insights/"
-            class:list={['site-nav__link', isActive('/insights/') && 'site-nav__link--active']}
-            aria-current={isActive('/insights/') ? 'page' : undefined}
-          >Insights</a>
-        </li>
-
-        <li class="site-nav__item">
-          <a
             href="/contact/"
             class:list={['site-nav__link', isActive('/contact/') && 'site-nav__link--active']}
             aria-current={isActive('/contact/') ? 'page' : undefined}
@@ -130,14 +122,6 @@ function isActive(href: string): boolean {
             >{item.label}</a>
           </li>
         ))}
-
-        <li class="site-nav__mobile-item">
-          <a
-            href="/insights/"
-            class:list={['site-nav__mobile-link', isActive('/insights/') && 'site-nav__mobile-link--active']}
-            aria-current={isActive('/insights/') ? 'page' : undefined}
-          >Insights</a>
-        </li>
 
         <li class="site-nav__mobile-item">
           <a

@@ -16,16 +16,17 @@ import Button from '../components/Button.astro';
 >
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Hero (DarkOpener)
-     Five-line diagnostic on navy, edge-to-edge per §3.3.
-     Line 1: opening declarative (weight 600 via :first-child).
-     Lines 3 & 4: weight 500 via class="dp-lead", inline copper accents.
-     Lines 2 & 5: default body weight 400.
+     Compressed from five visual lines to three blocks: primary line
+     at display scale (opener-lead via :first-child, weight 600),
+     followed by two body-scale paragraphs (opener-body, weight 400).
+     The apparatus/outcome conceptual contrast now lives inside one
+     paragraph instead of two separated dp-lead beats. Em dash in
+     paragraph 1 ("theirs — polite challenge") replaced with colon
+     to honour the near-zero-em-dash standard.
      ────────────────────────────────────────────────────────────── */}
   <DarkOpener>
     <p>You don't have an advisory board.</p>
-    <p>You've watched peers build theirs — polite challenge, quarterly ritual, calendar filler within a year.</p>
-    <p class="dp-lead">You don't want the <span class="accent">apparatus</span>.</p>
-    <p class="dp-lead">You want the <span class="accent">outcome</span>.</p>
+    <p>You've watched peers build theirs: polite challenge, quarterly ritual, calendar filler within a year. You don't want the <span class="accent">apparatus</span>. You want the <span class="accent">outcome</span>.</p>
     <p>And nobody is asking the question that would sharpen your next two years.</p>
   </DarkOpener>
 
@@ -76,7 +77,7 @@ import Button from '../components/Button.astro';
      ────────────────────────────────────────────────────────────── */}
   <DarkPicture
     variant="centerpiece"
-    eyebrow="The question Argo asks — every session"
+    eyebrow="The question Argo asks, every session"
     setup="On a scale of 1 to 10:"
     question={'how do you <span class="accent">know</span> your 10 is really a 10?'}
   />
@@ -92,7 +93,7 @@ import Button from '../components/Button.astro';
   <Section
     eyebrow="The method"
     heading="How it works"
-    lead="Most board advisors don't have a method. They have a personal style. The seat runs a four-step method at every session — repeatable, travels across companies and sectors."
+    lead="Most board advisors don't have a method. They have a personal style. The seat runs a four-step method at every session, repeatable, travels across companies and sectors."
   >
     <ol class="method-list">
       <li class="method-list__item">
@@ -128,7 +129,7 @@ import Button from '../components/Button.astro';
 
     <p class="method-outro">
       The output isn't a report or a slide deck. It's a sharper ambition held
-      by your leadership team — the kind of shift where participants come back
+      by your leadership team, the kind of shift where participants come back
       later to say thank you.
     </p>
 
@@ -164,7 +165,7 @@ import Button from '../components/Button.astro';
      ────────────────────────────────────────────────────────────── */}
   <div class="pullquote-zone">
     <Pullquote
-      quote={'Across multiple management boards I\'ve sat on, a widely spread pattern at C-level isn\'t underperformance — it\'s executives accepting a reduced outcome rather than asking how to deliver more without working more hours. The seat\'s job is to make that conversation impossible to avoid.'}
+      quote={'Across multiple management boards I\'ve sat on, a widely spread pattern at C-level isn\'t underperformance. It\'s executives accepting a reduced outcome rather than asking how to deliver more without working more hours. The seat\'s job is to make that conversation impossible to avoid.'}
     />
   </div>
 
@@ -177,8 +178,8 @@ import Button from '../components/Button.astro';
         You're founder-led, family-owned, or family-office-backed, and the
         decisions that matter most don't have anywhere to be properly tested.
         Your board reviews. Your team executes. The strategic work between
-        those two — the work that decides whether you're still relevant in
-        <span class="accent">three</span> years — falls to you alone.
+        those two, the work that decides whether you're still relevant in
+        <span class="accent">three</span> years, falls to you alone.
       </p>
       <p>
         You want a provocateur, not another board director. You're not looking
@@ -196,7 +197,7 @@ import Button from '../components/Button.astro';
     <div class="prose">
       <p>
         Your board's governance is structured so the seat would have to work
-        around it — a VC-appointed operating partner already holding the
+        around it: a VC-appointed operating partner already holding the
         strategic voice, state ownership, or political stakeholders steering
         the agenda. The independence that makes the seat worth anything gets
         crowded out before it can do any work.
@@ -219,7 +220,7 @@ import Button from '../components/Button.astro';
         <p>
           At the board level, the situations that matter are rarely textbook.
           The seat brings adjacent-pattern range across many companies, many
-          sectors, many roles — so when something unusual lands, you get a
+          sectors, many roles, so when something unusual lands, you get a
           voice that has seen versions of it before. Climate tech, clean tech,
           and circular economy sit inside that range, with depth.
         </p>
@@ -263,7 +264,7 @@ import Button from '../components/Button.astro';
      ────────────────────────────────────────────────────────────── */}
   <Section
     heading="Bring one decision you've been carrying alone."
-    lead="A working session, not a sales call. We test the assumptions behind it together. You leave with the question you should have been asked six months ago — whether or not you book the seat."
+    lead="A working session, not a sales call. We test the assumptions behind it together. You leave with the question you should have been asked six months ago, whether or not you book the seat."
   >
     <div class="cta-action">
       <Button href="/contact/" arrow={true}>Book the call</Button>
