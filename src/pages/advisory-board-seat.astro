@@ -14,19 +14,18 @@ import Button from '../components/Button.astro';
   title="Advisory Board Seat"
   description="A named advisory seat. One person. Structured monthly provocation. The advisory function without the apparatus."
 >
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Advisory Board Seat</h1>
+
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Hero (DarkOpener)
-     Compressed from five visual lines to three blocks: primary line
-     at display scale (opener-lead via :first-child, weight 600),
-     followed by two body-scale paragraphs (opener-body, weight 400).
-     The apparatus/outcome conceptual contrast now lives inside one
-     paragraph instead of two separated dp-lead beats. Em dash in
-     paragraph 1 ("theirs — polite challenge") replaced with colon
-     to honour the near-zero-em-dash standard.
+     Compressed to 2 blocks: primary multi-sentence paragraph at
+     display scale (opener-lead via :first-child, weight 600) carrying
+     the diagnostic + apparatus/outcome contrast, followed by one
+     body-scale paragraph (opener-body, weight 400) as the pivot.
      ────────────────────────────────────────────────────────────── */}
   <DarkOpener>
-    <p>You don't have an advisory board.</p>
-    <p>You've watched peers build theirs: polite challenge, quarterly ritual, calendar filler within a year. You don't want the <span class="accent">apparatus</span>. You want the <span class="accent">outcome</span>.</p>
+    <p>You don't have an advisory board. You've watched peers build theirs: polite challenge, quarterly ritual, calendar filler within a year. You don't want the <span class="accent">apparatus</span>. You want the <span class="accent">outcome</span>.</p>
     <p>And nobody is asking the question that would sharpen your next two years.</p>
   </DarkOpener>
 
@@ -38,7 +37,7 @@ import Button from '../components/Button.astro';
      ────────────────────────────────────────────────────────────── */}
   <Section width="lead">
     <p class="lead lead--centered">
-      A named advisory seat. <strong>One person</strong>. Structured monthly
+      A named advisory seat. <span class="accent">One person</span>. Structured monthly
       provocation. The advisory function without the apparatus.
     </p>
   </Section>
@@ -48,8 +47,8 @@ import Button from '../components/Button.astro';
      Three paragraphs with bold lead-ins. Not a list.
      ────────────────────────────────────────────────────────────── */}
   <Section
-    eyebrow="What changes"
-    heading="What changes when the seat is held well"
+    eyebrow="What stays"
+    heading="What the seat sustains"
   >
     <div class="prose">
       <p>
@@ -79,7 +78,7 @@ import Button from '../components/Button.astro';
     variant="centerpiece"
     eyebrow="The question Argo asks, every session"
     setup="On a scale of 1 to 10:"
-    question={'how do you <span class="accent">know</span> your 10 is really a 10?'}
+    question={'How do you <span class="accent">know</span> your 10 is really a 10?'}
   />
 
   {/* ──────────────────────────────────────────────────────────────
@@ -133,7 +132,7 @@ import Button from '../components/Button.astro';
       later to say thank you.
     </p>
 
-    <h3 class="subsection-h3">Cadence</h3>
+    <h3 class="subsection-h3">Format</h3>
     <p class="cadence-headline">
       <span class="accent">~4</span> hours per month · <span class="accent">~48</span> hours per year
     </p>
@@ -172,7 +171,7 @@ import Button from '../components/Button.astro';
   {/* ──────────────────────────────────────────────────────────────
      Section 7 — This is the seat for you if
      ────────────────────────────────────────────────────────────── */}
-  <Section eyebrow="Fit" heading="This is the seat for you if">
+  <Section eyebrow="Fit" heading="This is for you if">
     <div class="prose">
       <p>
         You're founder-led, family-owned, or family-office-backed, and the
@@ -193,7 +192,7 @@ import Button from '../components/Button.astro';
      Section 8 — This isn't the seat for you if
      Off-white per locked decision (NOT stone).
      ────────────────────────────────────────────────────────────── */}
-  <Section eyebrow="Not fit" heading="This isn't the seat for you if">
+  <Section eyebrow="Not fit" heading="This isn't for you if">
     <div class="prose">
       <p>
         Your board's governance is structured so the seat would have to work
@@ -228,11 +227,12 @@ import Button from '../components/Button.astro';
       <div class="three-col__item">
         <h3>Full confidence during change</h3>
         <p>
-          Most board voices run <span class="accent">one</span> mode: financial
-          or political. The seat brings both lenses in one person, which is
-          what makes culture-as-a-system credible to a CFO and a chair at the
-          same table. Doubts get eliminated because the reasoning is rigorous
-          on both sides.
+          When a hard call lands on the table, most board voices argue from
+          <span class="accent">one</span> side, the numbers or the politics.
+          The seat brings both lenses in one person, which is what makes
+          culture-as-a-system credible to a CFO and a chair at the same
+          table. Doubts get eliminated because the reasoning is rigorous on
+          both sides.
         </p>
       </div>
       <div class="three-col__item">
@@ -273,6 +273,19 @@ import Button from '../components/Button.astro';
 </Base>
 
 <style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* ──────────────────────────────────────────────────────────
      Sub-hero summary (Section 2)
      Lead is centered on its own row, narrowed slightly so the

@@ -13,6 +13,9 @@ import Button from '../components/Button.astro';
   title="Coaching & Mentoring"
   description="A fixed-length 1:1 engagement for CEOs and senior executives. Hybrid coach-mentor mode: questions first, experience when it adds value, never prescribes."
 >
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Coaching &amp; Mentoring</h1>
+
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Hero (DarkOpener)
      Two paragraphs. First (lead) renders at opener-lead via :first-child
@@ -46,7 +49,7 @@ import Button from '../components/Button.astro';
   <Section width="lead">
     <p class="lead lead--centered">
       A fixed-length 1:1 engagement for CEOs and senior executives. Hybrid
-      coach-mentor mode: <strong>questions first</strong>, experience when it
+      coach-mentor mode: <span class="accent">questions first</span>, experience when it
       adds value, never prescribes. Provocative questions until insight
       emerges. The leader arrives at their own clarity.
     </p>
@@ -56,8 +59,8 @@ import Button from '../components/Button.astro';
      Section 3 — What changes across the engagement
      ────────────────────────────────────────────────────────────── */}
   <Section
-    eyebrow="What changes"
-    heading="What changes across the engagement"
+    eyebrow="What stays"
+    heading="What stays after the engagement"
   >
     <div class="prose">
       <p>
@@ -214,13 +217,15 @@ import Button from '../components/Button.astro';
      Light off-white (same surface as Section 7); differentiation lives
      in eyebrow + H2 wording. Inline links to the other offering pages.
      ────────────────────────────────────────────────────────────── */}
-  <Section eyebrow="Not fit" heading="This isn't the right engagement if">
+  <Section eyebrow="Not fit" heading="This isn't for you if">
     <div class="prose">
       <p>
         What your company needs is a strategy or an operating system
         installed rather than your individual judgment strengthened: those
         are the longer programs (<a href="/right-things-nailed/">Right Things
         Nailed</a>, <a href="/execution-playbook/">Execution Playbook</a>).
+      </p>
+      <p>
         It's also not the right fit if you want pure coaching with no advice
         ever; credentialed coaches who refuse experience-sharing entirely
         will serve you better for that specific need.
@@ -306,6 +311,19 @@ import Button from '../components/Button.astro';
 </Base>
 
 <style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* ──────────────────────────────────────────────────────────
      Sub-hero summary (Section 2) — centered lead with weight-only
      emphasis on the inline <strong>, no color shift.

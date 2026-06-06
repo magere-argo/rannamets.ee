@@ -14,6 +14,9 @@ import Button from '../components/Button.astro';
   title="Right Things Nailed"
   description="14-week strategic and execution program for founder-led and family-business CEOs. Strategic clarity, a one-page plan, and execution rhythm installed in one quarter."
 >
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Right Things Nailed</h1>
+
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Hero (DarkOpener)
      No eyebrow. Two paragraphs. First (lead) renders at opener-lead
@@ -45,11 +48,10 @@ import Button from '../components/Button.astro';
   <Section width="lead">
     <p class="lead lead--centered">
       Most companies don't have a strategy. They have a
-      <strong>to-do list</strong>. Right Things Nailed installs the real
-      version: strategic clarity over the first ten weeks, a one-page
-      strategic plan at week ten, execution rhythm installed in the four that
-      follow. The advisor leaves with the system running.
-      <span class="accent">~1 quarter</span>, not 6–12 months.
+      <span class="accent">to-do list</span>. Right Things Nailed installs the real
+      version: ten weeks to get strategic clarity and the organisation ready to
+      execute, execution rhythm installed in the four that follow. The advisor
+      leaves with the system running. ~1 quarter, not 6–12 months.
     </p>
   </Section>
 
@@ -57,8 +59,8 @@ import Button from '../components/Button.astro';
      Section 3 — What changes when the program lands
      ────────────────────────────────────────────────────────────── */}
   <Section
-    eyebrow="What changes"
-    heading="What changes when the program lands"
+    eyebrow="What stays"
+    heading="What stays after the program"
   >
     <div class="prose">
       <p>
@@ -82,10 +84,10 @@ import Button from '../components/Button.astro';
         control. Your time shifts from approving to coaching.
       </p>
       <p>
-        <strong>The best people stay because the work has meaning and the
-        system runs.</strong> Named owners for every priority. Development
-        paths visible. Intrinsic motivation rises when people can see how
-        their role connects to where the company is going.
+        <strong>Increased motivation through clarity and ownership.</strong>
+        Named owners for every priority. Development paths visible. Intrinsic
+        motivation rises when people can see how their role connects to where
+        the company is going.
       </p>
     </div>
   </Section>
@@ -190,7 +192,7 @@ import Button from '../components/Button.astro';
   {/* ──────────────────────────────────────────────────────────────
      Section 7 — This is the program for you if
      ────────────────────────────────────────────────────────────── */}
-  <Section eyebrow="Fit" heading="This is the program for you if">
+  <Section eyebrow="Fit" heading="This is for you if">
     <div class="prose">
       <p>
         You're a founder, a family-business CEO, or the corporate CEO running
@@ -211,15 +213,20 @@ import Button from '../components/Button.astro';
      Light off-white (same surface as §7); differentiation via eyebrow
      + H2. Three inline anchors to the other engagements.
      ────────────────────────────────────────────────────────────── */}
-  <Section eyebrow="Not fit" heading="This isn't the program for you if">
+  <Section eyebrow="Not fit" heading="This isn't for you if">
     <div class="prose">
       <p>
         What you actually need is your own judgment strengthened in 1:1 mode.
         That's <a href="/coaching-mentoring/">Coaching &amp; Mentoring</a>.
+      </p>
+      <p>
         Your strategy is already crisp and what's failing is execution rhythm
         only. That's the <a href="/execution-playbook/">Execution Playbook</a>
-        standalone. You own multiple companies and want one operating
-        standard across the portfolio. That's
+        standalone.
+      </p>
+      <p>
+        You own multiple companies and want one operating standard across the
+        portfolio. That's
         <a href="/right-things-nailed-across-holdings/">Right Things Nailed Across Holdings</a>.
       </p>
     </div>
@@ -255,8 +262,8 @@ import Button from '../components/Button.astro';
           <span class="accent">forty</span> leadership teams: the goal that
           suddenly feels too ambitious, the senior person who says quietly
           that this isn't going to work, the week where nothing visible has
-          moved yet. Having sat in the same room many times before is what
-          makes the steadiness through them credible. Proven track record.
+          moved yet. Someone who has steered those weeks before holds them,
+          so you stay certain in front of the team. Proven track record.
           Executives come back to say thank you.
         </p>
       </div>
@@ -303,6 +310,19 @@ import Button from '../components/Button.astro';
 </Base>
 
 <style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* ──────────────────────────────────────────────────────────
      Sub-hero summary — centered lead, weight-only emphasis on
      <strong> with color preserved at slate-600.

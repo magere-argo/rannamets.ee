@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /demo/
 
 Sitemap: https://rannamets.ee/sitemap-index.xml

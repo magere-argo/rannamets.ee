@@ -14,6 +14,9 @@ import Button from '../components/Button.astro';
   title="Execution Playbook"
   description="A 4-week program that installs execution rhythm for CEOs whose strategy is already clear. The cadence, the early read, named owners. Then the advisor leaves and the team runs it alone."
 >
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Execution Playbook</h1>
+
   {/* ──────────────────────────────────────────────────────────────
      Section 1 — Hero (DarkOpener)
      No eyebrow. Two paragraphs. First (lead) at opener-lead via
@@ -258,15 +261,13 @@ import Button from '../components/Button.astro';
       <div class="three-col__item">
         <h3>Full confidence during change</h3>
         <p>
-          Eliminates doubts during implementation. The doubt is rarely about
-          the plan; it's about not knowing whether the plan is working until
-          the quarter is already lost. On every install the same thing shows
-          up: a team keeps signalling certainty long after the certainty is
-          gone, because saying a goal is at risk feels like admitting failure.
-          The weekly read is what breaks that: risk becomes legible while the
-          recovery window is still open, and the team steers on evidence
-          instead of hope. Proven track record. Executives come back to say
-          thank you.
+          Eliminates doubts during implementation. Your team reads you, the
+          moment you look unsure, the room follows. So the install is built
+          to keep you certain in front of them: someone who has run this many
+          times steers the weeks that test a team, the ones where nothing
+          visible has moved yet, so the doubt never reaches you to pass on.
+          You lead, the room stays with you. Proven track record. Executives
+          come back to say thank you.
         </p>
       </div>
       <div class="three-col__item">
@@ -278,12 +279,12 @@ import Button from '../components/Button.astro';
           part-ownership across multiple companies mean these are decisions
           made from the owner's side and lived with afterwards, aggressive
           when something needed to land before drift set in. The same system
-          has been installed standalone many times over, so the four weeks are
-          not a first attempt at your situation. Highly structured
-          systems-thinking with deep focus on people, because the friction
-          that surfaces around a stalled system is usually neither a strategy
-          nor a people problem, and naming which it is takes operating
-          experience, not a process step.
+          has been installed standalone many times over. It's built to hold
+          after the install ends, not to keep the advisor in the room. Highly
+          structured systems-thinking with deep focus on people, because the
+          friction that surfaces around a stalled system is usually neither a
+          strategy nor a people problem, and naming which it is takes
+          operating experience, not a process step.
         </p>
       </div>
     </ThreeColumn>
@@ -315,6 +316,19 @@ import Button from '../components/Button.astro';
 </Base>
 
 <style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* ──────────────────────────────────────────────────────────
      Sub-hero summary — centered lead.
      ────────────────────────────────────────────────────────── */
