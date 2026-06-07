@@ -12,13 +12,13 @@ interface Props {
 
 const {
   title,
-  description = 'Strategy Execution Leader as a Service. Operator, not observer. Installer, not trainer.',
+  description = 'An advisory practice that helps you focus on the right things with full confidence.',
   ogImage = '/og-default.png',
   noindex = false,
 } = Astro.props;
 
 const siteName = 'Argo Rannamets';
-const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const fullTitle = title.startsWith(siteName) ? title : `${title} — ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://rannamets.ee').toString();
 const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toString();
 ---
@@ -35,9 +35,11 @@ const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toStri
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex" />}
 
-    <!-- Favicon (placeholder — copper bar on navy, to be replaced) -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
+    <!-- Favicon / brand marks -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1A2744" />
 
     <!-- Open Graph -->
