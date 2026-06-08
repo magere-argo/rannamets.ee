@@ -54,6 +54,11 @@ import Button from '../components/Button.astro';
         <Button type="submit">Send</Button>
       </div>
     </form>
+
+    <p class="contact-form__notice">
+      Form submissions are handled by Formspree. See our
+      <a href="/privacy/">Privacy Policy</a> for details.
+    </p>
   </Section>
 </Base>
 
@@ -139,5 +144,13 @@ import Button from '../components/Button.astro';
 
   .contact-form__actions {
     margin-top: var(--space-2);
+  }
+
+  /* Subordinate notice beneath the form — meta scale, muted. */
+  .contact-form__notice {
+    max-width: var(--container-prose);
+    margin-top: var(--space-4);
+    font-size: var(--text-meta);
+    color: var(--color-slate-400);
   }
 </style>
