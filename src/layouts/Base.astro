@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  lang?: string;
 }
 
 const {
@@ -15,16 +16,30 @@ const {
   description = 'An advisory practice that helps you focus on the right things with full confidence.',
   ogImage = '/og-default.png',
   noindex = false,
+  lang = 'en',
 } = Astro.props;
 
 const siteName = 'Argo Rannamets';
 const fullTitle = title.startsWith(siteName) ? title : `${title} — ${siteName}`;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://rannamets.ee').toString();
-const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toString();
+const site = Astro.site ?? 'https://rannamets.ee';
+const canonicalURL = new URL(Astro.url.pathname, site).toString();
+const ogImageURL = new URL(ogImage, site).toString();
+const ogLocale = lang === 'et' ? 'et_EE' : 'en_GB';
+
+/* Reciprocal hreflang pairs for the two bilingual routes. Keyed by
+   pathname so the alternates emit on all four pages without threading
+   props into the (frozen) English page files. */
+const localeAlternates: Record<string, { en: string; et: string }> = {
+  '/': { en: '/', et: '/et/' },
+  '/et/': { en: '/', et: '/et/' },
+  '/contact/': { en: '/contact/', et: '/et/contact/' },
+  '/et/contact/': { en: '/contact/', et: '/et/contact/' },
+};
+const altPair = localeAlternates[Astro.url.pathname];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,6 +48,13 @@ const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toStri
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {altPair && (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL(altPair.en, site).toString()} />
+        <link rel="alternate" hreflang="et" href={new URL(altPair.et, site).toString()} />
+        <link rel="alternate" hreflang="x-default" href={new URL(altPair.en, site).toString()} />
+      </>
+    )}
     {noindex && <meta name="robots" content="noindex" />}
 
     <!-- Favicon / brand marks -->
@@ -49,7 +71,7 @@ const ogImageURL = new URL(ogImage, Astro.site ?? 'https://rannamets.ee').toStri
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

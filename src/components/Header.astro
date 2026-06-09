@@ -18,6 +18,22 @@ const isEngagementActive = engagementPaths.includes(currentPath);
 function isActive(href: string): boolean {
   return currentPath === href;
 }
+
+// Language switcher: shown only on the two bilingual routes (Homepage,
+// Contact) and their /et/ counterparts. Current language is non-link.
+const localePairs: Record<string, { en: string; et: string }> = {
+  '/': { en: '/', et: '/et/' },
+  '/et/': { en: '/', et: '/et/' },
+  '/contact/': { en: '/contact/', et: '/et/contact/' },
+  '/et/contact/': { en: '/contact/', et: '/et/contact/' },
+};
+const localePair = localePairs[currentPath];
+const isEstonian = currentPath.startsWith('/et/');
+
+// Contact is the one nav target with an Estonian counterpart, so its
+// href localises on /et/ pages to keep the Estonian journey coherent.
+// The rest of the nav stays English (no Estonian versions exist).
+const contactHref = isEstonian ? '/et/contact/' : '/contact/';
 ---
 
 <header class="site-header">
@@ -87,11 +103,23 @@ function isActive(href: string): boolean {
 
         <li class="site-nav__item">
           <a
-            href="/contact/"
-            class:list={['site-nav__link', isActive('/contact/') && 'site-nav__link--active']}
-            aria-current={isActive('/contact/') ? 'page' : undefined}
+            href={contactHref}
+            class:list={['site-nav__link', isActive(contactHref) && 'site-nav__link--active']}
+            aria-current={isActive(contactHref) ? 'page' : undefined}
           >Contact</a>
         </li>
+
+        {localePair && (
+          <li class="site-nav__item site-nav__locale" aria-label="Language">
+            {isEstonian
+              ? <span class="site-nav__locale-link site-nav__locale-link--active" aria-current="true">ET</span>
+              : <a class="site-nav__locale-link" href={localePair.et}>ET</a>}
+            <span class="site-nav__locale-sep" aria-hidden="true">/</span>
+            {isEstonian
+              ? <a class="site-nav__locale-link" href={localePair.en}>EN</a>
+              : <span class="site-nav__locale-link site-nav__locale-link--active" aria-current="true">EN</span>}
+          </li>
+        )}
       </ul>
 
       <!-- Mobile nav: flat list, all 5 offerings under "Engagements" subheading -->
@@ -125,11 +153,23 @@ function isActive(href: string): boolean {
 
         <li class="site-nav__mobile-item">
           <a
-            href="/contact/"
-            class:list={['site-nav__mobile-link', isActive('/contact/') && 'site-nav__mobile-link--active']}
-            aria-current={isActive('/contact/') ? 'page' : undefined}
+            href={contactHref}
+            class:list={['site-nav__mobile-link', isActive(contactHref) && 'site-nav__mobile-link--active']}
+            aria-current={isActive(contactHref) ? 'page' : undefined}
           >Contact</a>
         </li>
+
+        {localePair && (
+          <li class="site-nav__mobile-item site-nav__mobile-locale" aria-label="Language">
+            {isEstonian
+              ? <span class="site-nav__mobile-locale-link site-nav__mobile-locale-link--active" aria-current="true">ET</span>
+              : <a class="site-nav__mobile-locale-link" href={localePair.et}>ET</a>}
+            <span class="site-nav__mobile-locale-sep" aria-hidden="true">/</span>
+            {isEstonian
+              ? <a class="site-nav__mobile-locale-link" href={localePair.en}>EN</a>
+              : <span class="site-nav__mobile-locale-link site-nav__mobile-locale-link--active" aria-current="true">EN</span>}
+          </li>
+        )}
       </ul>
     </nav>
   </div>
@@ -312,6 +352,32 @@ function isActive(href: string): boolean {
 
   .site-nav__link:hover { color: var(--color-navy); }
 
+  /* ---------- Language switcher (subordinate utility) ---------- */
+  .site-nav__locale {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-heading);
+    font-size: var(--text-eyebrow);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .site-nav__locale-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--dur) var(--ease);
+  }
+
+  a.site-nav__locale-link:hover { color: var(--color-navy); }
+
+  .site-nav__locale-link--active { color: var(--color-navy); }
+
+  .site-nav__locale-sep { color: var(--color-border); }
+
   .site-nav__link:focus-visible {
     outline: 2px solid var(--color-copper);
     outline-offset: 4px;
@@ -449,5 +515,27 @@ function isActive(href: string): boolean {
       padding: var(--space-8) 0 var(--space-2);
       list-style: none;
     }
+
+    /* Language switcher in the mobile overlay (subordinate) */
+    .site-nav__mobile-locale {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-6) 0 0;
+      font-family: var(--font-heading);
+      font-size: var(--text-eyebrow);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .site-nav__mobile-locale-link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    .site-nav__mobile-locale-link--active { color: var(--color-copper); }
+
+    .site-nav__mobile-locale-sep { color: var(--color-border); }
   }
 </style>
