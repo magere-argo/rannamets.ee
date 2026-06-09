@@ -1,0 +1,104 @@
+---
+/*
+ * ThreeColumn — three-claim layout. Brief §3.5.
+ *
+ * Used for: "Why Argo, for this offering specifically" sections.
+ * Per the one-pager pattern.
+ *
+ * Each column carries a left vertical 2px steel-blue rule that extends
+ * the full content height. On mobile, the rule moves to the LEFT border
+ * of each stacked column.
+ *
+ * Slot contract: three child elements with class="three-col__item",
+ * each containing <h3>title</h3>, body content, and optional
+ * <p class="three-col__summary">closing line</p>.
+ *
+ * Note: this component renders ONLY the three-column grid. The
+ * enclosing eyebrow + H2 belong to the parent <Section>.
+ */
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className = '' } = Astro.props;
+---
+
+<div
+  id={id}
+  class:list={['three-col', className]}
+  data-three-col
+>
+  <slot />
+</div>
+
+<style>
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-8); /* 32 px between columns — within 32-48 range */
+    max-width: var(--container-section);
+    margin: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .three-col {
+      gap: var(--space-12); /* 48 px on wider viewports */
+    }
+  }
+
+  .three-col :global(.three-col__item) {
+    position: relative;
+    padding: 0 0 0 var(--space-6); /* 24 px from rule to content */
+    border-left: 2px solid var(--color-steel);
+  }
+
+  @media (min-width: 1024px) {
+    .three-col :global(.three-col__item) {
+      padding-left: var(--space-8); /* 32 px on wider viewports */
+    }
+  }
+
+  .three-col :global(.three-col__item h3) {
+    font-size: var(--text-h3);   /* 20-26 px */
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+    margin: 0 0 var(--space-3) 0; /* 12 px to body — tight */
+  }
+
+  .three-col :global(.three-col__item p) {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .three-col :global(.three-col__item p:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Optional summary closing line in italic */
+  .three-col :global(.three-col__item .three-col__summary) {
+    font-style: italic;
+    color: var(--color-slate-600);
+    margin-top: var(--space-3);
+  }
+
+  .three-col :global(.three-col__item .accent) {
+    color: var(--color-copper);
+  }
+
+  /* ----- Mobile: stack vertically; rule moves to left border ------- */
+  @media (max-width: 768px) {
+    .three-col {
+      grid-template-columns: 1fr;
+      gap: var(--space-8); /* 32 px between stacked columns */
+    }
+
+    .three-col :global(.three-col__item) {
+      padding-left: var(--space-4); /* tighter on mobile */
+    }
+  }
+</style>

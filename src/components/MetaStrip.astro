@@ -1,0 +1,127 @@
+---
+/*
+ * MetaStrip — tabular reference data. Brief §3.6.
+ *
+ * Used for: parallel-structure tabular data with 2-5 columns
+ * (e.g., CADENCE / FORMAT / PRICE / EQUITY). Sits inside a light
+ * section, not its own band.
+ *
+ * NOT used on the Advisory Board Seat page — the Cadence content
+ * isn't parallel-tabular enough. Built per Step 8 and validated on
+ * /demo (Step 14); deploys on other offering pages later.
+ *
+ * Two API options:
+ *
+ *  1. items prop: array of { label, value } — simplest case
+ *  2. slot:       arbitrary markup with class="meta-strip__item"
+ *                 children. Lets callers compose with inline accents.
+ */
+
+interface Item {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  items?: Item[];
+  ruleVariant?: 'short' | 'full';  /* short = 44px copper bar; full = 1px line across container */
+  id?: string;
+}
+
+const { items, ruleVariant = 'short', id } = Astro.props;
+
+const hasSlot = Astro.slots.has('default');
+---
+
+<div
+  id={id}
+  class:list={['meta-strip', `meta-strip--rule-${ruleVariant}`]}
+>
+  <hr class="meta-strip__rule" aria-hidden="true" />
+
+  <dl class="meta-strip__row">
+    {hasSlot ? (
+      <slot />
+    ) : (
+      items?.map((item) => (
+        <div class="meta-strip__item">
+          <dt class="meta-strip__label">{item.label}</dt>
+          <dd class="meta-strip__value">{item.value}</dd>
+        </div>
+      ))
+    )}
+  </dl>
+</div>
+
+<style>
+  .meta-strip {
+    width: 100%;
+    max-width: var(--container-section);
+    margin: 0;
+    padding-block: var(--space-8); /* 32 px — within 32-48 range */
+  }
+
+  /* Top divider variants */
+  .meta-strip__rule {
+    height: var(--rule-thick);
+    background: var(--color-copper);
+    border: 0;
+    margin: 0 0 var(--space-8) 0;
+  }
+
+  .meta-strip--rule-short .meta-strip__rule {
+    width: 2.75rem; /* 44 px — matches eyebrow-rule */
+  }
+
+  .meta-strip--rule-full .meta-strip__rule {
+    width: 100%;
+    height: 1px;
+  }
+
+  .meta-strip__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--space-6) var(--space-8); /* 24 px row / 32 px column */
+    margin: 0;
+  }
+
+  .meta-strip__item,
+  .meta-strip :global(.meta-strip__item) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2); /* 8 px between label and value */
+  }
+
+  .meta-strip__label,
+  .meta-strip :global(.meta-strip__label) {
+    font-family: var(--font-heading);
+    font-size: var(--text-eyebrow);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-copper);
+    margin: 0;
+  }
+
+  .meta-strip__value,
+  .meta-strip :global(.meta-strip__value) {
+    font-family: var(--font-body);
+    font-size: var(--text-body);  /* 17-19 px */
+    font-weight: var(--weight-medium);
+    color: var(--color-slate-900);
+    margin: 0;
+    line-height: var(--lh-body-sm);
+  }
+
+  .meta-strip :global(.accent) {
+    color: var(--color-copper);
+  }
+
+  /* Mobile: stack as label-value pairs at 16 px row gap */
+  @media (max-width: 640px) {
+    .meta-strip__row {
+      grid-template-columns: 1fr;
+      gap: var(--space-4); /* 16 px row gap */
+    }
+  }
+</style>

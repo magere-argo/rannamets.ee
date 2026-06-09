@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+---
+
+<Base
+  title="Privacy Policy"
+  description="What data this site collects, where it goes, and how to request its deletion. A short, honest disclosure."
+>
+  <Section eyebrow="Privacy Policy">
+    <h1 slot="heading">What this site collects, and where it goes</h1>
+
+    <div class="prose">
+      <p>
+        This is a small advisory practice website. The technical footprint is
+        deliberately minimal: there's no advertising network, no user tracking,
+        no behavioural analytics, no cookies set for marketing purposes. This
+        page exists to make the small data flows that do happen visible and to
+        explain what you can do about them.
+      </p>
+
+      <h2>What's collected when</h2>
+
+      <p>
+        <strong>When you submit the contact form:</strong> Your name, email
+        address, and message are sent to Formspree (a form-handling service
+        operated by Formspree Inc., based in the United States), which delivers
+        the submission as an email to Argo. Formspree may set a short-lived
+        session cookie in your browser during the submission process. The
+        submitted message is retained by Formspree according to their data
+        retention policy and forwarded as email; no copy is stored on this
+        website's servers.
+      </p>
+
+      <p>
+        <strong>When you visit any page:</strong> Cloudflare Web Analytics
+        records anonymised visit data (page URL, referrer, country-level
+        geography derived from IP address, browser and device type) for the
+        purpose of helping us understand which pages get read and where visitors
+        come from. Cloudflare Web Analytics does not set tracking cookies, does
+        not record individual visitor identity, and does not combine your visits
+        across sessions into a profile. IP addresses are processed for the
+        analytics computation but are not stored alongside the analytics data.
+      </p>
+
+      <p>
+        <strong>When you click an external link</strong> (for example, to a
+        sales deck on Google Drive or to LinkedIn): you leave this site and
+        become subject to the privacy policy of whatever service the link points
+        to. We do not track outbound clicks.
+      </p>
+
+      <p>
+        That's the whole list. No other data is collected, set, stored, or
+        transmitted by this site.
+      </p>
+
+      <h2>What we don't do</h2>
+
+      <ul>
+        <li>We don't use Google Analytics, Facebook Pixel, LinkedIn Insight Tag, or any other behavioural tracking service.</li>
+        <li>We don't sell, share, or rent data to third parties.</li>
+        <li>We don't display advertising.</li>
+        <li>We don't profile visitors or build audience segments.</li>
+        <li>We don't use cookies to remember preferences or track sessions across visits, beyond Formspree's short-lived form-submission cookie noted above.</li>
+      </ul>
+
+      <h2>Your rights</h2>
+
+      <p>
+        Under the EU General Data Protection Regulation (GDPR) and Estonian
+        privacy law (Isikuandmete kaitse seadus), you have the right to:
+      </p>
+
+      <ul>
+        <li>Request a copy of any personal data this site or its service providers (Formspree, Cloudflare) hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Withdraw consent for data processing</li>
+        <li>Lodge a complaint with the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon) if you believe your data has been processed in violation of GDPR</li>
+      </ul>
+
+      <p>
+        To exercise any of these rights, write to
+        <a href="mailto:argo@rannamets.ee">argo@rannamets.ee</a>. Requests
+        typically take a few business days; we'll route the request to Formspree
+        or Cloudflare as needed and confirm completion in writing.
+      </p>
+
+      <h2>Contact</h2>
+
+      <p>
+        This site is operated by Magere OÜ, a private Estonian company. The data
+        controller for the purposes of GDPR is Argo Rannamets, principal of
+        Magere OÜ.
+      </p>
+
+      <ul>
+        <li>Email: <a href="mailto:argo@rannamets.ee">argo@rannamets.ee</a></li>
+        <li>Phone: <a href="tel:+3725110241">+372 511 0241</a></li>
+      </ul>
+
+      <p>
+        For questions about this policy or about your data, contact us at the
+        email above.
+      </p>
+
+      <h2>When this policy was last updated</h2>
+
+      <p>
+        This policy was published on June 9, 2026. Material changes to the
+        policy will be reflected by updating this date.
+      </p>
+    </div>
+  </Section>
+</Base>

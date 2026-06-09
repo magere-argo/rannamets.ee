@@ -1,0 +1,169 @@
+@import '@fontsource-variable/inter';
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+/* ----------------------------------------------------------------
+ * Headings — sizes and weights per brief §2.2.
+ * Color defaults to navy/slate-900 (interchangeable on light).
+ * Headings on dark backgrounds get --color-on-dark via component CSS.
+ * ---------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-slate-900);
+  margin: 0 0 var(--space-4) 0;
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+}
+
+h1 { font-size: var(--text-h1);      line-height: var(--lh-h1); }
+h2 { font-size: var(--text-h2);      line-height: var(--lh-h2); }
+h3 { font-size: var(--text-h3);      line-height: var(--lh-h3); }
+h4 { font-size: var(--text-lead);    line-height: var(--lh-h3); }
+h5 { font-size: var(--text-body);    line-height: var(--lh-body); font-weight: var(--weight-semibold); }
+h6 {
+  font-size: var(--text-eyebrow);
+  line-height: var(--lh-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
+}
+
+/* ----------------------------------------------------------------
+ * Body text — intra-section rhythm (TIGHT) per brief §2.1
+ * 12-16px paragraph rhythm (var(--space-3) to --space-4)
+ * ---------------------------------------------------------------- */
+p { margin: 0 0 var(--space-4) 0; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--color-steel);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--color-copper); }
+
+strong, b { font-weight: var(--weight-semibold); color: var(--color-slate-900); }
+em, i { font-style: italic; }
+
+ul, ol { margin: 0 0 var(--space-4) 0; padding-left: var(--space-6); }
+li { margin-bottom: var(--space-2); line-height: var(--lh-body); }
+
+hr {
+  border: 0;
+  height: var(--hairline);
+  background: var(--color-rule);
+  margin: var(--space-12) 0;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+::selection {
+  background: var(--color-copper);
+  color: var(--color-white);
+}
+
+/* ----------------------------------------------------------------
+ * Inline copper emphasis — brief §2.4
+ * The punctuation color, applied to one word at a time and to
+ * every number in copy. Max 1-3 per section. Color only — no weight
+ * change, no underline.
+ * ---------------------------------------------------------------- */
+.accent {
+  color: var(--color-copper);
+}
+
+/* ----------------------------------------------------------------
+ * Layout primitives
+ * ---------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-page);
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.container--section { max-width: var(--container-section); }
+.container--display { max-width: var(--container-display); }
+.container--lead    { max-width: var(--container-lead); }
+.container--prose   { max-width: var(--container-prose); }
+.container--quote   { max-width: var(--container-quote); }
+
+.prose { max-width: var(--container-prose); }
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-slate-600);
+  font-weight: var(--weight-regular);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-eyebrow);
+  line-height: var(--lh-eyebrow);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-copper);
+}
+
+.eyebrow-rule {
+  display: block;
+  width: 2.75rem;        /* ~44 px — within brief's 40-60px range */
+  height: var(--rule-thick);
+  background: var(--color-copper);
+  border: 0;
+  margin: 0 0 var(--space-2) 0; /* 8px to eyebrow text (intra-section tight) */
+}
+
+/* ----------------------------------------------------------------
+ * Skip link / a11y
+ * ---------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-navy);
+  color: var(--color-white);
+  z-index: 100;
+  text-decoration: none;
+}
+
+/* ----------------------------------------------------------------
+ * Reduced motion — brief §5.3
+ * Disable section/statement reveals; keep interaction-triggered
+ * hover transitions because they aren't movement-perceived.
+ * Sections marked .js-reveal stay at full opacity instead of fading.
+ * ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal,
+  .js-reveal-statement,
+  .js-reveal-accent {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

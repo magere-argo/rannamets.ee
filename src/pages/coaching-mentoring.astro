@@ -1,0 +1,466 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import Pullquote from '../components/Pullquote.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Coaching & Mentoring"
+  description="A fixed-length 1:1 engagement for CEOs and senior executives. Hybrid coach-mentor mode. Provocative questions until the leader arrives at their own clarity."
+>
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Coaching &amp; Mentoring</h1>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener)
+     Two paragraphs. First (lead) renders at opener-lead via :first-child
+     (26-36px, weight 600). Second (body) renders at opener-body
+     (20-28px, weight 400). No eyebrow.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkOpener>
+    <p>
+      Friday evening. Your spouse asks how the week was. You give them the
+      version that's appropriate for spouses: the funny moments, the team
+      wins, the small frustrations. You don't tell them about the
+      <span class="accent">actual hardest moment</span> because they can't fix
+      it and you don't want them to carry it. You don't tell your management
+      team because it's about them. You don't tell your board because they'll
+      worry. You don't tell your peers because peers close enough to hold
+      this are rare.
+    </p>
+    <p>
+      The actual hardest moment of your week sits with you
+      <span class="accent">alone</span>, again. Your normal Friday for the
+      next ten years, unless something specific changes.
+    </p>
+  </DarkOpener>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Sub-hero resolution
+     Light, no eyebrow (continuation). Centered lead, max-width 720px.
+     "questions first" via <strong> with color preserved at slate-600 so
+     the emphasis is weight-only — same treatment as ABS "One person".
+     ────────────────────────────────────────────────────────────── */}
+  <Section width="lead">
+    <p class="lead lead--centered">
+      A fixed-length 1:1 engagement for CEOs and senior executives. Hybrid
+      coach-mentor mode: <span class="accent">questions first</span>, experience when it
+      adds value, never prescribes. Provocative questions until insight
+      emerges. The leader arrives at their own clarity.
+    </p>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — What changes across the engagement
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="What stays"
+    heading="What stays after the engagement"
+  >
+    <div class="prose">
+      <p>
+        <strong>The decisions you've been carrying for months land faster,
+        with less regret.</strong> Patient questioning across sessions makes
+        legible the pattern you've been running on autopilot. Once a pattern
+        is legible, it changes. The judgment stays yours; what changes is the
+        reflective capacity behind it.
+      </p>
+      <p>
+        <strong>What your actual job is now becomes clearer.</strong> New
+        scope, new scale, new market: identity-level work on the role you've
+        stepped into but haven't yet inhabited. By session
+        <span class="accent">three</span> you can name what the role actually
+        requires. By session <span class="accent">six</span> you have a
+        roadmap.
+      </p>
+      <p>
+        <strong>The conversations no one else can hold get held.</strong> The
+        firing of someone who built this with you. The downturn you're
+        carrying alone for the team's sake. The question you can't ask your
+        board because it's about them. Held with someone who has had the same
+        conversations from inside the role.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — Centerpiece signature question
+     variant="centerpiece" opts into motion rule #2 (500ms statement fade).
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="The question"
+    question="Where do you take the questions you can't take to anyone?"
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How it works
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The method"
+    heading="How it works"
+    lead="The mode runs on four disciplines, repeatable across many leaders and many sectors."
+  >
+    <ol class="method-list">
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">1.</span>
+        <p class="method-list__content">
+          <strong>Questions first.</strong> The default is asking, not
+          telling. You do the work; the engagement creates the conditions for
+          clarity to emerge.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">2.</span>
+        <p class="method-list__content">
+          <strong>Experience as data, never as advice.</strong> When you're
+          stuck on a pattern someone with a hundred companies of context has
+          seen many times, experience gets shared. The conclusion remains
+          yours. "Here's what I've seen work in similar situations" is data.
+          "You should do X" is prescription, and prescription gets refused.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">3.</span>
+        <p class="method-list__content">
+          <strong>Patient repetition.</strong> Some questions land slowly.
+          Returning to the same question across three or four sessions is
+          feature, not failure. Breakthroughs that only happen after repeated
+          reflection are exactly what this engagement is designed to produce.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">4.</span>
+        <p class="method-list__content">
+          <strong>Comfortable with temporary tension.</strong> Pushing beyond
+          the comfort zone produces short-term friction. The discipline is
+          holding that steadily, not retreating to comfortable conversation.
+        </p>
+      </li>
+    </ol>
+
+    <p class="method-outro">
+      The output isn't a slide deck or a recommendation. It's the leader's
+      strengthened judgment, the kind of shift where participants come back
+      later to say <span class="accent">thank you</span>.
+    </p>
+
+    <h3 class="subsection-h3">Format</h3>
+    <ul class="format-list">
+      <li class="format-list__item">1:1 sessions, <span class="accent">90 minutes</span> each, in person in Tallinn or video</li>
+      <li class="format-list__item"><span class="accent">Six</span> sessions standard; <span class="accent">twelve</span> for the hardest cases</li>
+      <li class="format-list__item">Biweekly to monthly cadence over three to six months</li>
+      <li class="format-list__item">Agenda set by you; questions brought by Argo</li>
+    </ul>
+
+    <h3 class="subsection-h3">What this work doesn't do</h3>
+    <div class="stone-callout">
+      <p>
+        The coaching doesn't tell you what to do, write the decision memo, or
+        run the hard conversation for you. You do the work. The mode is
+        questions first, experience when it adds value, never prescribes. The
+        moment it turns into "here's what I would do," you stop arriving at
+        your own clarity, which is the entire point.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 6 — Pullquote (Argo's voice)
+     .pullquote-zone wrapper cancels adjacent section padding for the
+     §3.7 in-flow spacing (64-96px gap on each side).
+     ────────────────────────────────────────────────────────────── */}
+  <div class="pullquote-zone">
+    <Pullquote>
+      <p>
+        I have pushed people beyond their perceived horizon about
+        <span class="accent">ten times</span> across the practice. Each time
+        creates temporary conflict in the room. Every single one of those
+        people has come back later to say <span class="accent">thank you</span>.
+        The discipline of this work is holding the tension steadily rather
+        than retreating to comfortable conversation. The breakthrough is on
+        the other side of it.
+      </p>
+    </Pullquote>
+  </div>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — This is for you if
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Fit" heading="This is for you if">
+    <div class="prose">
+      <p>
+        You're carrying the hardest questions of your week alone, and the
+        people you'd normally turn to are part of the situation, not outside
+        it. Your management team is in it. Your board sees slides. Your peers
+        are running their own companies and rarely close enough to hold what
+        sits with you on the way home. The category is
+        <span class="accent">CEO, founder, MB member, or senior executive</span>.
+      </p>
+      <p>
+        You want a thought partner, not another voice telling you what they'd
+        do. You may have tried coaching that turned into nice conversations
+        that didn't change anything, or mentoring that was a senior person
+        describing what they would have done. The hybrid mode is built for
+        buyers who have tried both and want neither alone.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — This isn't the right engagement if
+     Light off-white (same surface as Section 7); differentiation lives
+     in eyebrow + H2 wording. Inline links to the other offering pages.
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Not fit" heading="This isn't for you if">
+    <div class="prose">
+      <p>
+        What your company needs is a strategy or an operating system
+        installed rather than your individual judgment strengthened: those
+        are the longer programs (<a href="/right-things-nailed/">Right Things
+        Nailed</a>, <a href="/execution-playbook/">Execution Playbook</a>).
+      </p>
+      <p>
+        It's also not the right fit if you want pure coaching with no advice
+        ever; credentialed coaches who refuse experience-sharing entirely
+        will serve you better for that specific need.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 9 — Why Argo, for this work
+     Stone background, three columns with steel-blue vertical rules.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="Why Argo"
+    heading="Why Argo, for this work"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          20/80 applied to your own reflection: the one or two questions that
+          change a pattern, not the ten that polish it. The pattern-recognition
+          behind the questions comes from <span class="accent">100+</span>
+          companies across <span class="accent">8</span> countries:
+          listed-company boards, climate-tech start-ups, and ongoing work with
+          founders. The conversation moves to what's structural fast, rather
+          than mapping context the operator has already seen.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Identity-level work, new scope, the role you don't yet inhabit, the
+          decision you've been postponing: each needs someone who holds
+          steady through change. The combination of
+          <span class="accent">25</span> years operating and
+          <span class="accent">15</span> years applied psychology (NLP,
+          Radical Collaboration) is what makes the steadiness credible.
+          Doubts eliminated where doubt is the actual obstacle.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Owner's mindset &amp; human-centric</h3>
+        <p>
+          The person Fontes calls for the hardest assignments. The Estonian
+          senior-leader mentoring panel routes mentees by complexity, and the
+          C-suite work routes here: the conversations no one else can hold,
+          the board members weighing decisions where discretion is structural,
+          the leaders carrying assignments that need operator-grade context
+          alongside coaching craft. Thinks like an owner rather than a
+          consultant, which is what makes discretion at this level structural
+          rather than contractual.
+        </p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  {/* Section 9.5 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 10 — DarkPicture closer (fallback per locked decision)
+     Default variant, no centerpiece motion. Statement wrapped in
+     .accent so it renders copper. Centered, eyebrow rule only.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    align="center"
+    question={'<span class="accent">Operator, not observer.</span>'}
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 11 — Closing CTA
+     No eyebrow — H2 is the framing.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    heading="Bring the conversation you can't take to your board."
+    lead="A working session, not a sales call. We work the conversation through together. By the end of ninety minutes you'll know whether this engagement is the right fit, and if it is, what scope it needs to take."
+  >
+    <div class="cta-action">
+      <Button href="/contact/" arrow={true}>Book the call</Button>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Sub-hero summary (Section 2) — centered lead with weight-only
+     emphasis on the inline <strong>, no color shift.
+     ────────────────────────────────────────────────────────── */
+  .lead--centered {
+    text-align: center;
+    margin-inline: auto;
+    color: var(--color-slate-600);
+  }
+
+  .lead--centered :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: inherit;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Numbered method list (Section 5)
+     ────────────────────────────────────────────────────────── */
+  .method-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0 0;
+  }
+
+  .method-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+
+  .method-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .method-list__num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 0.8vw + 1.4rem, 2rem); /* 28-32px */
+    font-weight: var(--weight-semibold);
+    color: var(--color-copper);
+    line-height: 1;
+  }
+
+  .method-list__content {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+    margin: 0;
+  }
+
+  .method-list__content :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  .method-outro {
+    margin-top: var(--space-8);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Subsection H3 spacing (48-64px range, brief §2.1)
+     ────────────────────────────────────────────────────────── */
+  .subsection-h3 {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Format list — copper-bullet markers, body text, tight gap.
+     Same treatment as ABS Cadence list.
+     ────────────────────────────────────────────────────────── */
+  .format-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .format-list__item {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .format-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .format-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Stone callout for "What this work doesn't do"
+     ────────────────────────────────────────────────────────── */
+  .stone-callout {
+    background: var(--color-bg-raised);
+    padding: var(--space-6) var(--space-8);
+    border-radius: 2px;
+  }
+
+  .stone-callout :global(p) {
+    margin: 0;
+    color: var(--color-slate-600);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Pullquote zone — cancel adjacent section padding-block so the
+     Pullquote sits at its own 64-96px margin (brief §3.7).
+     ────────────────────────────────────────────────────────── */
+  .pullquote-zone {
+    max-width: var(--container-page);
+    margin-inline: auto;
+    margin-top: calc(-1 * var(--section-py));
+    margin-bottom: calc(-1 * var(--section-py));
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 11)
+     ────────────────────────────────────────────────────────── */
+  .cta-action {
+    margin-top: var(--space-8);
+  }
+
+  /* Inline accent semantics inherit from global.css .accent rule */
+</style>

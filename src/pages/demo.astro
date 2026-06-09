@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import MetaStrip from '../components/MetaStrip.astro';
+import Pullquote from '../components/Pullquote.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+---
+
+<Base
+  title="Design system demo"
+  description="Internal preview of the rannamets.ee design system v2. Placeholder content only — no positioning copy."
+  noindex={true}
+>
+  <!--
+    DARKPICTURE — centerpiece variant, the signature hero moment.
+    Uses the one real provocation question allowed in /demo per
+    brief §7 and the operational rule against invented copy.
+  -->
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="[Centerpiece eyebrow]"
+    question='How many of your strategic priorities will survive contact with next quarter&#39;s <span class="accent">emergencies</span>?'
+  />
+
+  <!--
+    DARKOPENER — multi-sentence diagnostic on navy.
+    Edge-to-edge fill per §3.3, sentences as discrete beats.
+  -->
+  <DarkOpener eyebrow="[Opener eyebrow]">
+    <p>[Opener line one — declarative, weight 600.]</p>
+    <p>[Opener line two — body weight, longer beat with placeholder copy filling out a realistic sentence length.]</p>
+    <p>[Opener line three — selective <span class="accent">accent</span> on a key word.]</p>
+    <p>[Opener line four — short pivot.]</p>
+  </DarkOpener>
+
+  <!-- SECTION (light) showing the anatomy: eyebrow rule → eyebrow text → H2 → lead → body -->
+  <Section
+    eyebrow="[Section eyebrow]"
+    heading="[Section heading — H2]"
+    lead="[Lead paragraph — sits between heading and body, 22-24px on desktop, slate 600.]"
+  >
+    <div class="prose">
+      <p>[Body paragraph — copy pending. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Inline links such as <a href="#">this example</a> stay restrained; inline copper <span class="accent">accent</span> emphasis lands on a single word per the brief §2.4 rule.]</p>
+      <p>[Body paragraph — copy pending. Numbers in copy always receive copper emphasis: <span class="accent">100+</span> companies, <span class="accent">8</span> countries, <span class="accent">3</span> CFO roles. <strong>Strong text</strong> carries semantic emphasis; <em>italics</em> mark terminology.]</p>
+    </div>
+  </Section>
+
+  <!-- METASTRIP — tabular reference data with copper rule + caps labels -->
+  <Section
+    variant="stone"
+    eyebrow="[Strip eyebrow]"
+    heading="[MetaStrip — parallel reference data]"
+  >
+    <MetaStrip
+      ruleVariant="short"
+      items={[
+        { label: 'Cadence', value: 'Monthly' },
+        { label: 'Format', value: 'Working sessions' },
+        { label: 'Term', value: 'Annual' },
+        { label: 'Equity', value: 'None' },
+      ]}
+    />
+  </Section>
+
+  <!-- TYPOGRAPHY SPECIMEN — neutral pangram only, no positioning copy -->
+  <Section eyebrow="[Type eyebrow]" heading="[Type scale specimen]">
+    <h1>H1 — The quick brown fox jumps over the lazy dog</h1>
+    <h2>H2 — The quick brown fox jumps over the lazy dog</h2>
+    <h3>H3 — The quick brown fox jumps over the lazy dog</h3>
+    <h4>H4 — The quick brown fox jumps over the lazy dog</h4>
+    <p class="lead">[Lead — The quick brown fox jumps over the lazy dog. Sets the tone before body copy.]</p>
+    <p>[Body — The quick brown fox jumps over the lazy dog. Body copy lives at 17-19px depending on viewport, line-height 1.65, color slate 600.]</p>
+  </Section>
+
+  <!-- BUTTONS — primary and secondary -->
+  <Section eyebrow="[Button eyebrow]" heading="[Buttons — primary and secondary]">
+    <p>[Primary buttons land copper; secondary buttons land transparent with a steel-blue border. 1 primary minimum, 2 maximum per page.]</p>
+    <div class="demo-buttons">
+      <Button href="#" arrow={true}>[Primary CTA]</Button>
+      <Button href="#" variant="secondary">[Secondary CTA]</Button>
+    </div>
+  </Section>
+
+  <!-- CARDS — stone and white surfaces -->
+  <Section eyebrow="[Card eyebrow]" heading="[Cards — typographic offering tiles]">
+    <div class="demo-cards">
+      <Card href="#" surface="stone" title="[Card title]" eyebrow="[Eyebrow]">
+        [Card body — placeholder copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.]
+      </Card>
+      <Card href="#" surface="stone" title="[Card title]" eyebrow="[Eyebrow]">
+        [Card body — placeholder copy. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.]
+      </Card>
+      <Card href="#" surface="white" title="[Card title]" eyebrow="[Eyebrow]">
+        [Card body — white surface variant with a slate-200 border for separation. Duis aute irure dolor in reprehenderit.]
+      </Card>
+    </div>
+  </Section>
+
+  <!-- THREECOLUMN — Why Argo pattern with steel-blue vertical rules -->
+  <Section
+    variant="stone"
+    eyebrow="[ThreeColumn eyebrow]"
+    heading="[ThreeColumn — three-claim layout]"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>[Column 1 title]</h3>
+        <p>[Column 1 body — copy pending. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="accent">Accent</span> on one key word.]</p>
+      </div>
+      <div class="three-col__item">
+        <h3>[Column 2 title]</h3>
+        <p>[Column 2 body — copy pending. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]</p>
+      </div>
+      <div class="three-col__item">
+        <h3>[Column 3 title]</h3>
+        <p>[Column 3 body — copy pending. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.]</p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  <!-- PULLQUOTE — Argo's voice moment placeholder -->
+  <Section eyebrow="[Pullquote eyebrow]" heading="[Pullquote — voice moment]">
+    <Pullquote
+      quote="[Pullquote text — copy pending. Italic, slate 600, lead-scale. Lives inside the section flow, not a section break.]"
+    />
+  </Section>
+
+  <!-- EVIDENCEBAND placeholder — renders nothing, marks the slot -->
+  <Section eyebrow="[Evidence eyebrow]" heading="[EvidenceBand placeholder — invisible at launch]">
+    <p>[Below this line the EvidenceBand placeholder is rendered. At launch it takes zero vertical space; the reservation marker is visible in DOM via <code>data-evidence-placeholder</code>.]</p>
+    <EvidenceBand placeholder={true} />
+  </Section>
+
+  <!-- DARKRESOLVE — two-line closing band: white provocation → copper resolution -->
+  <DarkResolve
+    line1="[Resolve line one — placeholder]"
+    line2="[Resolve line two — placeholder]"
+  />
+
+  <!-- DARKPICTURE — default variant for comparison vs the centerpiece reveal -->
+  <DarkPicture
+    eyebrow="[Default variant eyebrow]"
+    question="[Single-statement provocation — placeholder copy.]"
+  />
+</Base>
+
+<style>
+  .demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .demo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  :global(code) {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95em;
+    background: var(--color-bg-raised);
+    padding: 0.05em 0.35em;
+    border-radius: 2px;
+  }
+</style>

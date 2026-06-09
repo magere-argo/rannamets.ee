@@ -1,0 +1,171 @@
+---
+/*
+ * DarkPicture — single-statement provocation. Brief §3.2.
+ *
+ * Used for: page heroes (homepage), centerpiece signature questions.
+ * Type at display scale (64-80 desktop / 40-48 mobile), max-width 900px,
+ * left-aligned within the centered container per the centered-display
+ * dark-band fill rule (§2.5).
+ *
+ * Variants:
+ *  - default      → standard hero or mid-page provocation
+ *  - centerpiece  → opts into motion rule #2 (statement reveal,
+ *                   with .accent words delayed 150ms relative to the
+ *                   rest of the statement). One per page maximum.
+ */
+
+type Variant = 'default' | 'centerpiece';
+type Align = 'left' | 'center';
+
+interface Props {
+  question?: string;     /* statement copy as a string */
+  eyebrow?: string;      /* optional copper caps above the statement */
+  setup?: string;        /* optional italic mist setup line (e.g. "On a scale of 1 to 10:") */
+  variant?: Variant;
+  align?: Align;
+  id?: string;
+}
+
+const {
+  question,
+  eyebrow,
+  setup,
+  variant = 'default',
+  align = 'left',
+  id,
+} = Astro.props;
+
+const hasSlot = Astro.slots.has('default');
+---
+
+<section
+  id={id}
+  class:list={[
+    'dp',
+    `dp--align-${align}`,
+    variant === 'centerpiece' && 'dp--centerpiece',
+    variant === 'centerpiece' ? 'js-reveal-statement' : 'js-reveal',
+  ]}
+  aria-label="Provocation"
+>
+  <div class="dp__inner">
+    <header class="dp__eyebrow">
+      <span class="eyebrow-rule" aria-hidden="true"></span>
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    </header>
+
+    {setup && <p class="dp__setup">{setup}</p>}
+
+    {hasSlot ? (
+      <div class="dp__statement"><slot /></div>
+    ) : question ? (
+      <p class="dp__statement" set:html={question} />
+    ) : null}
+  </div>
+</section>
+
+<style>
+  .dp {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+    padding-block: var(--section-py-picture); /* 64 → 96 px symmetric */
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .dp__inner {
+    width: 100%;
+    max-width: var(--container-display); /* 900 px — centered display per §2.5 */
+    margin: 0 auto;
+  }
+
+  .dp--align-center .dp__inner { text-align: center; }
+
+  /* Eyebrow pair — tight intra-section rhythm */
+  .dp__eyebrow {
+    display: block;
+    margin-bottom: var(--space-6); /* 24 px to setup/statement */
+  }
+
+  .dp__eyebrow .eyebrow-rule {
+    margin-bottom: var(--space-2);
+  }
+
+  .dp__eyebrow .eyebrow {
+    color: var(--color-copper);
+  }
+
+  .dp--align-center .dp__eyebrow .eyebrow-rule {
+    margin-inline: auto;
+  }
+
+  /* Optional italic setup line (mist, weight 400) */
+  .dp__setup {
+    font-family: var(--font-heading);
+    font-size: var(--text-lead);
+    line-height: var(--lh-lead);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    color: var(--color-on-dark-muted);
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  /* Display statement — 64-80 px desktop, 40-48 px mobile */
+  .dp__statement {
+    font-family: var(--font-heading);
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    color: var(--color-on-dark);
+    margin: 0;
+    max-width: 100%;
+    text-wrap: balance;
+  }
+
+  /* When slot is used, paragraphs inside get statement-scale styling */
+  .dp__statement :global(p) {
+    font-family: var(--font-heading);
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    color: var(--color-on-dark);
+    margin: 0 0 var(--space-4) 0;
+    text-wrap: balance;
+  }
+
+  .dp__statement :global(p:last-child) { margin-bottom: 0; }
+
+  .dp__statement :global(.accent) { color: var(--color-copper); }
+
+  .dp--align-center .dp__statement {
+    margin-inline: auto;
+  }
+
+  /* ----- Centerpiece reveal (motion rule #2, §5.1) ------------------ */
+  .js-reveal-statement .dp__statement {
+    opacity: 0;
+    transition: opacity var(--dur-statement) var(--ease-out);
+  }
+
+  .js-reveal-statement.is-revealed .dp__statement {
+    opacity: 1;
+  }
+
+  .js-reveal-statement .dp__statement :global(.accent) {
+    opacity: 0;
+    transition: opacity var(--dur-statement) var(--ease-out) var(--dur-accent);
+  }
+
+  .js-reveal-statement.is-revealed .dp__statement :global(.accent) {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal-statement .dp__statement,
+    .js-reveal-statement .dp__statement :global(.accent) {
+      opacity: 1 !important;
+      transition: none !important;
+    }
+  }
+</style>

@@ -1,0 +1,318 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import DarkResolve from '../../components/DarkResolve.astro';
+import Card from '../../components/Card.astro';
+import EvidenceBand from '../../components/EvidenceBand.astro';
+import Button from '../../components/Button.astro';
+---
+
+<Base
+  lang="et"
+  title="Argo Rannamets — Strategy Execution Leader as a Service"
+  description="Nõustamisteenused, mis aitavad sul keskenduda õigetele asjadele. Ja seda täie kindlustundega. Viis koostöövormi, üks tegevusloogika."
+>
+  {/* Non-visible H1 for SEO/accessibility. Brand title stays English. */}
+  <h1 class="visually-hidden">Argo Rannamets — Strategy Execution Leader as a Service</h1>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Practice question (inline custom navy band)
+     Compact treatment, not DarkOpener (no component change).
+     48-64px vertical padding, LEFT-aligned (harmonised with every
+     other dark band on the site), 32-40px desktop / 26-30px mobile
+     via --text-h2 clamp. Eyebrow rule only, no text. Copper accent
+     on "õigeid asju" — the shared hinge phrase with RTN's
+     centerpiece, so the recognition repeats on click-through.
+     No reveal animation — this lives above the fold.
+     ────────────────────────────────────────────────────────────── */}
+  <section class="practice-question" aria-label="Practice question">
+    <div class="practice-question__inner">
+      <span class="eyebrow-rule practice-question__rule" aria-hidden="true"></span>
+      <p class="practice-question__statement">
+        Kas kulutad kogu energia, et teha asju õigesti või teed <span class="accent">õigeid asju</span>, mis on tegelikult olulised?
+      </p>
+    </div>
+  </section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Five engagements
+     The routing core. id="engagements" provides the in-page anchor
+     target for the CTA in Section 5. Three groups, each with its own
+     verb-heading rendered as an inline eyebrow pair.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    id="engagements"
+    eyebrow="Viis koostöövormi"
+    heading="Viis koostöövormi, üks tegevusloogika."
+  >
+    <div class="home-groups">
+      {/* Group 1 — Install a system (3-card grid) */}
+      <div class="home-group">
+        <header class="home-group__header">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span class="eyebrow">Juuruta süsteem</span>
+        </header>
+        <div class="home-group__cards home-group__cards--triple">
+          <Card title="" href="/right-things-nailed/" surface="stone">
+            <p class="home-card__question">Kui iga tehing taandub hinnale, miks peaksid kliendid valima sinu, mitte sinu konkurendi?</p>
+            <h3 class="home-card__name">Right Things Nailed (Õiged asjad tehtud)</h3>
+            <p class="home-card__descriptor">14 nädalat · üks ettevõte</p>
+            <p class="home-card__description">Kümme nädalat, et strateegia selgeks saada ja organisatsioon juurutamiseks ettevalmistada. Neli nädalat juurutamiseks vajaliku rütmi kujundamiseks. Siis nõustaja lahkub ja süsteem jätkab iseseisvalt.</p>
+          </Card>
+          <Card title="" href="/execution-playbook/" surface="stone">
+            <p class="home-card__question">Kas oskad öelda, mis sel nädalal reaalselt edasi liikus või ainult seda, kui hõivatud kõik olid?</p>
+            <h3 class="home-card__name">Execution Playbook</h3>
+            <p class="home-card__descriptor">4 nädalat · strateegia on juba selge</p>
+            <p class="home-card__description">Neli nädalat õige rütmi ja õigeaegsete teavitusviiside sättimiseks. Samuti vastutajate määratlemiseks. Siis nõustaja lahkub ja süsteem jätkab iseseisvalt.</p>
+          </Card>
+          <Card title="" href="/right-things-nailed-across-holdings/" surface="stone">
+            <p class="home-card__question">Kas soovid õiged asjad korraga paika saada kõigis oma valdusettevõtetes või oodata tulemusi, mida ei pruugi kunagi tulla?</p>
+            <h3 class="home-card__name">Right Things Nailed Across Holdings (Õiged asjad tehtud kogu portfellis)</h3>
+            <p class="home-card__descriptor">14 nädalat · alusta ühest</p>
+            <p class="home-card__description">Alusta ühest ettevõttest. Kui see töötab, rakendatakse sama süsteemi ka ülejäänud portfellis. Iga ettevõtte juhtkond ehitab selle esimese ettevõtte poolt tõestatud versiooni põhjal.</p>
+          </Card>
+        </div>
+      </div>
+
+      {/* Group 2 — Find the clarity (single card at standard width) */}
+      <div class="home-group">
+        <header class="home-group__header">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span class="eyebrow">Leia selgus</span>
+        </header>
+        <div class="home-group__cards home-group__cards--single">
+          <Card title="" href="/coaching-mentoring/" surface="stone">
+            <p class="home-card__question">Kes sind aitab nädala kõige raskemate teemade osas? Nendega seoses, mida tavaliselt vaid iseendaga kannad?</p>
+            <h3 class="home-card__name">Coaching &amp; Mentoring</h3>
+            <p class="home-card__descriptor">kindla kestvusega 1:1 · tegevjuhid ja tippjuhid</p>
+            <p class="home-card__description">Coachingu ja mentorluse segu. Esmalt küsimused. Kogemuse jagamine siis, kui see lisab väärtust. Juht loob ise omale selguse. Kohustusi ei teki.</p>
+          </Card>
+        </div>
+      </div>
+
+      {/* Group 3 — Hold the standard (single card at standard width) */}
+      <div class="home-group">
+        <header class="home-group__header">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span class="eyebrow">Hoia taset</span>
+        </header>
+        <div class="home-group__cards home-group__cards--single">
+          <Card title="" href="/advisory-board-seat/" surface="stone">
+            <p class="home-card__question">Skaalal 1–10: kuidas sa tead, et sinu 10 on tõesti 10?</p>
+            <h3 class="home-card__name">Advisory Board Seat (Nõukoja liikme roll)</h3>
+            <p class="home-card__descriptor">~4 tundi kuus · asutaja juhitud / family-office</p>
+            <p class="home-card__description">Nõuandev funktsioon ilma liigse aparaadita. Üks inimene. Struktureeritud igakuine väljakutse, mis testib ambitsiooni sinu plaani taga.</p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  {/* Section 3 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — Practice signature (DarkResolve). Brand signature
+     stays English.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — CTA (light, routing)
+     Framing line at lead-paragraph scale (no H2). Two buttons:
+     primary smooth-scrolls to #engagements in-page; secondary
+     routes to /et/contact/.
+     ────────────────────────────────────────────────────────────── */}
+  <Section>
+    <p class="home-cta__lead">
+      Vali, kust alustada või kirjuta mulle ja leiame koos õige alguspunkti.
+    </p>
+    <div class="home-cta__actions">
+      <Button href="#engagements" arrow={true}>Vaata koostöövõimalusi</Button>
+      <Button href="/et/contact/" variant="secondary" arrow={true}>Alusta vestlust</Button>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Smooth scroll for the in-page anchor on this page (page-scoped:
+     the CSS bundle only loads on the homepage, so other pages aren't
+     affected). */
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     Section 1 — Compact navy band
+     ────────────────────────────────────────────────────────────── */
+  .practice-question {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+    padding-block: clamp(3rem, 4vw + 1rem, 4rem); /* 48-64px */
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .practice-question__inner {
+    width: 100%;
+    max-width: var(--container-display); /* 900px */
+    margin: 0 auto;
+    /* Left-aligned content (rule and question) — matches every other
+       dark band on the site. The inner container stays centered on
+       the page; only the content inside it left-aligns. */
+  }
+
+  .practice-question__rule {
+    margin-bottom: var(--space-6);
+  }
+
+  .practice-question__statement {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);          /* 26-40px clamp → matches brief 32-40 desktop / 26-30 mobile */
+    line-height: var(--lh-h2);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    color: var(--color-on-dark);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     Section 2 — Engagement groups
+     ────────────────────────────────────────────────────────────── */
+  .home-groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8); /* 32px between groups — tightened from 64px so the next group's verb-heading appears immediately below the previous group's cards (drop-out protection) */
+  }
+
+  .home-group__header {
+    display: block;
+    margin-bottom: var(--space-6); /* 24px from verb-heading to cards */
+  }
+
+  .home-group__header .eyebrow-rule {
+    margin-bottom: var(--space-2);
+  }
+
+  .home-group__cards {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .home-group__cards--triple {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Single-card groups (Find / Hold) sit in the same 3-column grid
+     so the card lands at standard width (left column), not stretched. */
+  .home-group__cards--single {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-group__cards--single > :global(*) {
+    grid-column: 1 / 2;
+  }
+
+  @media (max-width: 768px) {
+    .home-group__cards--triple,
+    .home-group__cards--single {
+      grid-template-columns: 1fr;
+    }
+    .home-group__cards--single > :global(*) {
+      grid-column: 1;
+    }
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     Card content overrides
+     The brief uses the Card slot exclusively; the Card's title prop
+     is passed empty and the title element hidden so the slot
+     controls visual order (question → name → descriptor → description
+     → CTA). Page-scoped CSS — only loads on the homepage.
+     ────────────────────────────────────────────────────────────── */
+  :global(.card__title) {
+    display: none;
+  }
+
+  .home-card__question {
+    font-family: var(--font-heading);
+    font-size: clamp(1.375rem, 0.7vw + 1.15rem, 1.75rem); /* 22-28px — one step above name (h3 20-26) */
+    line-height: var(--lh-h3);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+    margin: 0 0 var(--space-3) 0; /* 12px above the rule (was 16) */
+    text-wrap: balance;
+  }
+
+  /* Copper rule between recognition question and offering identity.
+     Height-neutral: the height added here (3px rule + 24px gaps) is
+     reclaimed by tightening name→descriptor (8→4) and descriptor→
+     description (16→8). Net card footprint within ~1px of prior. */
+  .home-card__name::before {
+    content: "";
+    display: block;
+    width: 2.75rem;             /* 44px — matches eyebrow-rule primitive */
+    height: var(--rule-thick);  /* 3px */
+    background: var(--color-copper);
+    margin-bottom: var(--space-3); /* 12px below the rule */
+  }
+
+  .home-card__name {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3); /* 20-26px — H3-scale per brief */
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-bold);
+    color: var(--color-slate-900);
+    margin: 0 0 var(--space-1) 0; /* 4px to descriptor (tight — name + descriptor read as one identity unit; was 8px) */
+  }
+
+  .home-card__descriptor {
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    line-height: var(--lh-body-sm);
+    font-style: italic;
+    color: var(--color-slate-400);
+    margin: 0 0 var(--space-2) 0; /* 8px to description (was 16) — balances reclaimed height */
+  }
+
+  .home-card__description {
+    /* inherits Card body styling: --text-body, --lh-body, slate-600 */
+    margin: 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     Section 5 — CTA framing + actions
+     ────────────────────────────────────────────────────────────── */
+  .home-cta__lead {
+    font-size: var(--text-lead);  /* 19-24px, matches lead-paragraph scale on other pages */
+    line-height: var(--lh-lead);
+    font-weight: var(--weight-regular);
+    color: var(--color-slate-900); /* slightly more emphatic than slate-600 since this is the framing */
+    max-width: var(--container-lead);
+    margin: 0;
+  }
+
+  .home-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+</style>

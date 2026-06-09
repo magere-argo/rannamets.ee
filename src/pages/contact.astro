@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Contact"
+  description="A working session, not a sales call. Tell me the situation you're carrying, and we'll find whether one of the engagements fits or something else does."
+>
+  {/* Non-visible H1 for SEO/accessibility — consistent with the
+      other pages where the visible top of page is carried by the
+      eyebrow + lead rather than a heading. */}
+  <h1 class="visually-hidden">Contact</h1>
+
+  <Section eyebrow="Start the conversation">
+    <div class="prose">
+      <p class="lead">
+        A working session, not a sales call. Tell me the situation you're
+        carrying, and we'll find whether one of the engagements fits, whether
+        something else does, or whether the conversation itself is what was
+        needed.
+      </p>
+
+      <p class="contact-direct">
+        Or write directly: <a href="mailto:argo@rannamets.ee" class="contact-link">argo@rannamets.ee</a>
+      </p>
+      <p class="contact-direct">
+        Or call: <a href="tel:+3725110241" class="contact-link">+372 511 0241</a>
+      </p>
+    </div>
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xeqydzvl"
+      method="POST"
+    >
+      <div class="contact-form__field">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" required autocomplete="name" />
+      </div>
+
+      <div class="contact-form__field">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required autocomplete="email" />
+      </div>
+
+      <div class="contact-form__field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <div class="contact-form__actions">
+        <Button type="submit">Send</Button>
+      </div>
+    </form>
+
+    <p class="contact-form__notice">
+      Form submissions are handled by Formspree. See our
+      <a href="/privacy/">Privacy Policy</a> for details.
+    </p>
+  </Section>
+</Base>
+
+<style>
+  /* Visually-hidden utility — WCAG pattern. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Direct-contact lines (email + phone) stacked tightly after the lead. */
+  .contact-direct {
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-direct:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Copper inline links for direct-contact addresses.
+     Overrides the global anchor color (steel blue) — the contact
+     channels read as the punctuation lines they are. */
+  .contact-link {
+    color: var(--color-copper);
+  }
+  .contact-link:hover {
+    color: var(--color-copper-800);
+  }
+
+  .contact-form {
+    max-width: var(--container-prose);
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .contact-form label {
+    font-family: var(--font-heading);
+    font-size: var(--text-eyebrow);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-slate-600);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--lh-lead);
+    color: var(--color-slate-900);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    padding: var(--space-3) var(--space-4);
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-steel);
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .contact-form__actions {
+    margin-top: var(--space-2);
+  }
+
+  /* Subordinate notice beneath the form — meta scale, muted. */
+  .contact-form__notice {
+    max-width: var(--container-prose);
+    margin-top: var(--space-4);
+    font-size: var(--text-meta);
+    color: var(--color-slate-400);
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span class="site-footer__copy">© {year} Magere OÜ</span>
+    <nav class="site-footer__links" aria-label="Footer">
+      <a
+        class="site-footer__link"
+        href="https://www.linkedin.com/in/argorannamets"
+        target="_blank"
+        rel="noopener noreferrer"
+      >LinkedIn</a>
+      <a class="site-footer__link" href="mailto:argo@rannamets.ee">argo@rannamets.ee</a>
+      <a class="site-footer__link" href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-bg);
+    border-top: var(--hairline) solid var(--color-border);
+    padding-block: var(--space-6);
+    margin-top: var(--space-16);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .site-footer__copy {
+    font-family: var(--font-heading);
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-button);
+    color: var(--color-slate-400);
+  }
+
+  .site-footer__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  /* Footer links (LinkedIn, email, Privacy) — uniform subordinate
+     treatment. Meta scale, copper on hover, no permanent underline. */
+  .site-footer__link {
+    font-family: var(--font-heading);
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-button);
+    color: var(--color-slate-400);
+    text-decoration: none;
+  }
+  .site-footer__link:hover {
+    color: var(--color-copper);
+  }
+</style>

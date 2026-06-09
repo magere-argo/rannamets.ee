@@ -1,0 +1,111 @@
+---
+/*
+ * DarkOpener — multi-sentence diagnostic. Brief §3.3.
+ *
+ * Used for: offering page heroes where the opener is multi-sentence
+ * (currently Advisory Board Seat). Fills the dark band edge-to-edge
+ * per §2.5 default fill rule (1120px content, NOT 720px).
+ *
+ * Slot contract: each child <p> is one beat. The first <p> renders at
+ * lead scale (26-36px, weight 600); subsequent <p>s render at body
+ * scale (20-28px, weight 400-500). To override and treat a paragraph
+ * as a "lead" tone, add class="dp-lead". Inline copper emphasis via
+ * <span class="accent">word</span>.
+ *
+ * Inter-paragraph gap: 16-24px per spec (uses --space-6 = 24px).
+ */
+
+type Align = 'left' | 'center';
+
+interface Props {
+  eyebrow?: string;       /* optional caps label above content */
+  align?: Align;
+  id?: string;
+}
+
+const { eyebrow, align = 'left', id } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={['do', `do--align-${align}`, 'js-reveal']}
+  aria-label="Page opener"
+>
+  <div class="do__inner">
+    <header class="do__eyebrow">
+      <span class="eyebrow-rule" aria-hidden="true"></span>
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    </header>
+
+    <div class="do__body">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .do {
+    background: var(--color-navy);
+    color: var(--color-on-dark);
+    padding-block: var(--section-py-dark); /* 64-128 px */
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .do__inner {
+    width: 100%;
+    max-width: var(--container-section); /* 1120 px — edge-to-edge fill per §2.5 */
+    margin: 0 auto;
+  }
+
+  .do--align-center .do__inner { text-align: center; }
+
+  .do__eyebrow {
+    display: block;
+    margin-bottom: var(--space-6); /* 24 px to first line */
+  }
+
+  .do__eyebrow .eyebrow-rule {
+    margin-bottom: var(--space-2);
+  }
+
+  .do__eyebrow .eyebrow {
+    color: var(--color-copper);
+  }
+
+  .do--align-center .do__eyebrow .eyebrow-rule {
+    margin-inline: auto;
+  }
+
+  /* Body: each <p> is its own beat */
+  .do__body :global(p) {
+    font-family: var(--font-heading);
+    font-size: var(--text-opener-body);     /* 20-28 px — default body line */
+    line-height: var(--lh-h2);              /* 1.2 — composed, not airy */
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-regular);
+    color: var(--color-on-dark);
+    margin: 0 0 var(--space-6) 0;           /* 24 px between beats */
+    text-wrap: balance;
+  }
+
+  /* First paragraph reads as the opening declarative (26-36px, weight 600) */
+  .do__body :global(p:first-child) {
+    font-size: var(--text-opener-lead);
+    font-weight: var(--weight-semibold);
+  }
+
+  /* Allow explicit weight escalation on key beats via .dp-lead class */
+  .do__body :global(p.dp-lead) {
+    font-weight: var(--weight-medium);
+  }
+
+  .do__body :global(p:last-child) { margin-bottom: 0; }
+
+  .do__body :global(.accent) { color: var(--color-copper); }
+
+  .do__body :global(a) {
+    color: var(--color-copper);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+</style>

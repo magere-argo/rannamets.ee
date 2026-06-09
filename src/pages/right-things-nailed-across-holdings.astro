@@ -1,0 +1,434 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import Pullquote from '../components/Pullquote.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Right Things Nailed Across Holdings"
+  description="One proven execution system installed across every company you own. Start with one, prove it, then roll it out across the portfolio."
+>
+  {/* Non-visible H1 for SEO/accessibility. The visible page opens
+      directly into the DarkOpener hero, consistent with the other
+      offering pages. Nav abbreviation stays 'RTN Across Holdings';
+      this H1 carries the full buyer-facing name. */}
+  <h1 class="visually-hidden">Right Things Nailed Across Holdings</h1>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener)
+     No eyebrow. Two paragraphs. First (lead) at opener-lead via
+     :first-child (26-36px weight 600). Second (body) at opener-body
+     (20-28px weight 400). No accents.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkOpener>
+    <p>
+      You own several companies. In every one, the team is working hard. A lot
+      of effort, but the revenue doesn't follow, and customers keep choosing on
+      price because nothing else stands out.
+    </p>
+    <p>
+      You've seen this same picture in one company, then the next, then the one
+      after that. Each one working it out from scratch, none of them getting to
+      the few things that would actually move the business. You own all of
+      them, watching the same failure repeat, paying over and over for the same
+      lesson.
+    </p>
+  </DarkOpener>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Sub-hero resolution
+     Light, no eyebrow (continuation), centered lead, max-width 720px.
+     .accent on '14 weeks' (only the first anchor — other '14 weeks'
+     mentions across the page stay plain).
+     ────────────────────────────────────────────────────────────── */}
+  <Section width="lead">
+    <p class="lead lead--centered">
+      One system, installed across every company you own. Start with one. Over
+      <span class="accent">14 weeks</span>, Right Things Nailed finds the few
+      things that actually matter in that company and installs the rhythm that
+      delivers them, so they're getting done by the end. Once it's working, the
+      same system goes into the rest of the portfolio, built by the leadership
+      teams themselves on the version the first company proved. Each company
+      runs it on its own after.
+    </p>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — What changes when it lands
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="What stays"
+    heading="What stays when it lands"
+  >
+    <div class="prose">
+      <p>
+        <strong>The right things get done in every company you own, not just
+        the one you start with.</strong> The level of execution across the
+        portfolio stops depending on which leadership team works it out for
+        itself. Every company gets to the same place, on a system that's
+        already been proven rather than invented from scratch.
+      </p>
+      <p>
+        <strong>Each company builds on the last instead of starting from
+        nothing.</strong> What works in the first becomes the floor for the
+        next. The portfolio improves faster than any single company could on
+        its own, because no one is solving the problem from scratch a fifth and
+        sixth time.
+      </p>
+      <p>
+        <strong>Intrinsic motivation rises across the portfolio.</strong> In
+        every company, people can see how their work connects to where it's
+        going, with named owners and real direction. Highly structured, run by
+        the teams themselves, so the system holds without you propping it up.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — Centerpiece signature question
+     .accent on 'alone' only. Break should fall between 'you own' and
+     'finding' via text-wrap: balance.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="The question"
+    question={'Want to nail the <span class="accent">right things once</span>, across your holdings, or wait for results that may never come?'}
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How it works
+     Two sequential stages. Stage 1's em dash converted to colon
+     per brief: 'Start with one company: the pilot.'
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The method"
+    heading="How it works"
+    lead="The work runs in two stages, with your decision in between."
+  >
+    <ol class="method-list">
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">1.</span>
+        <p class="method-list__content">
+          <strong>Start with one company: the pilot.</strong> Right Things
+          Nailed runs there over 14 weeks: the leadership team finds the few
+          things that actually matter and installs the rhythm that gets them
+          done. Where a company's strategy is already clear and only the rhythm
+          is missing, the pilot can be the lighter Execution Playbook, in four
+          weeks. The deliverable is a running system in one of your own
+          companies, not a recommendation about the others.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">2.</span>
+        <p class="method-list__content">
+          <strong>Then the rest of the portfolio installs the same system.</strong>
+          Once the pilot works, the proven version becomes the starting point
+          for the remaining companies, run in parallel as a cohort over the
+          same 14 weeks. Each leadership team builds and runs it themselves,
+          with the pilot's working system as the base, so it's theirs to keep
+          rather than something done to them. Not a separate advisor in each
+          company who never speaks to the others.
+        </p>
+      </li>
+    </ol>
+
+    <h3 class="subsection-h3">Format</h3>
+    <ul class="format-list">
+      <li class="format-list__item">14 weeks for the pilot, then 14 weeks for the rest in parallel; roughly six to nine months across the portfolio</li>
+      <li class="format-list__item">Your decision sits between the pilot and the rollout. You commit the rest once you've seen it run in a company you own, not before</li>
+      <li class="format-list__item"><span class="accent">Half a day a week</span> from each leadership team. No more</li>
+      <li class="format-list__item">Runs independently in every company afterward, with no dependency on the person who installed it</li>
+    </ul>
+
+    <h3 class="subsection-h3">What this work doesn't do</h3>
+    <div class="stone-callout">
+      <p>
+        This isn't a team of advisors running parallel engagements across the
+        portfolio. It's one proven system, installed on a fixed shape. It isn't
+        a value-creation deck or an operating-model design; the pilot ends with
+        a running system, not a document for the holding company's files. It
+        isn't leadership development; the leaders aren't learning theory,
+        they're installing a system in companies they run. And it isn't a
+        permanent advisory role. The installer leaves. The system stays.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 6 — Pullquote (Argo's voice)
+     .pullquote-zone wrapper for §3.7 in-flow spacing. No accents.
+     ────────────────────────────────────────────────────────────── */}
+  <div class="pullquote-zone">
+    <Pullquote
+      quote={'Across the portfolios and groups I\'ve worked inside, the pattern is always the same. Every company fights the same fight alone, and the rare one that gets through it keeps what it learned to itself. The companies that pull ahead are the ones that don\'t have to invent the answer from scratch.'}
+    />
+  </div>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — This is for you if
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Fit" heading="This is for you if">
+    <div class="prose">
+      <p>
+        You own or lead several companies, and you can see the same execution
+        problem in more than one of them at the same time. A family office, a
+        holding company, a corporate group: the structure varies, the pattern
+        doesn't. The thing that would change each company most is the one thing
+        none of them has installed.
+      </p>
+      <p>
+        You want one standard across the portfolio, proven before it rolls out.
+        You've seen what separate advisors cost across a portfolio, and what
+        they don't add up to: every company improving on its own track, nothing
+        carrying between them, no system you can count on being there in all of
+        them.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — This isn't for you if
+     Light off-white (same surface as §7). Three inline anchors.
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Not fit" heading="This isn't for you if">
+    <div class="prose">
+      <p>
+        You're running a single company that needs both its strategy and its
+        execution sorted. That's <a href="/right-things-nailed/">Right Things
+        Nailed</a>.
+      </p>
+      <p>
+        Your single company already has a clear strategy and what's missing
+        is the weekly rhythm. That's the
+        <a href="/execution-playbook/">Execution Playbook</a>.
+      </p>
+      <p>
+        What you want is your own judgment strengthened, one to one, rather
+        than a system installed across companies. That's
+        <a href="/coaching-mentoring/">Coaching &amp; Mentoring</a>.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 9 — Why Argo, for this work (stone)
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="Why Argo"
+    heading="Why Argo, for this work"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          Cuts through complexity to critical drivers. 20/80 mindset. In each
+          company that means the few things that actually change what customers
+          will pay for, found and made real, with the strategy and the
+          execution installed in one engagement rather than handed between two.
+          14 weeks per company, half a day a week from the team. Maximum
+          leverage from the team's time, across every company you own.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Eliminates doubts during implementation. You don't commit the
+          portfolio on a promise: the pilot runs in one of your own companies
+          first, and you decide on the rest once you've seen the system work.
+          Every company after the first is a decision made on proof you've
+          already seen, not a bet you're repeating. Then the installer leaves,
+          and each company runs it without him. Proven track record.
+          Executives come back to say thank you.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Owner's mindset &amp; human-centric</h3>
+        <p>
+          Thinks like an owner, not a consultant. Decisions made from the
+          owner's side and lived with afterwards, across more than a hundred
+          companies, plus the same system installed across companies under a
+          single owner before, so what one company learns becomes what the next
+          one starts from instead of staying locked inside it. Highly
+          structured systems-thinking with deep focus on people.
+        </p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  {/* Section 9.5 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 10 — DarkResolve (genuine two-line)
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 11 — Closing CTA
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    heading="Bring the company in your portfolio where execution is most stuck."
+    lead="A working session, not a sales call. We find what its right things actually are, and whether one proven system would clear the same wall across the rest. You leave knowing whether this is the right move for your portfolio, whether or not you book."
+  >
+    <div class="cta-action">
+      <Button href="/contact/" arrow={true}>Book the call</Button>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  /* ──────────────────────────────────────────────────────────
+     Visually-hidden utility — WCAG-recommended pattern.
+     Keeps the page's H1 in the DOM for SEO/accessibility while
+     the visible hero opens with the DarkOpener.
+     ────────────────────────────────────────────────────────── */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Sub-hero summary — centered lead.
+     ────────────────────────────────────────────────────────── */
+  .lead--centered {
+    text-align: center;
+    margin-inline: auto;
+    color: var(--color-slate-600);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Numbered method list (Section 5) — two stages on this page.
+     ────────────────────────────────────────────────────────── */
+  .method-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0 0;
+  }
+
+  .method-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+
+  .method-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .method-list__num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 0.8vw + 1.4rem, 2rem); /* 28-32px */
+    font-weight: var(--weight-semibold);
+    color: var(--color-copper);
+    line-height: 1;
+  }
+
+  .method-list__content {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+    margin: 0;
+  }
+
+  .method-list__content :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Subsection H3 spacing (48-64px range, brief §2.1)
+     ────────────────────────────────────────────────────────── */
+  .subsection-h3 {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Shape list — copper-bullet markers.
+     ────────────────────────────────────────────────────────── */
+  .format-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .format-list__item {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .format-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .format-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Stone callout for "What this work doesn't do"
+     ────────────────────────────────────────────────────────── */
+  .stone-callout {
+    background: var(--color-bg-raised);
+    padding: var(--space-6) var(--space-8);
+    border-radius: 2px;
+  }
+
+  .stone-callout :global(p) {
+    margin: 0;
+    color: var(--color-slate-600);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Pullquote zone — cancel adjacent section padding-block for §3.7.
+     ────────────────────────────────────────────────────────── */
+  .pullquote-zone {
+    max-width: var(--container-page);
+    margin-inline: auto;
+    margin-top: calc(-1 * var(--section-py));
+    margin-bottom: calc(-1 * var(--section-py));
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 11)
+     ────────────────────────────────────────────────────────── */
+  .cta-action {
+    margin-top: var(--space-8);
+  }
+
+  /* Inline accent semantics inherit from global.css .accent rule */
+</style>

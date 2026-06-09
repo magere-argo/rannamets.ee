@@ -1,0 +1,461 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkPicture from '../components/DarkPicture.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import Pullquote from '../components/Pullquote.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Right Things Nailed"
+  description="14-week strategic and execution program. 10 weeks to get strategic clarity and organisation ready to execute. 4 weeks to install the rhythm that delivers it."
+>
+  {/* Non-visible H1 for SEO/accessibility. */}
+  <h1 class="visually-hidden">Right Things Nailed</h1>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener)
+     No eyebrow. Two paragraphs. First (lead) renders at opener-lead
+     via :first-child (26-36px weight 600). Second (body) at
+     opener-body (20-28px weight 400).
+     ────────────────────────────────────────────────────────────── */}
+  <DarkOpener>
+    <p>
+      The team has been busy. Hours have been long. Everyone is working hard
+      on something defensible. The revenue line isn't moving the way the
+      effort suggests it should, every deal seems to come down to
+      <span class="accent">price</span>, and the priority list has grown to
+      thirty items nobody argued for removing. The question underneath all of
+      it: why your customers should choose you over the alternative.
+    </p>
+    <p>
+      The strategy on paper is a five-year financial projection and a list of
+      thirty priorities. Nothing on either page tells the team which of the
+      thirty would still matter if the other twenty-seven
+      <span class="accent">disappeared tomorrow</span>.
+    </p>
+  </DarkOpener>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — Sub-hero resolution
+     Light, no eyebrow (continuation), centered lead, max-width 720px.
+     "to-do list" weight 600 via <strong>, color preserved at slate-600.
+     ────────────────────────────────────────────────────────────── */}
+  <Section width="lead">
+    <p class="lead lead--centered">
+      Most companies don't have a strategy. They have a
+      <span class="accent">to-do list</span>. Right Things Nailed installs the real
+      version: ten weeks to get strategic clarity and the organisation ready to
+      execute, execution rhythm installed in the four that follow. The advisor
+      leaves with the system running. ~1 quarter, not 6–12 months.
+    </p>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — What changes when the program lands
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="What stays"
+    heading="What stays after the program"
+  >
+    <div class="prose">
+      <p>
+        <strong>Resources concentrate on the one or two things customers
+        actually pay for.</strong> Your team works on the differentiation
+        factors validated with real customer input, not the seven internal
+        priorities that lost their meaning by March. Everything else loses
+        funding and attention.
+      </p>
+      <p>
+        <strong>Execution risk surfaces in week three, not week ten.</strong>
+        A weekly read on team confidence tells you which goal is slipping
+        while the recovery window is still open. Board meetings stop being
+        reports of what happened and start being decisions about what to do
+        next.
+      </p>
+      <p>
+        <strong>Decisions get made at the right level by the people who own
+        the outcome.</strong> The leadership team stops routing approvals
+        through the CEO; the CEO stops being the bottleneck disguised as
+        control. Your time shifts from approving to coaching.
+      </p>
+      <p>
+        <strong>Increased motivation through clarity and ownership.</strong>
+        Named owners for every priority. Development paths visible. Intrinsic
+        motivation rises when people can see how their role connects to where
+        the company is going.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — Centerpiece signature question
+     No em dash. Statement is short enough that text-wrap: balance
+     should land the break between "right" and "or" at display scale.
+     No manual <br> per default; revisit on staging review if break
+     lands elsewhere.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkPicture
+    variant="centerpiece"
+    eyebrow="The question"
+    question={'Is your team doing things right or doing <span class="accent">the right things</span>?'}
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How it works
+     Three sequential stages (not four). Same .method-list treatment.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The method"
+    heading="How it works"
+    lead="Right Things Nailed runs in three sequential stages inside one continuous engagement. One topic per week. Decided by Friday. No turning back."
+  >
+    <ol class="method-list">
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">1.</span>
+        <p class="method-list__content">
+          <strong>Strategic clarity over the first ten weeks.</strong> What's
+          actually true about your market, your customers, and what makes you
+          worth choosing, tested with the people who pay you, not assumed
+          inside the building. By the end the leadership team agrees on the
+          same answer to the same question, with evidence.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">2.</span>
+        <p class="method-list__content">
+          <strong>Strategy Summary at week ten.</strong> A one-page strategic
+          plan held by the leadership team. The artifact that sits between
+          strategy and execution, with named owners against every piece. Hand
+          it to a new joiner and they're aligned by the end of the same day.
+        </p>
+      </li>
+      <li class="method-list__item">
+        <span class="method-list__num" aria-hidden="true">3.</span>
+        <p class="method-list__content">
+          <strong>Execution Playbook installation in the final four weeks.</strong>
+          The weekly rhythm goes in. The confidence index makes execution risk
+          visible while the recovery window is still open. Coaching cadence
+          replaces approval cycles. By the end of week fourteen the system
+          runs without the advisor.
+        </p>
+      </li>
+    </ol>
+
+    <h3 class="subsection-h3">Depth</h3>
+    <ul class="format-list">
+      <li class="format-list__item">Three sessions a week: Monday intro, midweek workshop, Friday wrap. The advisor is available between sessions; questions the work surfaces during the week get answered when they come up, not parked until the next scheduled slot.</li>
+      <li class="format-list__item">Biweekly retrospectives.</li>
+      <li class="format-list__item"><span class="accent">0.5 days a week</span> from the leadership team. No more.</li>
+      <li class="format-list__item">Runs independently by week fourteen.</li>
+    </ul>
+
+    <h3 class="subsection-h3">What this work doesn't do</h3>
+    <div class="stone-callout">
+      <p>
+        Right Things Nailed is not a strategy deck. It doesn't produce a
+        sixty-page document for the board and leave the team to figure out
+        delivery. It isn't a training course; nobody is learning leadership
+        theory at the front of the room. It isn't a coaching engagement;
+        coaching is part of the work but the deliverable is a running system,
+        not personal development. And it isn't a six-to-twelve-month process.
+        The cadence is part of the value.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 6 — Pullquote (Argo's voice)
+     .pullquote-zone wrapper for §3.7 in-flow spacing.
+     Slot markup for the inline accents.
+     ────────────────────────────────────────────────────────────── */}
+  <div class="pullquote-zone">
+    <Pullquote>
+      <p>
+        Across multiple management boards I've sat on, I once analysed
+        <span class="accent">132 decisions</span> taken over six months.
+        Ninety per cent of them weren't decisions. They were people approving
+        someone else's call. That's the symptom. The cause is upstream:
+        <span class="accent">95% of companies don't do the right things</span>.
+        They do things right, against the wrong target. Strategy without
+        execution is a deck in a drawer; execution without strategy is a team
+        moving fast in the wrong direction. The fourteen weeks exist to close
+        both at once.
+      </p>
+    </Pullquote>
+  </div>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — This is the program for you if
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Fit" heading="This is for you if">
+    <div class="prose">
+      <p>
+        You're a founder, a family-business CEO, or the corporate CEO running
+        on a strategy you may not fully agree with. The work between knowing
+        what to do and the team actually doing it falls to you.
+      </p>
+      <p>
+        You want the strategy installed inside the team, not delivered as a
+        slide deck. You've seen execution discipline added on top of an
+        unclear strategy before. You want both halves to land together, by
+        someone who stays until the system runs on its own.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — This isn't the program for you if
+     Light off-white (same surface as §7); differentiation via eyebrow
+     + H2. Three inline anchors to the other engagements.
+     ────────────────────────────────────────────────────────────── */}
+  <Section eyebrow="Not fit" heading="This isn't for you if">
+    <div class="prose">
+      <p>
+        What you actually need is your own judgment strengthened in 1:1 mode.
+        That's <a href="/coaching-mentoring/">Coaching &amp; Mentoring</a>.
+      </p>
+      <p>
+        Your strategy is already crisp and what's failing is execution rhythm
+        only. That's the <a href="/execution-playbook/">Execution Playbook</a>
+        standalone.
+      </p>
+      <p>
+        You own multiple companies and want one operating standard across the
+        portfolio. That's
+        <a href="/right-things-nailed-across-holdings/">Right Things Nailed Across Holdings</a>.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 9 — Why Argo, for this program specifically
+     Stone background, three columns with steel-blue vertical rules.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="Why Argo"
+    heading="Why Argo, for this program specifically"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          Cuts through complexity to critical drivers. 20/80 mindset applied
+          to the field above: the one or two competition factors that
+          actually drive customer choice, named and validated; everything
+          else loses funding and attention. Maximum leverage from your team's
+          time, half a day a week from the leadership team, no more. The
+          pattern across <span class="accent">100+</span> companies in
+          <span class="accent">8</span> countries holds.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Eliminates doubts during implementation. The hard weeks of a
+          fourteen-week install land in the same places across roughly
+          <span class="accent">forty</span> leadership teams: the goal that
+          suddenly feels too ambitious, the senior person who says quietly
+          that this isn't going to work, the week where nothing visible has
+          moved yet. Someone who has steered those weeks before holds them,
+          so you stay certain in front of the team. Proven track record.
+          Executives come back to say thank you.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Owner's mindset &amp; human-centric</h3>
+        <p>
+          Thinks like an owner, not a consultant. The board seats and the
+          part-ownership across multiple companies mean these are decisions
+          made from the owner's side and lived with afterwards, aggressive
+          when something needed to land before drift set in. Highly
+          structured systems-thinking with deep focus on people. Inside the
+          team for fourteen weeks, then out. The system runs without the
+          advisor.
+        </p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  {/* Section 9.5 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 10 — DarkResolve closer
+     Genuine two-line pattern (unlike C&M's single-line fallback).
+     Line 1 white, Line 2 copper, centered, 900px container.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 11 — Closing CTA
+     No eyebrow — H2 is the framing.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    heading="Bring the strategy that hasn't moved in six months."
+    lead="A working session, not a sales call. We pressure-test it against your customers' actual buying criteria. What they pay for, not what you're proud of building. You leave with a clear read on whether the problem is the strategy, the execution rhythm, or the bridge between them, whether or not you book the program."
+  >
+    <div class="cta-action">
+      <Button href="/contact/" arrow={true}>Book the call</Button>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  /* Visually-hidden utility — WCAG pattern for the page H1. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Sub-hero summary — centered lead, weight-only emphasis on
+     <strong> with color preserved at slate-600.
+     ────────────────────────────────────────────────────────── */
+  .lead--centered {
+    text-align: center;
+    margin-inline: auto;
+    color: var(--color-slate-600);
+  }
+
+  .lead--centered :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: inherit;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Numbered method list (Section 5)
+     ────────────────────────────────────────────────────────── */
+  .method-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0 0 0;
+  }
+
+  .method-list__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+
+  .method-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .method-list__num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 0.8vw + 1.4rem, 2rem); /* 28-32px */
+    font-weight: var(--weight-semibold);
+    color: var(--color-copper);
+    line-height: 1;
+  }
+
+  .method-list__content {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+    margin: 0;
+  }
+
+  .method-list__content :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Subsection H3 spacing (48-64px range, brief §2.1)
+     ────────────────────────────────────────────────────────── */
+  .subsection-h3 {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Depth list — copper-bullet markers, body text, tight gap.
+     Same treatment as Cadence/Format lists on the other pages.
+     ────────────────────────────────────────────────────────── */
+  .format-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .format-list__item {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .format-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .format-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Stone callout for "What this work doesn't do"
+     ────────────────────────────────────────────────────────── */
+  .stone-callout {
+    background: var(--color-bg-raised);
+    padding: var(--space-6) var(--space-8);
+    border-radius: 2px;
+  }
+
+  .stone-callout :global(p) {
+    margin: 0;
+    color: var(--color-slate-600);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Pullquote zone — cancel adjacent section padding-block so the
+     Pullquote sits at its own 64-96px margin (brief §3.7).
+     ────────────────────────────────────────────────────────── */
+  .pullquote-zone {
+    max-width: var(--container-page);
+    margin-inline: auto;
+    margin-top: calc(-1 * var(--section-py));
+    margin-bottom: calc(-1 * var(--section-py));
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 11)
+     ────────────────────────────────────────────────────────── */
+  .cta-action {
+    margin-top: var(--space-8);
+  }
+
+  /* Inline accent semantics inherit from global.css .accent rule */
+</style>

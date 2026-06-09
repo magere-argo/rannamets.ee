@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  lang?: string;
+}
+
+const {
+  title,
+  description = 'An advisory practice that helps you focus on the right things with full confidence.',
+  ogImage = '/og-default.png',
+  noindex = false,
+  lang = 'en',
+} = Astro.props;
+
+const siteName = 'Argo Rannamets';
+const fullTitle = title.startsWith(siteName) ? title : `${title} — ${siteName}`;
+const site = Astro.site ?? 'https://rannamets.ee';
+const canonicalURL = new URL(Astro.url.pathname, site).toString();
+const ogImageURL = new URL(ogImage, site).toString();
+const ogLocale = lang === 'et' ? 'et_EE' : 'en_GB';
+
+/* Reciprocal hreflang pairs for the two bilingual routes. Keyed by
+   pathname so the alternates emit on all four pages without threading
+   props into the (frozen) English page files. */
+const localeAlternates: Record<string, { en: string; et: string }> = {
+  '/': { en: '/', et: '/et/' },
+  '/et/': { en: '/', et: '/et/' },
+  '/contact/': { en: '/contact/', et: '/et/contact/' },
+  '/et/contact/': { en: '/contact/', et: '/et/contact/' },
+};
+const altPair = localeAlternates[Astro.url.pathname];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {altPair && (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL(altPair.en, site).toString()} />
+        <link rel="alternate" hreflang="et" href={new URL(altPair.et, site).toString()} />
+        <link rel="alternate" hreflang="x-default" href={new URL(altPair.en, site).toString()} />
+      </>
+    )}
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <!-- Favicon / brand marks -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1A2744" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={ogLocale} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "4d8c487947424b40a9217a0d12f91831"}'
+    ></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <!--
+      Motion rule #1 (§5.1): section fade-in on scroll.
+      Trigger: section's top edge enters viewport at 100px depth.
+      Effect: opacity 0 → 1 + 8px translateY → 0 over 300ms.
+      Centerpiece statements (motion rule #2) opt in via .js-reveal-statement.
+      prefers-reduced-motion bypass handled in global.css.
+    -->
+    <script>
+      (() => {
+        const motionOK = typeof window !== 'undefined' &&
+          window.matchMedia &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const targets = document.querySelectorAll<HTMLElement>(
+          '.js-reveal, .js-reveal-statement'
+        );
+
+        if (!motionOK || !('IntersectionObserver' in window)) {
+          targets.forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -100px 0px', threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>

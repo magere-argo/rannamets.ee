@@ -1,0 +1,324 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import DarkOpener from '../components/DarkOpener.astro';
+import DarkResolve from '../components/DarkResolve.astro';
+import ThreeColumn from '../components/ThreeColumn.astro';
+import EvidenceBand from '../components/EvidenceBand.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="About"
+  description="Argo Rannamets: 25 years operating across 100+ companies in 8 countries, in six roles, founder to corporate executive. Operator, not observer. Installer, not trainer."
+>
+  {/* Non-visible H1 for SEO/accessibility. The visible page opens
+      directly into the DarkOpener hero, consistent with the other
+      pages. */}
+  <h1 class="visually-hidden">About</h1>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 1 — Hero (DarkOpener, navy)
+     Restructured to two blocks: prose at body scale (overrides the
+     :first-child opener-lead rule via a non-<p> element so the
+     DarkOpener's "first paragraph = lead" cascade doesn't catch it),
+     plus a three-unit credential spine below. The practice-thesis
+     line and the generic CEOs sentence are cut entirely; the prose
+     now carries the identity beat and the role-arc, the spine
+     carries the numerical scope (founder-to-corporate-executive
+     removed from the spine since the prose now states it).
+     ────────────────────────────────────────────────────────────── */}
+  <DarkOpener eyebrow="About Argo Rannamets">
+    <div class="hero-prose">
+      Twenty-five years inside these decisions, not beside them.
+      Leading organizations from ten people to 2,500. Founder to
+      corporate executive.
+    </div>
+    <p class="hero-spine">
+      <span class="accent">100+</span> companies · <span class="accent">8</span> countries · <span class="accent">six</span> roles
+    </p>
+  </DarkOpener>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 2 — The dual foundation (light)
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The combination"
+    heading="An operator who understands the systems and the people"
+  >
+    <div class="prose">
+      <p>
+        Most CFOs who turn advisor sell financial rigor. Most coaches who sell
+        culture sell soft skills. I spent fifteen years deliberately building
+        the second pillar on top of the first: NLP, coaching and mentoring
+        training, Radical Collaboration. All of it layered onto a CFO's
+        analytical brain.
+      </p>
+      <p>
+        That combination is the whole point. It is why I treat confidence as a
+        measurable outcome, not an engagement score. Confidence is what you get
+        when mastery meets clarity: when roles are clear, the tools work,
+        feedback flows, and people have room to act. Get the system right and
+        the confidence follows.
+      </p>
+      <p>
+        It is also why my 45-part culture framework holds up. It is not a
+        feel-good model from a psychologist, and it is not a spreadsheet from
+        an accountant. It is a structured system built by someone who
+        understands both the mechanics and the humans inside them.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 3 — The six roles (light)
+     H2 left plain (numbers-in-headings stay unaccented, consistent
+     with the offering pages).
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The six seats"
+    heading="100+ companies, seen from six seats"
+  >
+    <div class="prose">
+      <p>
+        Breadth matters because real situations are rarely textbook. The value
+        is in having seen enough versions of a problem to recognize it when it
+        shows up in a new shape. Someone who ran one company for twenty years
+        has depth on one pattern. I've worked across more than a hundred
+        companies, in six different roles:
+      </p>
+    </div>
+
+    <ul class="role-list">
+      <li class="role-list__item"><strong>Employee.</strong> Sixteen years scaling Ragn-Sells.</li>
+      <li class="role-list__item"><strong>Management Board member.</strong> Around fifteen companies, including Ragn-Sells AS, Ekspress Grupp, and Enefit Green.</li>
+      <li class="role-list__item"><strong>Supervisory Board member.</strong> Around twenty companies, including subsidiaries of Ekspress Grupp, Enefit Green, and Ragn-Sells, companies in the utilities sector, and others.</li>
+      <li class="role-list__item"><strong>Consultant.</strong> Sixty to seventy customers across several countries in controlling, management accounting, business intelligence, and financial management.</li>
+      <li class="role-list__item"><strong>Coach and mentor.</strong> 70+ leaders coached one to one over fifteen years, including Fontes' top tier.</li>
+      <li class="role-list__item"><strong>Advisor.</strong> More than forty programs installed through Magere OÜ, my current practice.</li>
+    </ul>
+
+    <div class="prose">
+      <p>
+        Eight countries in all: Estonia, Latvia, Lithuania, Finland, Poland,
+        Sweden, Norway, Denmark. Norway and Denmark are in that count through
+        Ragn-Sells Group leadership and the years I led the Ragn-Sells Group
+        quality function.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 4 — The evidence (light)
+     Copper .accent on €1B, 132, 90%.
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    eyebrow="The evidence"
+    heading="The decisions, not just the advice"
+  >
+    <div class="prose">
+      <p>
+        <strong>CFO of three Baltic listed companies.</strong> Enefit Green,
+        Ekspress Grupp, and Saku Õlletehas, with a Management Board seat at the
+        first two. At Enefit Green I carried a <span class="accent">€1B</span>
+        loan portfolio, one of the largest in the Baltics. At Ekspress Grupp I
+        ran one accelerator across ten of its subsidiaries at the same time.
+      </p>
+      <p>
+        <strong>I lead with evidence, not instinct.</strong> The seat matters
+        less than what you do in it. I once analyzed
+        <span class="accent">132</span> management board decisions over six
+        months and proved that <span class="accent">90%</span> had only been
+        consulted, never actually decided. Most leaders accept the structure
+        they inherit. I test it.
+      </p>
+      <p>
+        <strong>I've taken the founder's risk myself.</strong> I co-founded
+        KWOTA, a climate tech startup that built the first KPMG-audited global
+        standard for verifying carbon savings from recycled material. It didn't
+        survive, but I'd do it again if the conditions were as promising as they
+        were then.
+      </p>
+      <p>
+        <strong>TalTech had me teach the roadmap I already use.</strong> I
+        taught strategic management at its eMBA, built around the six-stage
+        roadmap I run in practice today.
+      </p>
+      <p>
+        <strong>Fontes send me their hardest assignments.</strong> And the
+        pairings that have already broken down, the ones that need someone to
+        take over and finish.
+      </p>
+    </div>
+  </Section>
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 5 — How I work (ThreeColumn, stone)
+     ────────────────────────────────────────────────────────────── */}
+  <Section
+    variant="stone"
+    eyebrow="How I work"
+    heading="Three things that don't change"
+  >
+    <ThreeColumn>
+      <div class="three-col__item">
+        <h3>Pragmatic &amp; focused</h3>
+        <p>
+          I cut through complexity to the critical drivers. A 20/80 mindset
+          that gets maximum leverage from your team's time.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Full confidence during change</h3>
+        <p>
+          Doubts get eliminated during implementation. Executives come back to
+          say thank you.
+        </p>
+      </div>
+      <div class="three-col__item">
+        <h3>Owner's mindset &amp; human-centric</h3>
+        <p>
+          I think like an owner, not a consultant. Highly structured
+          systems-thinking with a deep focus on people.
+        </p>
+      </div>
+    </ThreeColumn>
+  </Section>
+
+  {/* Section 6 — EvidenceBand placeholder (invisible at launch) */}
+  <EvidenceBand placeholder={true} />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 7 — Closer (DarkResolve, navy band)
+     Two-line signature at full display weight, consistent with the
+     RTN and EP closers. Line 1 white, line 2 copper, centered,
+     eyebrow rule with no eyebrow text.
+     ────────────────────────────────────────────────────────────── */}
+  <DarkResolve
+    line1="Operator, not observer."
+    line2="Installer, not trainer."
+  />
+
+  {/* ──────────────────────────────────────────────────────────────
+     Section 8 — CTA (light)
+     No eyebrow — H2 is the framing. Two routes (About-specific):
+     primary to the flagship offering, secondary to contact.
+     ────────────────────────────────────────────────────────────── */}
+  <Section heading="Where to start">
+    <div class="prose">
+      <p>
+        If you want to see how I actually work, the offerings lay it out, from
+        a single advisory seat to the full fourteen-week build.
+      </p>
+      <p>
+        And if you're carrying a decision you can't take to anyone else, that's
+        usually where the first conversation starts.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <Button href="/#engagements" arrow={true}>See the engagements</Button>
+      <Button href="/contact/" variant="secondary" arrow={true}>Start a conversation</Button>
+    </div>
+  </Section>
+</Base>
+
+<style>
+  /* Visually-hidden utility — WCAG pattern. Keeps the page's H1
+     in the DOM for SEO/accessibility; visible page opens with the
+     DarkOpener. */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Hero prose (Section 1) — About-specific.
+     Rendered as a <div> (not <p>) so the DarkOpener's
+     .do__body :global(p:first-child) opener-lead rule (display
+     scale, weight 600) does NOT match. Styled here at body scale —
+     same scale as opener-body paragraphs on other DarkOpeners.
+     ────────────────────────────────────────────────────────────── */
+  :global(.do__body .hero-prose) {
+    font-family: var(--font-heading);
+    font-size: var(--text-opener-body); /* 20-28px body scale */
+    line-height: var(--lh-h2);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-regular);
+    color: var(--color-on-dark);
+    margin: 0 0 var(--space-8) 0; /* 32px to spine */
+    text-wrap: balance;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Hero credential spine (Section 1) — About-specific.
+     Sits below the prose inside the DarkOpener navy band, smaller
+     than the body lines. Higher specificity than DarkOpener's
+     .do__body :global(p) so the size override wins. Copper numerals
+     already colored by DarkOpener's .do__body :global(.accent) rule.
+     ────────────────────────────────────────────────────────────── */
+  :global(.do__body .hero-spine) {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 0.4vw + 0.85rem, 1.125rem); /* 16-18px */
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-body);
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-on-dark-muted);
+    margin-top: var(--space-8); /* set apart from the body line */
+    text-wrap: balance;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Six-roles list (Section 3) — copper-bullet markers, bold role
+     labels. Same bullet treatment as the offering-page Format lists.
+     ────────────────────────────────────────────────────────────── */
+  .role-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-8) 0;
+  }
+
+  .role-list__item {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--color-slate-600);
+  }
+
+  .role-list__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .role-list__item :global(strong) {
+    font-weight: var(--weight-semibold);
+    color: var(--color-slate-900);
+  }
+
+  .role-list__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-copper);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CTA action row (Section 8) — two buttons, About routes two ways.
+     ────────────────────────────────────────────────────────────── */
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+</style>
